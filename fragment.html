@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Fragment – Idąc Tropami Biegnącej z Wilkami</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background-color: #faf8f5;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      line-height: 1.8;
+      overflow-x: hidden;
+    }
+    header {
+      background-color: #2c2c2c;
+      color: white;
+      text-align: center;
+      padding: 2rem 1rem;
+      animation: fadeIn 1.2s ease-in;
+    }
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: #fff;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      animation: openBook 1.5s ease-out;
+    }
+    @keyframes openBook {
+      0% { transform: rotateY(15deg) scale(0.95); opacity: 0; }
+      100% { transform: rotateY(0) scale(1); opacity: 1; }
+    }
+    img {
+      display: block;
+      margin: 0 auto 2rem auto;
+      max-width: 280px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.25);
+      transition: transform 0.3s ease;
+    }
+    img:hover {
+      transform: scale(1.03);
+    }
+    h1, h2 {
+      text-align: center;
+      color: #4a2f1b;
+    }
+    p {
+      text-align: justify;
+      margin-bottom: 1.2rem;
+      animation: fadeInText 2s ease-in;
+    }
+    @keyframes fadeInText {
+      0% { opacity: 0; transform: translateY(10px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .buttons {
+      text-align: center;
+      margin-top: 2rem;
+      animation: fadeInText 2.5s ease-in;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 1rem;
+      background: #4a2f1b;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+    .btn:hover {
+      background: #704d32;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem;
+      background: #2c2c2c;
+      color: #eee;
+      font-size: 0.9rem;
+      margin-top: 4rem;
+      animation: fadeIn 2s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>„Idąc Tropami Biegnącej z Wilkami”</h1>
+    <p>fragment książki</p>
+  </header>
+
+  <main>
+    <img src="okladka.png" alt="Okładka książki Idąc Tropami Biegnącej z Wilkami">
+
+    <h2>📖 Wstęp</h2>
+
+    <p>
+      Był kiedyś Tropiciel, który wierzył, że zna wszystkie ścieżki w lesie.  
+      Że każda z nich prowadzi do zwierzyny, a każda zwierzyna — do spełnienia...
+    </p>
+
+    <p>
+      Pewnego dnia, gdy słońce rozcinało poranną mgłę jak nóż, Tropiciel dostrzegł ślady.  
+      Nie były jak inne — były głębsze, cieplejsze, bardziej żywe...
+    </p>
+
+    <p>
+      Stanął twarzą w twarz z tym, co tropił.  
+      Nie zwierzyna to była, lecz coś znacznie głębszego.  
+      Patrzyła na niego para oczu — dzika, a jednak znajoma.  
+      Zrozumiał wtedy, że tropił nie stworzenie, a własną tęsknotę...
+    </p>
+
+    <p>
+      Tak zaczyna się ta opowieść — nie o polowaniu, lecz o powrocie.  
+      O mężczyznach, którzy zamiast walczyć z wilkami, uczą się iść ich śladem,  
+      by poznać, nie po to, by zdobyć — lecz by usłyszeć własny oddech w rytmie natury.
+    </p>
+
+    <div class="buttons">
+      <a href="index.html" class="btn">⬅ Powrót do strony głównej</a>
+      <a href="https://twoj-sklep.pl/ksiazka-pdf" class="btn" target="_blank">🛒 Kup pełną książkę (PDF)</a>
+    </div>
+  </main>
+
+  <footer>
+    © 2025 DarIJuż – Oficjalny Sklep Autorski
+  </footer>
+</body>
+</html>
+
