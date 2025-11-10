@@ -20,8 +20,18 @@
     header {
       text-align: center;
       background: #2c2c2c;
-      color: #fff;
-      padding: 2rem 1rem;
+      color: #f5d8b3;
+      padding: 2rem 1rem 1rem;
+    }
+    header h1 {
+      margin-bottom: 0.5rem;
+      font-size: 1.8rem;
+      color: #f5d8b3;
+    }
+    header p {
+      margin: 0.3rem 0 1rem;
+      font-size: 1rem;
+      color: #f2e8d5;
     }
     main {
       max-width: 800px;
@@ -31,10 +41,8 @@
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.1);
     }
-    h1 {
+    h1, h2 {
       color: #4a2f1b;
-      font-size: 1.6rem;
-      margin-bottom: 1.5rem;
       text-align: center;
     }
     p {
@@ -62,15 +70,33 @@
       color: #eee;
       font-size: 0.9rem;
     }
+    .top-link {
+      display: inline-block;
+      color: #2c2c2c;
+      background: #f5d8b3;
+      text-decoration: none;
+      padding: 0.6rem 1rem;
+      border-radius: 6px;
+      margin-bottom: 0.5rem;
+      font-size: 0.9rem;
+      transition: all 0.3s;
+    }
+    .top-link:hover {
+      background: #e6c595;
+      color: #1c1c1c;
+    }
   </style>
 </head>
 <body>
 
 <header>
-  <h1>Fragment książki: Księga Widzenia</h1>
+  <h1>Oficjalny Sklep Autorski DarIJuż</h1>
+  <p>Księgi, które widzą więcej – dla tych, którzy czują głębiej.</p>
+  <a href="index.html" class="top-link">⬅️ Powrót do strony głównej</a>
 </header>
 
 <main>
+  <h2>Fragment książki: KSIĘGA WIDZENIA</h2>
   <p><em>„Nie ma rzeczy niewidzialnych. Są jedynie rzeczy, których jeszcze nie nauczyliśmy się widzieć.”</em></p>
 
   <p>
@@ -91,7 +117,7 @@
   </p>
 
   <div style="text-align:center;">
-    <a class="btn" href="opis2.html">⬅️ Powrót do opisu książki</a>
+    <a class="btn" href="opis2.html">⬅️ Powrót do opisu książki</a><br>
     <a class="btn" href="https://buy.stripe.com/PRZYKLADOWY_LINK" target="_blank">🛒 Kup książkę (PDF)</a>
   </div>
 </main>
@@ -102,4 +128,3 @@
 
 </body>
 </html>
-
