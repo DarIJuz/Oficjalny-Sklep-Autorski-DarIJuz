@@ -8,8 +8,8 @@
   <style>
     body {
       font-family: 'Georgia', serif;
-      background: url('bodzio_tlo_polysk.png') no-repeat center 40% fixed;
-      background-size: cover;
+      background: url('bodzio_tlo_polysk.png') no-repeat center 10% fixed;
+      background-size: 80%;
       background-color: #e7c78d;
       color: #2c2c2c;
       margin: 0;
@@ -27,8 +27,8 @@
     main {
       margin: 6rem auto;
       padding: 2rem 1.5rem;
-      max-width: 680px;
-      background: #f9f7f3;
+      max-width: 600px;
+      background: rgba(249, 247, 243, 0.92);
       border-radius: 14px;
       box-shadow: 0 0 18px rgba(150, 100, 30, 0.25);
       backdrop-filter: blur(2px);
@@ -64,6 +64,13 @@
       margin-top: 2rem;
       color: #555;
       font-size: 0.8rem;
+    }
+
+    @media (max-width: 768px) {
+      body {
+        background-size: 110%;
+        background-position: center 20%;
+      }
     }
   </style>
 </head>
