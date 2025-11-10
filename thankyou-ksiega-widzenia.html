@@ -1,14 +1,86 @@
-<main>
-  <h2>Dziękuję za zaufanie i zakup tej tu książki.</h2>
-  <p><em>Niech ona dobrze służy w dalszej drodze przez życie.</em></p>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="robots" content="noindex, nofollow">
+  <title>Dziękujemy za zakup – Księga Widzenia</title>
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      background: url('bodzio_tlo_polysk.png') no-repeat center 40% fixed;
+      background-size: cover;
+      background-color: #e7c78d;
+      color: #2c2c2c;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+      line-height: 1.6;
+      animation: glow-bg 8s ease-in-out infinite alternate;
+    }
 
-  <a href="https://drive.proton.me/urls/H2SS1D9FQC#g9BxbzLwLfZD" 
-     class="btn" target="_blank">📥 Pobierz książkę (PDF)</a><br>
+    @keyframes glow-bg {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.08); }
+    }
 
-  <a href="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/index.html" 
-     style="display:inline-block; margin-top:1rem;">⬅️ Powrót do strony głównej</a>
+    main {
+      margin: 6rem auto;
+      padding: 2rem 1.5rem;
+      max-width: 680px;
+      background: #f9f7f3;
+      border-radius: 14px;
+      box-shadow: 0 0 18px rgba(150, 100, 30, 0.25);
+      backdrop-filter: blur(2px);
+    }
 
-  <footer>
-    <sub>Ta strona przeznaczona jest wyłącznie dla osób, które zakupiły książkę w sklepie autorskim DarIJuż.</sub>
-  </footer>
-</main>
+    h2 {
+      color: #4a2f1b;
+      margin-bottom: 0.8rem;
+      font-weight: normal;
+    }
+
+    p {
+      font-style: italic;
+      margin-bottom: 1.5rem;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #4a2f1b;
+      color: #fff;
+      padding: 0.8rem 1.5rem;
+      border-radius: 8px;
+      text-decoration: none;
+      margin: 0.5rem;
+      transition: background 0.3s;
+    }
+
+    .btn:hover {
+      background: #704d32;
+    }
+
+    footer {
+      margin-top: 2rem;
+      color: #555;
+      font-size: 0.8rem;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h2>Dziękuję za zaufanie i zakup tej tu książki.</h2>
+    <p>Niech ona dobrze służy w dalszej drodze przez życie.</p>
+
+    <a href="https://drive.proton.me/urls/H2SS1D9FQC#g9BxbzLwLfZD" 
+       class="btn" target="_blank">📥 Pobierz książkę (PDF)</a><br>
+
+    <a href="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/index.html" 
+       class="btn">⬅️ Powrót do strony głównej</a>
+
+    <footer>
+      <sub>Ta strona przeznaczona jest wyłącznie dla osób, które zakupiły książkę w sklepie autorskim DarIJuż.</sub>
+    </footer>
+  </main>
+</body>
+</html>
