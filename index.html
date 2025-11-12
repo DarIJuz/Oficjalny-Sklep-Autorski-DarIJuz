@@ -25,11 +25,6 @@
       color: #fff;
       padding: 2rem 1rem;
     }
-    header h1 {
-      font-size: 2rem;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-    }
     main {
       max-width: 800px;
       margin: 3rem auto;
@@ -50,6 +45,10 @@
       max-width: 250px;
       border-radius: 8px;
       box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      transition: transform 0.3s ease;
+    }
+    .book img:hover {
+      transform: scale(1.04);
     }
     .btn {
       display: inline-block;
@@ -64,6 +63,10 @@
     .btn:hover {
       background: #704d32;
     }
+    .divider {
+      margin: 25px auto;
+      text-align: center;
+    }
     footer {
       text-align: center;
       padding: 2rem;
@@ -71,15 +74,13 @@
       color: #eee;
       font-size: 0.9rem;
     }
-    a {
-      color: #704d32;
-    }
     @media (max-width: 600px) {
       .book img { max-width: 90%; }
       .btn { width: 80%; font-size: 0.9rem; }
     }
   </style>
 </head>
+
 <body>
 
 <header>
@@ -93,7 +94,7 @@
   <section class="book">
     <h2>📖 „Idąc Tropami Biegnącej z Wilkami”</h2>
 
-    <a href="opis.html" style="display:inline-block; text-decoration:none;">
+    <a href="opis.html">
       <img src="okladka.png" alt="Okładka książki Idąc Tropami Biegnącej z Wilkami">
     </a>
 
@@ -108,10 +109,15 @@
     <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">🎬 Zobacz prezentację (PL)</a><br>
     <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
 
-    <!-- 🇵🇱 Polska wersja -->
-    <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup i pobierz (PDF PL)</a><br>
+    <!-- 🇵🇱 POLSKA WERSJA -->
+    <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup i pobierz (PDF PL)</a>
 
-    <!-- 🇬🇧 Angielska wersja -->
+    <!-- 🔸 Okładka angielskiej wersji -->
+    <div class="divider">
+      <img src="okladka_en.png" alt="Following the Trails of the One Who Runs with the Wolves – English Cover" style="max-width:180px; margin-top:18px;">
+    </div>
+
+    <!-- 🇬🇧 ANGIELSKA WERSJA -->
     <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank">🇬🇧 Buy & Download (PDF EN)</a>
   </section>
 
@@ -120,7 +126,7 @@
     <h2>📘 „KSIĘGA WIDZENIA”</h2>
     <p><em>O jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thotha – teoria i praktyka.</em></p>
 
-    <a href="opis2.html" style="display:inline-block; text-decoration:none;">
+    <a href="opis2.html">
       <img src="okladka2.png" alt="Okładka książki Księga Widzenia – o jasnowidzeniu i myślokształtach">
     </a>
 
