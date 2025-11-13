@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Księga Widzenia – Fragment | DarIJuż</title>
+  <title>Księga Widzenia – Fragment 2 | DarIJuż</title>
 
   <style>
     /* -------------------- TŁO OCEANU -------------------- */
@@ -25,6 +25,40 @@
     @keyframes waves {
       0% { background-position: 0px 0px; }
       100% { background-position: 0px 70px; }
+    }
+
+    /* -------------------- BANER -------------------- */
+    header {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .hero-image {
+      width: 65%;
+      max-width: 680px;
+      border-radius: 18px;
+
+      mask-image: radial-gradient(circle, black 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
+
+      animation:
+        float 8s ease-in-out infinite,
+        tilt 12s ease-in-out infinite;
+
+      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+    }
+
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
+    }
+
+    @keyframes tilt {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      50% { transform: rotateX(0.25deg) rotateY(-0.35deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
     }
 
     /* -------------------- PANEL -------------------- */
@@ -94,6 +128,7 @@
         0 6px 10px rgba(0,0,0,0.7);
     }
 
+    /* -------------------- STOPKA -------------------- */
     footer {
       text-align: center;
       padding: 2rem;
@@ -104,7 +139,9 @@
       letter-spacing: 1px;
     }
 
+    /* -------------------- MOBILKI -------------------- */
     @media (max-width: 600px) {
+      .hero-image { width: 92%; }
       main { padding: 1.2rem; }
       .btn { width: 90%; font-size: 1rem; }
     }
@@ -112,6 +149,10 @@
 </head>
 
 <body>
+
+<header>
+  <img src="Glowne.png" class="hero-image" alt="Banner">
+</header>
 
 <main>
 
@@ -126,137 +167,98 @@
 
   <p>
     W świecie subtelnym, który Annie Besant opisywała z niezwykłą plastycznością, myśli i emocje  
-    mają własną gramatykę.  
-    Nie tworzymy jej słowami, lecz wibracjami.  
-    Dla jasnowidza człowiek nie jest ciałem, lecz melodią barw.  
-    Każda nuta to uczucie, każdy akord to myśl.
+    mają własną gramatykę — tworzoną nie słowami, lecz wibracjami.
   </p>
 
-  <h2>Myśl, która przybiera kształt</h2>
+  <h2>Myśl przybiera kształt</h2>
 
   <p>
-    Besant pisała, że każda myśl ma swoją formę — a ta forma jest ściśle związana z emocją,  
-    która jej towarzyszy.  
-    To emocja nadaje jej kształt, barwę, kierunek.
+    Każda myśl ma formę zależną od emocji, która jej towarzyszy.  
+    Miłość tworzy harmonijne spirale i kwiaty.  
+    Gniew — ostre błyskawice.
   </p>
 
   <p>
-    Miłość i gniew mogą mieć tę samą intensywność, ale ich obrazy w przestrzeni są jak dzień i noc.  
-    Miłość tworzy harmonijny, symetryczny wzór — kwiat lub spiralę.  
-    Gniew — ostrą błyskawicę, która tnie jak nóż.
-  </p>
-
-  <p>
-    Każdy człowiek, nawet nieświadomie, maluje sobą.  
     Wysyłamy w przestrzeń setki obrazów: smugi czerwieni, błękity zamyślenia, złote kręgi nadziei.  
-    Choć tego nie widzimy, żyjemy w świecie nieustannej sztuki świetlnej.
+    Choć tego nie widzimy — żyjemy w świecie nieustannego malowania światłem.
   </p>
 
   <h2>Trzy kategorie myślokształtów</h2>
 
-  <h3>1. Formy bezosobowe — abstrakcje emocji</h3>
+  <h3>1. Formy bezosobowe</h3>
+  <p>To fale koloru: gniew, radość, strach, zachwyt — intensywne, lecz nietrwałe.</p>
+
+  <h3>2. Formy skierowane na osoby i rzeczy</h3>
   <p>
-    To czyste uczucia, niezwiązane z konkretnym obiektem: gniew, radość, strach, zachwyt.  
-    Wyłaniają się jak fale koloru — intensywne, lecz krótkotrwałe.
+    Myśl staje się strumieniem, strzałą, wstęgą.  
+    Miłość oplata aurę różowym światłem.  
+    Wrogość odbija się jak czerwonawy grot.
   </p>
 
-  <h3>2. Formy skierowane na osoby lub rzeczy</h3>
-  <p>
-    Myśl nabiera kierunku: tworzy promień, strzałę, wstęgę.  
-    Miłość — różowy strumień oplatający aurę.  
-    Wrogość — czerwonawy grot, który potrafi odbić się i wrócić.
-  </p>
+  <h3>3. Formy duchowe</h3>
+  <p>Mandale, spirale, gwiazdy — geometryczne i przezroczyste. Świat kontemplacji.</p>
 
-  <h3>3. Formy abstrakcyjne i duchowe</h3>
-  <p>
-    Myśli o ideach, wglądach, modlitwach.  
-    Mandale, spirale, gwiazdy — geometryczne, harmonijne, przezroczyste.  
-    To świat kontemplacji i zrozumienia.
-  </p>
-
-  <h2>Kolory uczuć — mapa światła</h2>
-
-  <p>W języku Besant każdy kolor ma znaczenie:</p>
+  <h2>Kolory uczuć</h2>
 
   <ul>
-    <li><strong>Czerwień:</strong> energia, namiętność, gniew</li>
-    <li><strong>Pomarańcz:</strong> ambicja, pragnienie, entuzjazm</li>
-    <li><strong>Żółty:</strong> intelekt, radość, jasność myśli</li>
-    <li><strong>Zieleń:</strong> równowaga, empatia, uzdrowienie</li>
-    <li><strong>Błękit:</strong> spokój, wiara, oddanie</li>
-    <li><strong>Indygo:</strong> intuicja, wewnętrzna wizja</li>
-    <li><strong>Róż i złoto:</strong> miłość bezwarunkowa, duchowa radość</li>
-    <li><strong>Szarości / brunatny:</strong> lęk, smutek, przygnębienie</li>
+    <li><strong>Czerwień:</strong> namiętność, energia, gniew</li>
+    <li><strong>Pomarańcz:</strong> wolę, entuzjazm</li>
+    <li><strong>Żółty:</strong> jasność myśli, intelekt</li>
+    <li><strong>Zieleń:</strong> równowaga, empatia</li>
+    <li><strong>Błękit:</strong> wiara, spokój, oddanie</li>
+    <li><strong>Indygo:</strong> intuicja</li>
+    <li><strong>Róż i złoto:</strong> miłość duchowa</li>
+    <li><strong>Szarości:</strong> smutek, przygnębienie</li>
   </ul>
-
-  <p>
-    Dla Besant to nie symbole, ale prawa natury subtelnej — częstotliwości wibracji,  
-    tak realne jak dźwięk, tylko wyższe.
-  </p>
 
   <h2>Ruch — alfabet emocji</h2>
 
   <p>
-    Myślokształty żyją: pulsują, rozszerzają się, wirują.  
-    Ruch jest czasownikiem w zdaniu emocji.
+    Myślokształty pulsują, wirują, rozszerzają się.  
+    Miłość wznosi się spiralą ku górze.  
+    Strach się kurczy.  
+    Wdzięczność rozchodzi się jak kręgi na wodzie.
   </p>
 
+  <h2>Synestezja — słyszenie barw</h2>
+
   <p>
-    Miłość — spiralnie ku górze.  
-    Strach — kurczy się.  
-    Zazdrość — wiruje, pochłaniając siebie.  
-    Wdzięczność — rozchodzi się jak kręgi na wodzie.
+    Czyste emocje tworzą harmonię, trudne — dysonans.  
+    Jasnowidz widzi muzykę światła — świat, gdzie uczucie i barwa są jednym.
   </p>
 
-  <h2>Słyszeć kolory, widzieć uczucia</h2>
+  <h2>Kiedy myśli tworzą opowieść</h2>
 
   <p>
-    Emocje są muzyką światła.  
-    Czyste uczucia — harmonia; trudne — dysonans.  
-    Synestezja to echo subtelnego widzenia: słyszenia kolorów, widzenia dźwięków.
-  </p>
-
-  <h2>Kiedy myślokształty łączą się w opowieść</h2>
-
-  <p>
-    Myśli łączą się w sekwencje — historie światła.  
-    Myśl o kimś bliskim tworzy ochronną powłokę.  
-    Myśl o projekcie — formę, która zaczyna żyć i przyciągać wydarzenia.
+    Myśli łączą się w ciągłe historie światła.  
+    Myśl o bliskiej osobie tworzy ochronną powłokę.  
+    Myśl o projekcie przyciąga zdarzenia.
   </p>
 
   <h2>Zanieczyszczony język emocji</h2>
 
   <p>
-    Rozproszone myśli tworzą chaos — duchowy odpowiednik hałasu.  
-    Dlatego Besant wzywała do higieny emocjonalnej:  
-    porządkowania myśli i rozpuszczania ciężkich uczuć światłem świadomości.
+    Rozproszone emocje tworzą chaos — duchowy hałas.  
+    Besant nawoływała do higieny emocjonalnej:  
+    oczyszczania myśli i rozpuszczania ciężaru w świetle świadomości.
   </p>
 
   <h2>Świadome mówienie językiem światła</h2>
 
   <p>
-    To jak nauka nowego języka: zatrzymać się i zapytać:  
-    <em>„Jaką barwę ma ta myśl? Jaki świat tworzę?”</em>
+    „Jaki świat właśnie tworzę?” — to pytanie otwiera drogę do empatii świetlnej  
+    i zdolności czytania przestrzeni emocjonalnej innych.
   </p>
 
-  <p>
-    Pojawia się empatia świetlna — zdolność czytania emocji innych bez oceny.  
-    Świadomość staje się czystym szkłem.
-  </p>
-
-  <h2>Mistyczne podsumowanie</h2>
+  <h2>Mistyczna konkluzja</h2>
 
   <p>
     Świat emocji to język niewidzialnego.  
-    Można nim ranić — można nim leczyć.  
-    Każda dobra myśl naprawia harmonię świata.
+    Każda dobra myśl naprawia harmonię świata.  
+    „Myślenie pięknie czyni życie modlitwą.”
   </p>
 
-  <p style="font-style:italic; text-align:center;">
-    „Gdy człowiek nauczy się myśleć pięknie, jego życie stanie się modlitwą.”
-  </p>
-
-  <p style="font-style:italic; text-align:center; margin-top:2rem;">
+  <p style="text-align:center; font-style:italic; margin-top:2rem;">
     🕯️ „Niektóre słabości nie potrzebują leczenia — tylko granic.”
   </p>
 
