@@ -4,411 +4,589 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Sklep Autorski DarIJuż – Księga Widzenia & Tropami Wilków</title>
-
-  <!-- META -->
+  <!-- 🔹 META SEO -->
   <meta name="robots" content="index, follow">
-  <meta property="og:title" content="Sklep Autorski DarIJuż">
-  <meta property="og:type" content="website">
+  <meta property="og:title" content="Following the Trails of the One Who Runs with the Wolves – by DarIJuż">
+  <meta property="og:description" content="A poetic journey into feminine strength, emotional awakening, and human connection.">
   <meta property="og:image" content="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/following-cover.jpg">
+  <meta property="og:type" content="website">
   <meta property="og:locale" content="pl_PL">
 
-  <style>
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Following the Trails of the One Who Runs with the Wolves – by DarIJuż">
+  <meta name="twitter:description" content="Discover a poetic reflection on love, spirit, and self-awareness.">
+  <meta name="twitter:image" content="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/following-cover.jpg">
 
-  /* ============================================
-     TŁO STRONY
-  ============================================ */
-  body {
-    font-family: 'Georgia', serif;
-    margin: 0;
-    padding: 0;
-    color: #e7e7e7;
-    background: url("morze 2.png") center top no-repeat fixed;
-    background-size: cover;
-  }
+  <title>Sklep Autorski DarIJuż – Księgi Widzenia, Biegnąca z Wilkami, Opowieści</title>
 
-  /* mgła */
-  .fog-layer {
-    position: fixed;
-    top: 0; left: 0;
-    width: 100%; height: 100%;
-    pointer-events: none;
-    background: url("mgla.png");
-    opacity: 0.25;
-  }
+<style>
+/* =====================================================
+   🌊 TŁO – MORZE + ANIMACJA FAL
+===================================================== */
+body {
+  font-family: 'Georgia', serif;
+  margin: 0;
+  padding: 0;
+  color: #e7e7e7;
+  line-height: 1.6;
 
-  /* ============================================
-     BANER
-  ============================================ */
-  .hero-banner {
-    width: 100%;
-    text-align: center;
-    margin-top: 45px;
-  }
+  background: url("morze 2.png") repeat-x top center;
+  background-size: cover;
+  background-attachment: fixed;
 
-  .hero-image {
-    width: 65%;
-    max-width: 700px;
-    border-radius: 18px;
-    filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
-  }
+  animation: waves 18s ease-in-out infinite alternate;
+}
 
-  /* ============================================
-     PANEL GŁÓWNY
-  ============================================ */
-  main {
-    max-width: 820px;
-    margin: 3rem auto;
-    padding: 1.6rem;
-    background: rgba(255,255,255,0.10);
-    border-radius: 16px;
-    backdrop-filter: blur(6px);
-    box-shadow:
-      0 4px 18px rgba(0,0,0,0.45),
-      inset 0 0 0 rgba(255,255,255,0.0);
-  }
+@keyframes waves {
+  0% { background-position: 0px 0px; }
+  100% { background-position: 0px 70px; }
+}
 
-  h2 {
-    text-align: center;
-    color: #ffd9a3;
-    text-shadow: 0 0 6px #000;
-  }
+/* mgła zostaje wyłączona (tylko struktura) */
+.fog-layer {
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  pointer-events: none;
+  opacity: 0;
+}
 
-  .book img {
-    max-width: 250px;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-    transition: 0.3s;
-  }
+/* =====================================================
+   🌙 BANER Glowne.png
+===================================================== */
+.hero-banner {
+  width: 100%;
+  text-align: center;
+  margin-top: 40px;
+  position: relative;
+  overflow: visible;
+}
 
-  .book img:hover {
-    transform: scale(1.05);
-  }
+.hero-image {
+  width: 65%;
+  max-width: 680px;
+  display: block;
+  margin: 0 auto;
+  border-radius: 18px;
 
-  /* ============================================
-     DREWNIANE PRZYCISKI
-  ============================================ */
-  .btn {
-    display: inline-block;
-    margin-top: 0.7rem;
-    padding: 0.8rem 1.5rem;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 8px;
-    background-image: url('drewno.png');
-    background-size: cover;
-    border: 2px solid rgba(0,0,0,0.5);
-    box-shadow:
-      inset 0 0 6px rgba(255,255,255,0.2),
-      0 4px 6px rgba(0,0,0,0.6);
-    transition: 0.3s ease;
-  }
+  mask-image: radial-gradient(circle, black 75%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
 
-  .btn:hover {
-    filter: brightness(1.15);
-    transform: scale(1.05);
-  }
+  animation:
+    glowMoon 6s ease-in-out infinite alternate,
+    tiltMotion 12s ease-in-out infinite,
+    waveSoft 9s ease-in-out infinite;
 
-  /* ============================================
-     TELEGRAPH — POPRAWIONA, STABILNA WERSJA
-  ============================================ */
+  filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+}
 
-  .telegraph-widget {
-    position: fixed;
-    top: 18px;
-    right: 22px;
-    z-index: 9999;
-    transform: scale(1.35); /* Powiększenie BEZ deformacji strony */
-    transform-origin: top right;
-  }
+@keyframes glowMoon {
+  0% { filter: brightness(1); }
+  100% { filter: brightness(1.09); }
+}
 
+@keyframes waveSoft {
+  0% { transform: translateY(0px) scale(1); }
+  50% { transform: translateY(-3px) scale(1.008); }
+  100% { transform: translateY(0px) scale(1); }
+}
+
+@keyframes tiltMotion {
+  0% { transform: rotateX(0deg) rotateY(0deg); }
+  50% { transform: rotateX(0.25deg) rotateY(-0.35deg); }
+  100% { transform: rotateX(0deg) rotateY(0deg); }
+}
+
+/* =====================================================
+   📘 GŁÓWNY PANEL
+===================================================== */
+main {
+  max-width: 820px;
+  margin: 3rem auto;
+  padding: 1.6rem;
+  background: rgba(255,255,255,0.10);
+  border-radius: 16px;
+  backdrop-filter: blur(6px);
+  box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+}
+
+h2 {
+  color: #ffd9a3;
+  text-shadow: 0 0 6px #000;
+  margin-top: 1.4rem;
+}
+
+.book {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+.book img {
+  max-width: 260px;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.4);
+  transition: transform 0.3s ease;
+}
+
+.book img:hover {
+  transform: scale(1.05);
+}
+
+/* =====================================================
+   🪵 DREWNIANE PRZYCISKI
+===================================================== */
+.btn {
+  display: inline-block;
+  margin-top: 0.7rem;
+  padding: 0.8rem 1.5rem;
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+  border-radius: 8px;
+  background-image: url('drewno.png');
+  background-size: cover;
+  border: 2px solid rgba(0,0,0,0.5);
+
+  box-shadow:
+    inset 0 0 6px rgba(255,255,255,0.2),
+    0 4px 6px rgba(0,0,0,0.6);
+
+  transition: 0.3s ease;
+}
+
+.btn:hover {
+  filter: brightness(1.15);
+  transform: scale(1.05);
+  box-shadow:
+    inset 0 0 12px rgba(255,255,255,0.3),
+    0 6px 10px rgba(0,0,0,0.7);
+}
+
+/* =====================================================
+   🔄 PRZYCISK DŹWIĘKU
+===================================================== */
+.sound-btn {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  padding: 12px 18px;
+  border-radius: 8px;
+  background: rgba(0,0,0,0.55);
+  color: #fff;
+  backdrop-filter: blur(4px);
+  cursor: pointer;
+  font-size: 1rem;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+
+/* =====================================================
+   🟦 STOPKA
+===================================================== */
+footer {
+  text-align: center;
+  padding: 2rem;
+  background: rgba(0,0,0,0.55);
+  color: #eee;
+  font-size: 1.35rem;
+  margin-top: 3rem;
+  letter-spacing: 1px;
+}
+
+/* =====================================================
+   📱 MOBILKI – panel treści
+===================================================== */
+@media (max-width: 600px) {
+  .hero-image { width: 92%; }
+  .book img { width: 90%; }
+  .btn { width: 90%; font-size: 1rem; }
+  main { padding: 1rem; }
+}
+
+/* =====================================================
+   ⚓ TELEGRAPH – WYGLĄD
+===================================================== */
+
+.telegraph-widget {
+  position: fixed;
+  top: 22px;
+  right: 22px;
+  z-index: 9999;
+  font-family: 'Georgia', serif;
+}
+
+/* tarcza – powiększona ~150% */
+.telegraph-dial {
+  width: 210px;
+  height: 210px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fdfaf4 0%, #f0e1c5 45%, #b88445 75%, #5a3a1d 100%);
+  border: 4px solid #3b2614;
+  box-shadow:
+    0 6px 20px rgba(0,0,0,0.9),
+    inset 0 0 10px rgba(0,0,0,0.7);
+  position: relative;
+  overflow: hidden;
+}
+
+/* wewnętrzny pierścień */
+.telegraph-dial::before {
+  content: "";
+  position: absolute;
+  inset: 14px;
+  border-radius: 50%;
+  border: 3px solid rgba(80,50,25,0.7);
+  box-shadow:
+    inset 0 0 8px rgba(0,0,0,0.6),
+    0 0 6px rgba(255,255,255,0.3);
+}
+
+/* „okno” pod napisami */
+.telegraph-window {
+  position: absolute;
+  inset: 36px;
+  border-radius: 50%;
+  border: 1px solid rgba(0,0,0,0.25);
+  box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
+  background: radial-gradient(circle at 50% 10%, #fff 0%, #f7ecda 40%, #e1c39b 75%, #c19963 100%);
+}
+
+/* środek */
+.telegraph-center {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fdf5e7 0%, #d8ae72 45%, #8b5a2a 90%);
+  border: 2px solid #4a2f18;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  box-shadow:
+    0 0 6px rgba(0,0,0,0.8),
+    inset 0 0 4px rgba(255,255,255,0.7);
+}
+
+/* RAMIĘ – oś obrotu w centrum tarczy */
+.telegraph-lever {
+  position: absolute;
+  width: 90px;
+  height: 8px;
+  border-radius: 8px;
+  background: linear-gradient(90deg, #3a2715, #c89a63);
+
+  top: 50%;
+  left: 50%;
+  transform-origin: 0 50%;   /* lewy koniec = środek tarczy */
+  transform: translate(0, -50%) rotate(-80deg); /* pozycja startowa: BOOKS */
+  box-shadow:
+    0 2px 4px rgba(0,0,0,0.7),
+    inset 0 0 4px rgba(255,255,255,0.5);
+  transition: transform 0.5s ease-in-out;
+}
+
+.telegraph-lever::after {
+  content: "";
+  position: absolute;
+  right: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 30% 30%, #fdf5e7 0%, #c89a63 60%, #5a3516 100%);
+  box-shadow:
+    0 0 5px rgba(0,0,0,0.8),
+    inset 0 0 3px rgba(255,255,255,0.7);
+}
+
+/* napisy */
+.telegraph-label {
+  position: absolute;
+  width: 70px;
+  text-align: center;
+  font-size: 0.78rem;
+  font-weight: bold;
+  color: #2c1a0c;
+  text-shadow: 0 0 3px rgba(255,255,255,0.8);
+  pointer-events: none;
+}
+
+.telegraph-label span.icon {
+  display: block;
+  font-size: 1.05rem;
+}
+
+/* sektory – pozycje napisów */
+.telegraph-label.books   { top: 10px;  left: 50%; transform: translateX(-50%); }
+.telegraph-label.audio   { top: 46px; right: 12px; transform: rotate(30deg); }
+.telegraph-label.darijuz { bottom: 32px; right: 12px; transform: rotate(55deg); }
+.telegraph-label.inno    { bottom: 32px; left: 12px;  transform: rotate(-55deg); }
+.telegraph-label.contact { top: 46px; left: 12px;  transform: rotate(-30deg); }
+
+/* aktywny sektor */
+.telegraph-label.active {
+  color: #b33b00;
+  text-shadow:
+    0 0 4px #fff,
+    0 0 8px rgba(255,180,120,0.9);
+}
+
+/* HITBOXY – pełne sektory koła */
+.telegraph-hitbox {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* 5 kawałków „pizzy” – nie nachodzą na siebie */
+.telegraph-hitbox.books {
+  clip-path: polygon(50% 50%, 100% 2%, 0% 2%);
+}
+.telegraph-hitbox.audio {
+  clip-path: polygon(50% 50%, 100% 2%, 100% 52%);
+}
+.telegraph-hitbox.darijuz {
+  clip-path: polygon(50% 50%, 100% 52%, 50% 98%);
+}
+.telegraph-hitbox.inno {
+  clip-path: polygon(50% 50%, 50% 98%, 0% 52%);
+}
+.telegraph-hitbox.contact {
+  clip-path: polygon(50% 50%, 0% 52%, 0% 2%);
+}
+
+/* MOBILE: pokazujemy kompaktowy panel zamiast tarczy */
+.telegraph-mobile-toggle,
+.telegraph-mobile-panel {
+  display: none;
+}
+
+@media (max-width: 900px) {
   .telegraph-dial {
-    width: 140px;
-    height: 140px;
-    border-radius: 50%;
-    background: radial-gradient(circle at 30% 30%, #fdfaf4 0%, #f0e1c5 45%, #b88445 75%, #5a3a1d 100%);
-    border: 4px solid #3b2614;
-    position: relative;
-    box-shadow:
-      0 4px 15px rgba(0,0,0,0.8),
-      inset 0 0 10px rgba(0,0,0,0.6);
+    display: none;
   }
 
-  .telegraph-window {
-    position: absolute;
-    inset: 24px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #fff 0%, #f4e0c8 70%, #c8a575 100%);
-    box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
-  }
-
-  .telegraph-center {
-    position: absolute;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    top: 50%; left: 50%;
-    transform: translate(-50%, -50%);
-    background: radial-gradient(circle at 30% 30%, #fff3d9, #c49a64, #6b4625);
-    border: 2px solid #3a2a17;
-    z-index: 10;
-    box-shadow: 0 0 5px rgba(0,0,0,0.8);
-  }
-
-  .telegraph-lever {
-    position: absolute;
-    width: 75px;
-    height: 8px;
-    top: 50%; left: 50%;
-    translate: -0px -50%;
-    background: linear-gradient(90deg, #3a2715, #c89a63);
-    border-radius: 8px;
-    transform-origin: 0 50%;
-    transform: rotate(-72deg);
-    transition: transform 0.5s ease-out;
-    z-index: 9;
-  }
-
-  .telegraph-lever::after {
-    content: "";
-    position: absolute;
-    right: -7px;
-    top: 50%;
-    transform: translateY(-50%);
-    width: 15px;
-    height: 15px;
-    border-radius: 50%;
-    background: radial-gradient(circle, #fff8e1, #ca9a5c, #5a3516);
-    box-shadow: 0 0 5px rgba(0,0,0,0.8);
-  }
-
-  /* Napisy */
-  .telegraph-label {
-    position: absolute;
-    width: 65px;
-    font-size: 0.70rem;
-    font-weight: bold;
-    text-align: center;
-    color: #2c1a0c;
-    text-shadow: 0 0 3px #fff;
-    pointer-events: none;
-  }
-
-  .telegraph-label.books   { top: 6px; left: 50%; transform: translateX(-50%); }
-  .telegraph-label.audio   { top: 35px; right: 6px; transform: rotate(33deg); }
-  .telegraph-label.darijuz { bottom: 28px; right: 8px; transform: rotate(58deg); }
-  .telegraph-label.inno    { bottom: 28px; left: 8px; transform: rotate(-58deg); }
-  .telegraph-label.contact { top: 35px; left: 6px; transform: rotate(-33deg); }
-
-  .telegraph-label.active {
-    color: #b33b00;
-    text-shadow: 0 0 8px #fff;
-  }
-
-  /* Hitboxy – stabilne, NIE zakłócają layoutu */
-  .telegraph-hitbox {
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    border-radius: 50%;
-    background: transparent;
+  .telegraph-mobile-toggle {
+    display: inline-block;
+    position: fixed;
+    top: 16px;
+    right: 16px;
+    z-index: 9999;
+    padding: 0.5rem 0.9rem;
+    border-radius: 999px;
+    border: 1px solid rgba(0,0,0,0.4);
+    background: rgba(0,0,0,0.6);
+    color: #f5e4c4;
+    font-size: 0.85rem;
     cursor: pointer;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
   }
 
-  </style>
+  .telegraph-mobile-panel {
+    display: block;
+    position: fixed;
+    top: 52px;
+    right: 16px;
+    z-index: 9998;
+    background: rgba(0,0,0,0.8);
+    backdrop-filter: blur(4px);
+    padding: 0.8rem;
+    border-radius: 12px;
+    box-shadow: 0 4px 14px rgba(0,0,0,0.9);
+    transform: translateY(-10px);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+  }
+
+  .telegraph-mobile-panel.open {
+    opacity: 1;
+    pointer-events: auto;
+    transform: translateY(0);
+  }
+
+  .telegraph-mobile-link {
+    display: block;
+    text-decoration: none;
+    color: #fdf5e7;
+    padding: 0.4rem 0.3rem;
+    font-size: 0.9rem;
+    border-bottom: 1px solid rgba(255,255,255,0.12);
+  }
+  .telegraph-mobile-link:last-child {
+    border-bottom: none;
+  }
+}
+</style>
 </head>
+
 <body>
 
 <div class="fog-layer"></div>
 
-<!-- =======================
-     🌙 BANER
-======================= -->
 <header class="hero-banner">
   <img src="Glowne.png" class="hero-image" alt="Banner DarIJuż">
 </header>
 
-<!-- =======================
-     📚 TREŚĆ GŁÓWNA
-======================= -->
 <main>
 
-<!-- =======================
-     KSIĄŻKA 1 – POLSKA
-======================= -->
-<section id="books-section" class="book">
+  <!-- KSIĄŻKA 1 -->
+  <section id="books-section" class="book">
 
-<h2>📖 „Idąc Tropami Biegnącej z Wilkami”</h2>
+    <h2>📖 „Idąc Tropami Biegnącej z Wilkami”</h2>
 
-<a href="opis.html">
-  <img src="okladka.png" alt="Idąc Tropami Biegnącej z Wilkami">
-</a>
+    <a href="opis.html">
+      <img src="okladka.png" alt="Okładka Idąc Tropami Biegnącej z Wilkami">
+    </a>
 
-<p><em>Duchowa kontynuacja myśli Clarissy Pinkoli Estés –  
-o relacjach, kobiecości i przebudzeniu serca.</em></p>
+    <p><em>Duchowa kontynuacja myśli Clarissy Pinkoli Estés – o relacjach, kobiecości i przebudzeniu serca.</em></p>
 
-<a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">🎬 Zobacz prezentację</a><br>
-<a class="btn" href="opis.html">📖 Opis Książki</a><br>
-<a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
-<a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup (PDF)</a>
+    <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">🎬 Zobacz prezentację</a><br>
+    <a class="btn" href="opis.html">📖 Opis Książki</a><br>
+    <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
+    <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup (PDF)</a>
 
+    <h2 style="margin-top:2.2rem;">
+      📖 Following the Trails of the One Who Runs with the Wolves
+    </h2>
 
-<!-- =======================
-     KSIĄŻKA 1 – ANGIELSKA
-======================= -->
-<h2 style="margin-top:2.4rem;">
- 📖 Following the Trails of the One Who Runs with the Wolves
-</h2>
+    <div class="divider">
+      <a href="opis_en.html">
+        <img src="following-cover.jpg" style="max-width:180px; margin-top:18px;" alt="Following the Trails cover">
+      </a>
+    </div>
 
-<div class="divider">
-  <a href="opis_en.html">
-    <img src="following-cover.jpg" style="max-width:180px; margin-top:18px;" alt="Following the Trails...">
-  </a>
-</div>
+    <a class="btn" href="opis_en.html">📖 Fragment of the Book</a><br>
+    <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank">🇬🇧 Buy (EN)</a>
 
-<a class="btn" href="opis_en.html">📖 Fragment of the Book</a><br>
-<a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank">🇬🇧 Buy (EN)</a>
+  </section>
+  <!-- KSIĘŻKA 2 -->
+  <section id="audio-section" class="book">
 
-</section>
+    <h2>📖 „KSIĘGA WIDZENIA”</h2>
 
+    <a href="opis2.html">
+      <img src="okladka2.png" alt="Okładka Księga Widzenia">
+    </a>
 
-<!-- =======================
-     KSIĄŻKA 2
-======================= -->
-<section id="audio-section" class="book">
+    <p><em>O jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thotha – teoria i praktyka.</em></p>
 
-<h2>📖 „KSIĘGA WIDZENIA”</h2>
+    <a class="btn" href="https://youtu.be/G_788sVAgQI" target="_blank">🎬 Zobacz prezentację</a><br>
+    <a class="btn" href="opis2.html">📖 Opis Książki</a><br>
+    <a class="btn" href="fragment2.html">📖 Przeczytaj fragment</a><br>
+    <a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02" target="_blank">🇵🇱 Kup (PDF)</a>
 
-<a href="opis2.html">
-  <img src="okladka2.png" alt="Księga Widzenia">
-</a>
+  </section>
 
-<p><em>O jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thotha –  
-teoria i praktyka wewnętrznego widzenia.</em></p>
+  <!-- O PROJEKCIE -->
+  <section>
+    <h2>🌙 O projekcie</h2>
+    <p>
+      Strona otwiera cykl <strong>„Księga Widzenia”</strong> — książek o duchowej drodze, świadomości i relacjach.  
+      To przestrzeń łącząca literaturę, psychologię, duchowość i sztukę wizji.
+    </p>
+  </section>
 
-<a class="btn" href="https://youtu.be/G_788sVAgQI" target="_blank">🎬 Zobacz prezentację</a><br>
-<a class="btn" href="opis2.html">📖 Opis Książki</a><br>
-<a class="btn" href="fragment2.html">📖 Przeczytaj fragment</a><br>
-<a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02" target="_blank">🇵🇱 Kup (PDF)</a>
-
-</section>
-
-
-<!-- =======================
-     O PROJEKCIE
-======================= -->
-<section>
-<h2>🌙 O projekcie</h2>
-<p>
-Strona otwiera cykl <strong>„Księga Widzenia”</strong> — książek o duchowej drodze, świadomości  
-i relacjach. To przestrzeń, w której literatura spotyka się z praktyką wewnętrzną.
-</p>
-</section>
-
-<!-- =======================
-     KONTAKT
-======================= -->
-<section>
-<h2>📬 Kontakt</h2>
-<p><strong>E-mail:</strong>  
-  <a href="mailto:DarIJuz_Lektor@proton.me">DarIJuz_Lektor@proton.me</a></p>
-</section>
+  <!-- KONTAKT -->
+  <section>
+    <h2>📬 Kontakt</h2>
+    <p><strong>Email:</strong> <a href="mailto:DarIJuz_Lektor@proton.me">DarIJuz_Lektor@proton.me</a></p>
+  </section>
 
 </main>
 
-
-<!-- =======================
-     DŹWIĘK FAL
-======================= -->
+<!-- PRZYCISK DŹWIĘKU FAL -->
 <button class="sound-btn" onclick="toggleSound()">🌊 Dźwięk fal</button>
 
 <audio id="seaSound" loop>
   <source src="fale.mp3" type="audio/mpeg">
 </audio>
 
-<script>
-function toggleSound() {
-  const audio = document.getElementById('seaSound');
-  if (audio.paused) audio.play();
-  else audio.pause();
-}
-</script>
-
-
-<!-- =======================
-     STOPKA
-======================= -->
 <footer>
   © 2025 DarIJuż – Oficjalny Sklep Autorski
 </footer>
-<!-- ========================================================= -->
-<!--   ⚓ TELEGRAPH – pływające menu w stylu telegrafu statku   -->
-<!-- ========================================================= -->
+
+<!-- ============================= -->
+<!--  TELEGRAPH — HTML             -->
+<!-- ============================= -->
 
 <div class="telegraph-widget">
 
-  <!-- DESKTOP TARCZA -->
-  <div class="telegraph-dial">
+  <!-- DESKTOP: okrągła tarcza -->
+  <div class="telegraph-dial" aria-label="Navigation telegraph">
 
-      <div class="telegraph-window"></div>
+    <div class="telegraph-window"></div>
 
-      <!-- NAPISY -->
-      <div class="telegraph-label books active">
-        <span class="icon">📚</span> BOOKS
-      </div>
+    <!-- Napisy -->
+    <div class="telegraph-label books active">
+      <span class="icon">📚</span>
+      BOOKS
+    </div>
 
-      <div class="telegraph-label audio">
-        <span class="icon">🎧</span> AUDIO
-      </div>
+    <div class="telegraph-label audio">
+      <span class="icon">🎧</span>
+      AUDIO­BOOKS
+    </div>
 
-      <div class="telegraph-label darijuz">
-        <span class="icon">🖊️</span> DarIJuż
-      </div>
+    <div class="telegraph-label darijuz">
+      <span class="icon">🖊️</span>
+      DarIJuż
+    </div>
 
-      <div class="telegraph-label inno">
-        <span class="icon">👁️</span> InnoWidzenie
-      </div>
+    <div class="telegraph-label inno">
+      <span class="icon">👁️</span>
+      Inno­Widzenie
+    </div>
 
-      <div class="telegraph-label contact">
-        <span class="icon">✉️</span> Contact
-      </div>
+    <div class="telegraph-label contact">
+      <span class="icon">✉️</span>
+      Contact
+    </div>
 
-      <!-- RAMIĘ -->
-      <div class="telegraph-lever"></div>
-      <div class="telegraph-center"></div>
+    <!-- Ramię + środek -->
+    <div class="telegraph-lever"></div>
+    <div class="telegraph-center"></div>
 
-      <!-- KLIKANE SEKTORY -->
-      <button class="telegraph-hitbox books"
-              data-angle="-72"
-              data-label="books"
-              data-url="#books-section"></button>
+    <!-- Klikalne sektory -->
+    <button class="telegraph-hitbox books"
+            data-angle="-80"
+            data-label="books"
+            data-url="#books-section"
+            aria-label="Books"></button>
 
-      <button class="telegraph-hitbox audio"
-              data-angle="-18"
-              data-label="audio"
-              data-url="https://www.zrzutka.pl/c9p87j"></button>
+    <button class="telegraph-hitbox audio"
+            data-angle="-30"
+            data-label="audio"
+            data-url="https://www.zrzutka.pl/c9p87j"
+            aria-label="Audiobooks"></button>
 
-      <button class="telegraph-hitbox darijuz"
-              data-angle="36"
-              data-label="darijuz"
-              data-url="https://www.youtube.com/@Dar_I_Juz"></button>
+    <button class="telegraph-hitbox darijuz"
+            data-angle="20"
+            data-label="darijuz"
+            data-url="https://www.youtube.com/@Dar_I_Juz"
+            aria-label="DarIJuż YouTube"></button>
 
-      <button class="telegraph-hitbox inno"
-              data-angle="-135"
-              data-label="inno"
-              data-url="https://www.youtube.com/@InnoWidzenie"></button>
+    <button class="telegraph-hitbox inno"
+            data-angle="70"
+            data-label="inno"
+            data-url="https://www.youtube.com/@InnoWidzenie"
+            aria-label="InnoWidzenie YouTube"></button>
 
-      <button class="telegraph-hitbox contact"
-              data-angle="90"
-              data-label="contact"
-              data-url="mailto:DarIJuz_Lektor@proton.me"></button>
+    <button class="telegraph-hitbox contact"
+            data-angle="130"
+            data-label="contact"
+            data-url="mailto:DarIJuz_Lektor@proton.me"
+            aria-label="Contact"></button>
 
   </div>
 
-
-  <!-- MOBILE MENU -->
-  <button class="telegraph-mobile-toggle">⚓ Menu</button>
+  <!-- MOBILE: przycisk + panel -->
+  <button class="telegraph-mobile-toggle">
+    ⚓ Menu
+  </button>
 
   <div class="telegraph-mobile-panel" id="telegraphMobilePanel">
     <a class="telegraph-mobile-link" href="#books-section">📚 Books</a>
@@ -420,67 +598,85 @@ function toggleSound() {
 
 </div>
 
+<!-- dźwięk kliknięcia telegrafu -->
+<audio id="telegraphClick" preload="auto">
+  <source src="telegraph-click.mp3" type="audio/mpeg">
+</audio>
+<!-- ============================= -->
+<!--  SKRYPTY                     -->
+<!-- ============================= -->
 
-<!-- ========================================================= -->
-<!--   ⚓ TELEGRAPH — JavaScript                               -->
-<!-- ========================================================= -->
 <script>
-(function(){
+function toggleSound() {
+  const audio = document.getElementById('seaSound');
+  if (!audio) return;
+  if (audio.paused) { audio.play(); }
+  else { audio.pause(); }
+}
+</script>
 
-  const lever = document.querySelector('.telegraph-lever');
+<script>
+(function() {
+  const lever  = document.querySelector('.telegraph-lever');
   const labels = document.querySelectorAll('.telegraph-label');
   const hitboxes = document.querySelectorAll('.telegraph-hitbox');
+  const clickSound = document.getElementById('telegraphClick');
 
-  /* Dźwięk kliknięcia */
-  const clickSound = new Audio("klik.wav");
+  if (!lever) return;
 
   hitboxes.forEach(btn => {
     btn.addEventListener('click', () => {
-
       const angle = parseFloat(btn.dataset.angle) || 0;
       const labelKey = btn.dataset.label;
       const url = btn.dataset.url;
 
-      /* ramię — tylko rotate */
-      lever.style.transform = "translate(-50%, -50%) rotate(" + angle + "deg)";
+      /* animacja ramienia – tylko ROTATE */
+      lever.style.transform = 'translate(0, -50%) rotate(' + angle + 'deg)';
 
-      /* aktywny sektor */
+      /* podświetlenie aktywnego sektora */
       labels.forEach(l => l.classList.remove('active'));
-      const activeLabel = document.querySelector(".telegraph-label." + labelKey);
-      if (activeLabel) activeLabel.classList.add("active");
+      const activeLabel = document.querySelector('.telegraph-label.' + labelKey);
+      if (activeLabel) activeLabel.classList.add('active');
 
-      /* klik */
-      clickSound.currentTime = 0;
-      clickSound.play();
+      /* dźwięk kliknięcia (jeśli plik istnieje) */
+      if (clickSound) {
+        clickSound.currentTime = 0;
+        clickSound.play().catch(() => {});
+      }
 
-      /* akcja po 300 ms */
-      setTimeout(() => {
-        if (url.startsWith("#")) {
-          const target = document.querySelector(url);
-          if (target) target.scrollIntoView({ behavior: "smooth" });
-        }
-        else if (url.startsWith("mailto:")) {
-          window.location.href = url;
-        }
-        else {
-          window.open(url, "_blank");
-        }
-      }, 300);
-
+      /* akcja linku z lekkim opóźnieniem */
+      if (url) {
+        setTimeout(() => {
+          if (url.startsWith('#')) {
+            const target = document.querySelector(url);
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+          } else if (url.startsWith('mailto:')) {
+            window.location.href = url;
+          } else {
+            window.open(url, '_blank');
+          }
+        }, 350);
+      }
     });
   });
 
-  /* Mobile panel */
+  /* wersja mobilna – rozwijany panel */
   const mobileToggle = document.querySelector('.telegraph-mobile-toggle');
-  const mobilePanel = document.getElementById('telegraphMobilePanel');
+  const mobilePanel  = document.getElementById('telegraphMobilePanel');
 
-  mobileToggle.addEventListener('click', () => {
-    mobilePanel.classList.toggle('open');
-  });
+  if (mobileToggle && mobilePanel) {
+    mobileToggle.addEventListener('click', () => {
+      mobilePanel.classList.toggle('open');
+    });
 
+    mobilePanel.querySelectorAll('a').forEach(a => {
+      a.addEventListener('click', () => {
+        mobilePanel.classList.remove('open');
+      });
+    });
+  }
 })();
 </script>
 
 </body>
 </html>
-  
