@@ -3,131 +3,268 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Fragment – Księga Widzenia | DarIJuż</title>
 
-  <meta name="description" content="Fragment książki Księga Widzenia – o jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thotha.">
-  <meta name="author" content="DarIJuż">
+  <title>Księga Widzenia – Fragment | DarIJuż</title>
 
   <style>
+    /* -------------------- TŁO OCEANU -------------------- */
     body {
       font-family: 'Georgia', serif;
-      background-color: #f7f4f1;
-      color: #2c2c2c;
       margin: 0;
       padding: 0;
-      line-height: 1.8;
+      line-height: 1.6;
+      color: #e7e7e7;
+
+      background: url("morze 2.png") repeat-x top center;
+      background-size: cover;
+      background-attachment: fixed;
+
+      animation: waves 18s ease-in-out infinite alternate;
     }
-    header {
-      text-align: center;
-      background: #2c2c2c;
-      color: #f5d8b3;
-      padding: 2rem 1rem 1rem;
+
+    @keyframes waves {
+      0% { background-position: 0px 0px; }
+      100% { background-position: 0px 70px; }
     }
-    header h1 {
-      margin-bottom: 0.5rem;
-      font-size: 1.8rem;
-      color: #f5d8b3;
-    }
-    header p {
-      margin: 0.3rem 0 1rem;
-      font-size: 1rem;
-      color: #f2e8d5;
-    }
+
+    /* -------------------- PANEL -------------------- */
     main {
-      max-width: 800px;
+      max-width: 820px;
       margin: 3rem auto;
-      background: #fff;
       padding: 2rem;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      background: rgba(255,255,255,0.10);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
     }
-    h1, h2 {
-      color: #4a2f1b;
+
+    h1, h2, h3 {
       text-align: center;
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
     }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
     p {
       text-align: justify;
+      color: #f2f2f2;
       margin-bottom: 1rem;
-      text-indent: 2em;
     }
+
+    strong { color: #ffe0ba; }
+    em { color: #ffeccc; }
+
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.2rem;
+    }
+
+    li { margin-bottom: 0.4rem; }
+
+    /* -------------------- DREWNIANE PRZYCISKI -------------------- */
     .btn {
       display: inline-block;
       margin-top: 1.5rem;
-      background: #4a2f1b;
+      margin-bottom: 0.7rem;
+      padding: 0.8rem 1.6rem;
       color: #fff;
-      padding: 0.8rem 1.5rem;
-      border-radius: 8px;
       text-decoration: none;
-      transition: 0.3s;
+      font-weight: bold;
+      border-radius: 8px;
+
+      background-image: url('drewno.png');
+      background-size: cover;
+      border: 2px solid rgba(0,0,0,0.55);
+
+      box-shadow:
+        inset 0 0 6px rgba(255,255,255,0.2),
+        0 4px 6px rgba(0,0,0,0.6);
+
+      transition: 0.3s ease;
     }
+
     .btn:hover {
-      background: #704d32;
+      filter: brightness(1.15);
+      transform: scale(1.05);
+      box-shadow:
+        inset 0 0 12px rgba(255,255,255,0.3),
+        0 6px 10px rgba(0,0,0,0.7);
     }
+
     footer {
       text-align: center;
       padding: 2rem;
-      background: #2c2c2c;
+      background: rgba(0,0,0,0.55);
       color: #eee;
-      font-size: 0.9rem;
+      font-size: 1.2rem;
+      margin-top: 3rem;
+      letter-spacing: 1px;
     }
-    .top-link {
-      display: inline-block;
-      color: #2c2c2c;
-      background: #f5d8b3;
-      text-decoration: none;
-      padding: 0.6rem 1rem;
-      border-radius: 6px;
-      margin-bottom: 0.5rem;
-      font-size: 0.9rem;
-      transition: all 0.3s;
-    }
-    .top-link:hover {
-      background: #e6c595;
-      color: #1c1c1c;
+
+    @media (max-width: 600px) {
+      main { padding: 1.2rem; }
+      .btn { width: 90%; font-size: 1rem; }
     }
   </style>
 </head>
+
 <body>
 
-<header style="text-align:center; background:#1f2a44; padding:40px 0; position:relative;">
-  <img src="baner_sklep.png" alt="Oficjalny Sklep Autorski DarIJuż" 
-       style="width:50%; max-width:600px; height:auto; display:block; margin:40px auto; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.3);">
-  <div style="margin-top:10px;">
-    <a href="index.html" 
-       style="background:#f5d8b3; color:#2c2c2c; text-decoration:none; padding:0.6rem 1rem; border-radius:6px; font-size:0.9rem; transition:all 0.3s;">
-       ⬅️ Powrót do strony głównej
-    </a>
-  </div>
-</header>
-
-
-
-
 <main>
-  <h2>Fragment książki: KSIĘGA WIDZENIA</h2>
-  <p><em>„Nie ma rzeczy niewidzialnych. Są jedynie rzeczy, których jeszcze nie nauczyliśmy się widzieć.”</em></p>
+
+  <h1>📘 KSIĘGA WIDZENIA – Fragment</h1>
+  <p style="text-align:center;"><em>Rozdział 8 • Kolory, kształty i emocje — język niewidzialnego</em></p>
 
   <p>
-    Jasnowidzenie nie jest przywilejem wybranych, lecz naturalną zdolnością ludzkiej świadomości.  
-    To sztuka patrzenia poza granice zmysłów, tam, gdzie światło i myśl splatają się w jedną tkaninę istnienia.
+    Gdyby istniał alfabet światła, to właśnie emocje byłyby jego literami.  
+    Każde uczucie — radość, gniew, współczucie, żal — zapisuje się w przestrzeni nie słowem,  
+    lecz kolorem i ruchem.
   </p>
 
   <p>
-    Myślokształty – żywe formy idei – są jak echo intencji.  
-    Każda myśl przybiera kształt, barwę i ruch w subtelnych planach rzeczywistości.  
-    Widzenie ich to nie tylko zjawisko parapsychiczne – to spotkanie z własnym oddźwiękiem w przestrzeni ducha.
+    W świecie subtelnym, który Annie Besant opisywała z niezwykłą plastycznością, myśli i emocje  
+    mają własną gramatykę.  
+    Nie tworzymy jej słowami, lecz wibracjami.  
+    Dla jasnowidza człowiek nie jest ciałem, lecz melodią barw.  
+    Każda nuta to uczucie, każdy akord to myśl.
+  </p>
+
+  <h2>Myśl, która przybiera kształt</h2>
+
+  <p>
+    Besant pisała, że każda myśl ma swoją formę — a ta forma jest ściśle związana z emocją,  
+    która jej towarzyszy.  
+    To emocja nadaje jej kształt, barwę, kierunek.
   </p>
 
   <p>
-    Nauki Thotha mówią: <em>„Jak na górze, tak na dole. Jak wewnątrz, tak na zewnątrz.”</em>  
-    Zrozumienie tej zasady jest pierwszym krokiem ku widzeniu – nie oczami, lecz świadomością,  
-    która potrafi dostrzec przyczynę zanim stanie się skutkiem.
+    Miłość i gniew mogą mieć tę samą intensywność, ale ich obrazy w przestrzeni są jak dzień i noc.  
+    Miłość tworzy harmonijny, symetryczny wzór — kwiat lub spiralę.  
+    Gniew — ostrą błyskawicę, która tnie jak nóż.
+  </p>
+
+  <p>
+    Każdy człowiek, nawet nieświadomie, maluje sobą.  
+    Wysyłamy w przestrzeń setki obrazów: smugi czerwieni, błękity zamyślenia, złote kręgi nadziei.  
+    Choć tego nie widzimy, żyjemy w świecie nieustannej sztuki świetlnej.
+  </p>
+
+  <h2>Trzy kategorie myślokształtów</h2>
+
+  <h3>1. Formy bezosobowe — abstrakcje emocji</h3>
+  <p>
+    To czyste uczucia, niezwiązane z konkretnym obiektem: gniew, radość, strach, zachwyt.  
+    Wyłaniają się jak fale koloru — intensywne, lecz krótkotrwałe.
+  </p>
+
+  <h3>2. Formy skierowane na osoby lub rzeczy</h3>
+  <p>
+    Myśl nabiera kierunku: tworzy promień, strzałę, wstęgę.  
+    Miłość — różowy strumień oplatający aurę.  
+    Wrogość — czerwonawy grot, który potrafi odbić się i wrócić.
+  </p>
+
+  <h3>3. Formy abstrakcyjne i duchowe</h3>
+  <p>
+    Myśli o ideach, wglądach, modlitwach.  
+    Mandale, spirale, gwiazdy — geometryczne, harmonijne, przezroczyste.  
+    To świat kontemplacji i zrozumienia.
+  </p>
+
+  <h2>Kolory uczuć — mapa światła</h2>
+
+  <p>W języku Besant każdy kolor ma znaczenie:</p>
+
+  <ul>
+    <li><strong>Czerwień:</strong> energia, namiętność, gniew</li>
+    <li><strong>Pomarańcz:</strong> ambicja, pragnienie, entuzjazm</li>
+    <li><strong>Żółty:</strong> intelekt, radość, jasność myśli</li>
+    <li><strong>Zieleń:</strong> równowaga, empatia, uzdrowienie</li>
+    <li><strong>Błękit:</strong> spokój, wiara, oddanie</li>
+    <li><strong>Indygo:</strong> intuicja, wewnętrzna wizja</li>
+    <li><strong>Róż i złoto:</strong> miłość bezwarunkowa, duchowa radość</li>
+    <li><strong>Szarości / brunatny:</strong> lęk, smutek, przygnębienie</li>
+  </ul>
+
+  <p>
+    Dla Besant to nie symbole, ale prawa natury subtelnej — częstotliwości wibracji,  
+    tak realne jak dźwięk, tylko wyższe.
+  </p>
+
+  <h2>Ruch — alfabet emocji</h2>
+
+  <p>
+    Myślokształty żyją: pulsują, rozszerzają się, wirują.  
+    Ruch jest czasownikiem w zdaniu emocji.
+  </p>
+
+  <p>
+    Miłość — spiralnie ku górze.  
+    Strach — kurczy się.  
+    Zazdrość — wiruje, pochłaniając siebie.  
+    Wdzięczność — rozchodzi się jak kręgi na wodzie.
+  </p>
+
+  <h2>Słyszeć kolory, widzieć uczucia</h2>
+
+  <p>
+    Emocje są muzyką światła.  
+    Czyste uczucia — harmonia; trudne — dysonans.  
+    Synestezja to echo subtelnego widzenia: słyszenia kolorów, widzenia dźwięków.
+  </p>
+
+  <h2>Kiedy myślokształty łączą się w opowieść</h2>
+
+  <p>
+    Myśli łączą się w sekwencje — historie światła.  
+    Myśl o kimś bliskim tworzy ochronną powłokę.  
+    Myśl o projekcie — formę, która zaczyna żyć i przyciągać wydarzenia.
+  </p>
+
+  <h2>Zanieczyszczony język emocji</h2>
+
+  <p>
+    Rozproszone myśli tworzą chaos — duchowy odpowiednik hałasu.  
+    Dlatego Besant wzywała do higieny emocjonalnej:  
+    porządkowania myśli i rozpuszczania ciężkich uczuć światłem świadomości.
+  </p>
+
+  <h2>Świadome mówienie językiem światła</h2>
+
+  <p>
+    To jak nauka nowego języka: zatrzymać się i zapytać:  
+    <em>„Jaką barwę ma ta myśl? Jaki świat tworzę?”</em>
+  </p>
+
+  <p>
+    Pojawia się empatia świetlna — zdolność czytania emocji innych bez oceny.  
+    Świadomość staje się czystym szkłem.
+  </p>
+
+  <h2>Mistyczne podsumowanie</h2>
+
+  <p>
+    Świat emocji to język niewidzialnego.  
+    Można nim ranić — można nim leczyć.  
+    Każda dobra myśl naprawia harmonię świata.
+  </p>
+
+  <p style="font-style:italic; text-align:center;">
+    „Gdy człowiek nauczy się myśleć pięknie, jego życie stanie się modlitwą.”
+  </p>
+
+  <p style="font-style:italic; text-align:center; margin-top:2rem;">
+    🕯️ „Niektóre słabości nie potrzebują leczenia — tylko granic.”
   </p>
 
   <div style="text-align:center;">
-    <a class="btn" href="opis2.html">⬅️ Powrót do opisu książki</a><br>
-    <a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02"_blank">🛒 Kup książkę (PDF)</a>
+    <a class="btn" href="opis2.html">⬅ Powrót do opisu</a>
+    <a class="btn" href="index.html">🏠 Strona główna</a>
   </div>
+
 </main>
 
 <footer>
