@@ -687,6 +687,18 @@ function toggleSound() {
   </div>
 
 </div>
+<script>
+document.querySelectorAll('.telegraph-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.getElementById('telegraphArm').style.transform =
+      "translate(-50%, -100%) rotate(" + opt.dataset.angle + "deg)";
+
+    setTimeout(() => {
+      window.open(opt.dataset.link, "_blank");
+    }, 600);
+  });
+});
+</script>
 
 </body>
 </html>
