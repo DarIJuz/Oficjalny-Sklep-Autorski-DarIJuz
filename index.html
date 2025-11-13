@@ -202,7 +202,7 @@ footer {
   main { padding: 1rem; }
 }
 
-/* =====================================================
+=========
    ⚓ TELEGRAPH – WYGLĄD
 ===================================================== */
 
@@ -228,7 +228,6 @@ footer {
   overflow: hidden;
 }
 
-/* wewnętrzny pierścień */
 .telegraph-dial::before {
   content: "";
   position: absolute;
@@ -240,7 +239,7 @@ footer {
     0 0 6px rgba(255,255,255,0.3);
 }
 
-/* „okno” pod napisami */
+/* okno pod napisami */
 .telegraph-window {
   position: absolute;
   inset: 36px;
@@ -261,27 +260,19 @@ footer {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  box-shadow:
-    0 0 6px rgba(0,0,0,0.8),
-    inset 0 0 4px rgba(255,255,255,0.7);
 }
 
-/* RAMIĘ – oś obrotu w centrum tarczy */
 .telegraph-lever {
   position: absolute;
   width: 90px;
   height: 8px;
   border-radius: 8px;
   background: linear-gradient(90deg, #3a2715, #c89a63);
-
   top: 50%;
   left: 50%;
-  transform-origin: 0 50%;   /* lewy koniec = środek tarczy */
-  transform: translate(0, -50%) rotate(-80deg); /* pozycja startowa: BOOKS */
-  box-shadow:
-    0 2px 4px rgba(0,0,0,0.7),
-    inset 0 0 4px rgba(255,255,255,0.5);
-  transition: transform 0.5s ease-in-out;
+  transform-origin: 0 50%;
+  transform: translate(0, -50%) rotate(-80deg); /* BOOKS start */
+  transition: transform 0.55s ease-in-out;
 }
 
 .telegraph-lever::after {
@@ -294,44 +285,40 @@ footer {
   height: 18px;
   border-radius: 50%;
   background: radial-gradient(circle at 30% 30%, #fdf5e7 0%, #c89a63 60%, #5a3516 100%);
-  box-shadow:
-    0 0 5px rgba(0,0,0,0.8),
-    inset 0 0 3px rgba(255,255,255,0.7);
 }
 
 /* napisy */
 .telegraph-label {
   position: absolute;
   width: 70px;
-  text-align: center;
-  font-size: 0.78rem;
+  color: #3a2715;
   font-weight: bold;
-  color: #2c1a0c;
-  text-shadow: 0 0 3px rgba(255,255,255,0.8);
+  font-size: 0.8rem;
+  text-align: center;
+  text-shadow: 0 0 3px rgba(255,255,255,0.9);
   pointer-events: none;
 }
 
 .telegraph-label span.icon {
   display: block;
-  font-size: 1.05rem;
+  font-size: 1rem;
 }
 
-/* sektory – pozycje napisów */
+/* pozycje */
 .telegraph-label.books   { top: 10px;  left: 50%; transform: translateX(-50%); }
-.telegraph-label.audio   { top: 46px; right: 12px; transform: rotate(30deg); }
+.telegraph-label.audio   { top: 48px; right: 12px; transform: rotate(30deg); }
 .telegraph-label.darijuz { bottom: 32px; right: 12px; transform: rotate(55deg); }
 .telegraph-label.inno    { bottom: 32px; left: 12px;  transform: rotate(-55deg); }
-.telegraph-label.contact { top: 46px; left: 12px;  transform: rotate(-30deg); }
+.telegraph-label.contact { top: 48px; left: 12px;  transform: rotate(-30deg); }
 
-/* aktywny sektor */
 .telegraph-label.active {
-  color: #b33b00;
+  color: #a63a00;
   text-shadow:
     0 0 4px #fff,
-    0 0 8px rgba(255,180,120,0.9);
+    0 0 9px rgba(255,210,160,0.9);
 }
 
-/* HITBOXY – pełne sektory koła */
+/* klikane sektory */
 .telegraph-hitbox {
   position: absolute;
   width: 100%;
@@ -341,87 +328,140 @@ footer {
   cursor: pointer;
 }
 
-/* 5 kawałków „pizzy” – nie nachodzą na siebie */
-.telegraph-hitbox.books {
-  clip-path: polygon(50% 50%, 100% 5%, 0% 5%);
-}
-.telegraph-hitbox.audio {
-  clip-path: polygon(50% 50%, 100% 5%, 100% 50%);
-}
-.telegraph-hitbox.darijuz{
-  clip-path: polygon(50% 50%, 100% 50%, 65% 100%, 35% 100%); 
-}
-.telegraph-hitbox.inno {
-  .telegraph-hitbox.darijuz {
-  clip-path: polygon(50% 50%, 35% 100%, 0% 50%);
-}
-.telegraph-hitbox.contact {
-  clip-path: polygon(50% 50%, 0% 50%, 0% 5%); 
+/* 5 równych sektorów (bez nakładania) */
+.telegraph-hitbox.books   { clip-path: polygon(50% 50%, 100% 8%, 0% 8%); }
+.telegraph-hitbox.audio   { clip-path: polygon(50% 50%, 100% 8%, 100% 50%); }
+.telegraph-hitbox.darijuz { clip-path: polygon(50% 50%, 100% 50%, 50% 100%); }
+.telegraph-hitbox.inno    { clip-path: polygon(50% 50%, 50% 100%, 0% 50%); }
+.telegraph-hitbox.contact { clip-path: polygon(50% 50%, 0% 50%, 0% 8%); }
 
-/* MOBILE: pokazujemy kompaktowy panel zamiast tarczy */
+/* MOBILE */
 .telegraph-mobile-toggle,
-.telegraph-mobile-panel {
-  display: none;
-}
+.telegraph-mobile-panel { display: none; }
 
 @media (max-width: 900px) {
-  .telegraph-dial {
-    display: none;
-  }
-
+  .telegraph-dial { display: none; }
   .telegraph-mobile-toggle {
     display: inline-block;
     position: fixed;
-    top: 16px;
+    top: 14px;
     right: 16px;
     z-index: 9999;
-    padding: 0.5rem 0.9rem;
-    border-radius: 999px;
-    border: 1px solid rgba(0,0,0,0.4);
-    background: rgba(0,0,0,0.6);
-    color: #f5e4c4;
-    font-size: 0.85rem;
-    cursor: pointer;
-    box-shadow: 0 3px 8px rgba(0,0,0,0.7);
+    padding: 6px 12px;
+    border-radius: 20px;
+    background: rgba(0,0,0,0.7);
+    color: #fdf5e7;
   }
 
   .telegraph-mobile-panel {
     display: block;
     position: fixed;
-    top: 52px;
+    top: 50px;
     right: 16px;
-    z-index: 9998;
-    background: rgba(0,0,0,0.8);
-    backdrop-filter: blur(4px);
+    background: rgba(0,0,0,0.85);
     padding: 0.8rem;
-    border-radius: 12px;
-    box-shadow: 0 4px 14px rgba(0,0,0,0.9);
-    transform: translateY(-10px);
+    border-radius: 10px;
     opacity: 0;
     pointer-events: none;
-    transition: opacity 0.3s ease, transform 0.3s ease;
+    transition: 0.3s ease;
   }
-
   .telegraph-mobile-panel.open {
     opacity: 1;
     pointer-events: auto;
-    transform: translateY(0);
   }
-
   .telegraph-mobile-link {
     display: block;
-    text-decoration: none;
-    color: #fdf5e7;
-    padding: 0.4rem 0.3rem;
-    font-size: 0.9rem;
-    border-bottom: 1px solid rgba(255,255,255,0.12);
-  }
-  .telegraph-mobile-link:last-child {
-    border-bottom: none;
+    color: white;
+    padding: 0.4rem 0;
   }
 }
-</style>
-</head>
+<!-- ============================= -->
+<!--  TELEGRAPH — PRAWY GÓRNY RÓG -->
+<!-- ============================= -->
+
+<div class="telegraph-widget">
+
+  <div class="telegraph-dial" aria-label="Navigation telegraph">
+
+    <div class="telegraph-window"></div>
+
+    <!-- NAPISY + IKONY -->
+    <div class="telegraph-label books active">
+      <span class="icon">📚</span>
+      BOOKS
+    </div>
+
+    <div class="telegraph-label audio">
+      <span class="icon">🎧</span>
+      AUDIOBOOKS
+    </div>
+
+    <div class="telegraph-label darijuz">
+      <span class="icon">🎤</span>
+      DarIJuż
+    </div>
+
+    <div class="telegraph-label inno">
+      <span class="icon">👁️</span>
+      InnoWidzenie
+    </div>
+
+    <div class="telegraph-label contact">
+      <span class="icon">✉️</span>
+      Contact
+    </div>
+
+    <!-- RAMIĘ + ŚRODEK -->
+    <div class="telegraph-lever"></div>
+    <div class="telegraph-center"></div>
+
+    <!-- HITBOXY -->
+    <button class="telegraph-hitbox books"
+            data-angle="-80"
+            data-label="books"
+            data-url="#books-section">
+    </button>
+
+    <button class="telegraph-hitbox audio"
+            data-angle="-25"
+            data-label="audio"
+            data-url="https://www.zrzutka.pl/c9p87j">
+    </button>
+
+    <button class="telegraph-hitbox darijuz"
+            data-angle="35"
+            data-label="darijuz"
+            data-url="https://www.youtube.com/@Dar_I_Juz">
+    </button>
+
+    <button class="telegraph-hitbox inno"
+            data-angle="110"
+            data-label="inno"
+            data-url="https://www.youtube.com/@InnoWidzenie">
+    </button>
+
+    <button class="telegraph-hitbox contact"
+            data-angle="160"
+            data-label="contact"
+            data-url="mailto:DarIJuz_Lektor@proton.me">
+    </button>
+
+  </div>
+
+
+  <!-- WERSJA MOBILNA -->
+  <button class="telegraph-mobile-toggle">⚓ Menu</button>
+
+  <div class="telegraph-mobile-panel" id="telegraphMobilePanel">
+    <a class="telegraph-mobile-link" href="#books-section">📚 Books</a>
+    <a class="telegraph-mobile-link" href="https://www.zrzutka.pl/c9p87j" target="_blank">🎧 Audiobooks</a>
+    <a class="telegraph-mobile-link" href="https://www.youtube.com/@Dar_I_Juz" target="_blank">🎤 DarIJuż (YT)</a>
+    <a class="telegraph-mobile-link" href="https://www.youtube.com/@InnoWidzenie" target="_blank">👁️ InnoWidzenie (YT)</a>
+    <a class="telegraph-mobile-link" href="mailto:DarIJuz_Lektor@proton.me">✉️ Contact</a>
+  </div>
+
+</div>
+
 
 <body>
 
@@ -615,56 +655,66 @@ function toggleSound() {
 }
 </script>
 
+
 <script>
 (function() {
-  const lever  = document.querySelector('.telegraph-lever');
+
+  const lever = document.querySelector('.telegraph-lever');
   const labels = document.querySelectorAll('.telegraph-label');
   const hitboxes = document.querySelectorAll('.telegraph-hitbox');
-  const clickSound = document.getElementById('telegraphClick');
-
-  if (!lever) return;
 
   hitboxes.forEach(btn => {
     btn.addEventListener('click', () => {
+
       const angle = parseFloat(btn.dataset.angle) || 0;
       const labelKey = btn.dataset.label;
       const url = btn.dataset.url;
 
-      /* animacja ramienia – tylko ROTATE */
+      /* ======== ANIMACJA RAMIENIA – TYLKO ROTACJA ======== */
       lever.style.transform = 'translate(0, -50%) rotate(' + angle + 'deg)';
 
-      /* podświetlenie aktywnego sektora */
+      /* ======== PODŚWIETLANIE SEKTORA ======== */
       labels.forEach(l => l.classList.remove('active'));
       const activeLabel = document.querySelector('.telegraph-label.' + labelKey);
       if (activeLabel) activeLabel.classList.add('active');
 
-      /* dźwięk kliknięcia (jeśli plik istnieje) */
-      if (clickSound) {
-        clickSound.currentTime = 0;
-        clickSound.play().catch(() => {});
-      }
+      /* ======== MAŁY DŹWIĘK KLIKNIĘCIA ======== */
+      const audioClick = new Audio('click.mp3');
+      audioClick.volume = 0.25;
+      audioClick.play().catch(()=>{});
 
-      /* akcja linku z lekkim opóźnieniem */
+      /* ======== PO 350ms WYKONUJEMY AKCJĘ ======== */
       if (url) {
         setTimeout(() => {
+
           if (url.startsWith('#')) {
+            /* scroll to section */
             const target = document.querySelector(url);
             if (target) target.scrollIntoView({ behavior: 'smooth' });
-          } else if (url.startsWith('mailto:')) {
+          }
+
+          else if (url.startsWith('mailto:')) {
             window.location.href = url;
-          } else {
+          }
+
+          else {
             window.open(url, '_blank');
           }
+
         }, 350);
       }
+
     });
   });
 
-  /* wersja mobilna – rozwijany panel */
+
+  /* ==================== WERSJA MOBILNA ==================== */
+
   const mobileToggle = document.querySelector('.telegraph-mobile-toggle');
   const mobilePanel  = document.getElementById('telegraphMobilePanel');
 
   if (mobileToggle && mobilePanel) {
+
     mobileToggle.addEventListener('click', () => {
       mobilePanel.classList.toggle('open');
     });
@@ -675,8 +725,6 @@ function toggleSound() {
       });
     });
   }
+
 })();
 </script>
-
-</body>
-</html>
