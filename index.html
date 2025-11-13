@@ -6,247 +6,221 @@
 
   <!-- 🔹 META SEO -->
   <meta name="robots" content="index, follow">
+  <meta name="description" content="Oficjalny sklep autorski DarIJuż – książki, audiobooki i opowieści o relacjach, duchowości i naturze ludzkiej.">
+  <meta name="keywords" content="DarIJuż, książki, audiobooki, Biegnąca z Wilkami, Clarissa Pinkola Estés, Księga Widzenia">
+  <meta name="author" content="DarIJuż">
+
+  <!-- 🔹 META SOCIAL -->
   <meta property="og:title" content="Following the Trails of the One Who Runs with the Wolves – by DarIJuż">
   <meta property="og:description" content="A poetic journey into feminine strength, emotional awakening, and human connection.">
   <meta property="og:image" content="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/following-cover.jpg">
-  <meta property="og:type" content="website">
-  <meta property="og:locale" content="pl_PL">
+  <meta property="og:type" content="book">
+  <meta property="og:locale" content="en_US">
 
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Following the Trails of the One Who Runs with the Wolves – by DarIJuż">
   <meta name="twitter:description" content="Discover a poetic reflection on love, spirit, and self-awareness.">
   <meta name="twitter:image" content="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/following-cover.jpg">
 
-  <title>Sklep Autorski DarIJuż – Księgi Widzenia, Biegnąca z Wilkami, Opowieści</title>
+  <title>Sklep Autorski DarIJuż – Oficjalne publikacje</title>
 
-  <style>
+<style>
+/* ---------------------------------------------------
+   🔹 GLOBAL STYLING
+--------------------------------------------------- */
+body {
+  font-family: 'Georgia', serif;
+  color: #f5e9d6;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
 
-    /* ===========================================================
-       🔵 GLOBALNE TŁO STRONY – MORZE + ANIMOWANE FALE
-    ============================================================ */
-    body {
-      font-family: 'Georgia', serif;
-      margin: 0;
-      padding: 0;
-      color: #e7e7e7;
-      line-height: 1.6;
+  /* Ocean background */
+  background: url("morze2.png") center/cover fixed no-repeat;
+  animation: oceanMove 25s ease-in-out infinite alternate;
+}
 
-      background: url("morze%202.png") repeat-x top center;
-      background-size: cover;
-      background-attachment: fixed;
+/* 🔹 Animowane tło oceanu */
+@keyframes oceanMove {
+  0% { background-position: center 0px; }
+  100% { background-position: center -40px; }
+}
 
-      animation: waves 18s ease-in-out infinite alternate;
-    }
+/* ---------------------------------------------------
+   🔹 BANER Glowne.png z rozmyciem
+--------------------------------------------------- */
+header {
+  margin-top: 20px;
+  text-align: center;
+}
 
-    @keyframes waves {
-      0%   { background-position: 0px 0px; }
-      100% { background-position: 0px 60px; }
-    }
+.blur-bottom-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
 
-    /* ===========================================================
-       🔵 BANER Glowne.png – animacje, rozmycie krawędzi, parallax
-    ============================================================ */
-    .hero-banner {
-      width: 100%;
-      text-align: center;
-      margin-top: 40px;
-      position: relative;
-      overflow: visible;
-      perspective: 1000px;
-    }
+.blur-bottom {
+  width: 60%;
+  max-width: 650px;
+  border-radius: 12px;
+  display: block;
+  margin: 0 auto;
+  -webkit-mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+          mask-image: linear-gradient(to bottom, black 65%, transparent 100%);
+  filter: blur(1.8px);
+}
 
-    .hero-image {
-      width: 65%;
-      max-width: 680px;
-      display: block;
-      margin: 0 auto;
-      border-radius: 22px;
+/* ---------------------------------------------------
+   🔹 GŁÓWNA KARTA (białe tło w centrum)
+--------------------------------------------------- */
+main {
+  max-width: 800px;
+  margin: 3rem auto;
+  padding: 1.5rem;
+  background: rgba(15, 20, 30, 0.55);
+  border-radius: 18px;
+  box-shadow: 0 4px 14px rgba(0,0,0,0.55);
+  backdrop-filter: blur(8px);
+}
 
-      /* Rozmycie krawędzi */
-      mask-image: radial-gradient(circle, black 70%, transparent 100%);
-      -webkit-mask-image: radial-gradient(circle, black 70%, transparent 100%);
+/* ---------------------------------------------------
+   🔹 Drewniane przyciski – tabliczki
+--------------------------------------------------- */
+.btn {
+  display: inline-block;
+  padding: 12px 24px;
+  margin: 6px;
+  color: #f5e9d6;
+  font-weight: bold;
+  font-family: 'Georgia', serif;
+  text-decoration: none;
+  border-radius: 12px;
 
-      /* Delikatna animacja */
-      animation:
-        glowMoon 6s ease-in-out infinite alternate,
-        tiltMotion 12s ease-in-out infinite,
-        waveSoft 9s ease-in-out infinite;
+  background: url("drewno.png") center/cover no-repeat;
 
-      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
-      transform: translateZ(0);
-      will-change: transform;
-    }
+  border: 2px solid rgba(60,30,10,0.6);
+  box-shadow:
+    inset 0 5px 7px rgba(255,255,255,0.35),
+    inset 0 -5px 7px rgba(0,0,0,0.5),
+    0 6px 12px rgba(0,0,0,0.45);
 
-    /* księżyc – poświata */
-    @keyframes glowMoon {
-      0%   { filter: brightness(1) drop-shadow(0 0 25px rgba(255,255,255,0.25)); }
-      100% { filter: brightness(1.08) drop-shadow(0 0 45px rgba(255,255,255,0.40)); }
-    }
+  transition: all 0.25s ease;
+}
 
-    /* falowanie obrazu */
-    @keyframes waveSoft {
-      0%   { transform: translateY(0px) scale(1); }
-      50%  { transform: translateY(-2px) scale(1.008); }
-      100% { transform: translateY(0px) scale(1); }
-    }
+.btn:hover {
+  filter: brightness(0.85);
+  transform: translateY(-2px);
+  color: #ffffff;
 
-    /* pochylenie */
-    @keyframes tiltMotion {
-      0%   { transform: rotateX(0deg) rotateY(0deg); }
-      50%  { transform: rotateX(0.25deg) rotateY(-0.35deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
-    }
+  box-shadow:
+    inset 0 4px 8px rgba(0,0,0,0.55),
+    inset 0 -4px 6px rgba(255,255,255,0.25),
+    0 10px 18px rgba(0,0,0,0.55);
+}
 
-    /* ===========================================================
-       🔵 PANEL GŁÓWNY
-    ============================================================ */
-    main {
-      max-width: 820px;
-      margin: 3rem auto;
-      padding: 1.6rem;
-      background: rgba(255,255,255,0.10);
-      border-radius: 16px;
-      backdrop-filter: blur(5px);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.4);
-    }
+/* ---------------------------------------------------
+   🔹 RWD TELEFONY
+--------------------------------------------------- */
+@media (max-width: 600px) {
+  .blur-bottom {
+    width: 90%;
+  }
+  .btn {
+    width: 90%;
+    display: block;
+    text-align: center;
+  }
+}
 
-    h2 {
-      color: #ffd9a3;
-      text-shadow: 0 0 6px #000;
-      margin-top: 1.4rem;
-    }
+/* ---------------------------------------------------
+   🔹 STOPKA
+--------------------------------------------------- */
+footer {
+  text-align: center;
+  padding: 2rem;
+  color: #e8e5db;
+  font-size: 1.35rem;
+}
+</style>
 
-    .book {
-      text-align: center;
-      margin-top: 2rem;
-    }
-
-    .book img {
-      max-width: 260px;
-      border-radius: 8px;
-      box-shadow: 0 3px 10px rgba(0,0,0,0.4);
-      transition: transform 0.3s ease;
-    }
-
-    .book img:hover {
-      transform: scale(1.05);
-    }
-
-    /* ===========================================================
-       🔵 DREWNIANE PRZYCISKI – TABLICZKI
-    ============================================================ */
-    .btn {
-      display: inline-block;
-      margin-top: 0.7rem;
-      padding: 0.8rem 1.5rem;
-      color: #fff;
-      text-decoration: none;
-      font-weight: bold;
-
-      background-image: url('drewno.png');
-      background-size: cover;
-
-      border-radius: 6px;
-      box-shadow: 0 3px 6px rgba(0,0,0,0.5);
-      transition: 0.3s ease;
-    }
-
-    .btn:hover {
-      transform: scale(1.05);
-      filter: brightness(1.15);
-    }
-
-    /* ===========================================================
-       🔵 STOPKA
-    ============================================================ */
-    footer {
-      text-align: center;
-      padding: 2rem;
-      background: rgba(0,0,0,0.55);
-      color: #eee;
-      font-size: 1.35rem; /* x1.5 większa czcionka */
-      margin-top: 3rem;
-      letter-spacing: 1px;
-    }
-
-    /* ===========================================================
-       🔵 MOBILKI
-    ============================================================ */
-    @media (max-width: 600px) {
-      .hero-image { width: 92%; }
-      .book img   { width: 90%; }
-      .btn        { width: 90%; font-size: 1rem; }
-      main        { padding: 1rem; }
-    }
-
-  </style>
 </head>
-
 <body>
 
-<!-- BANER -->
-<header class="hero-banner">
-  <img src="Glowne.png" class="hero-image" alt="Glowne Banner">
+<!-- ---------------------------------------------------
+     🔹 Baner Glowne.png z rozmytym dołem
+--------------------------------------------------- -->
+<header class="blur-bottom-container">
+  <img src="Glowne.png" class="blur-bottom" alt="Baner główny DarIJuż">
 </header>
 
-<!-- TREŚĆ -->
 <main>
 
-  <!-- ░░░ KSIĄŻKA 1 ░░░ -->
-  <section class="book">
-    <h2>📖 „Idąc Tropami Biegnącej z Wilkami”</h2>
+<!-- ---------------------------------------------------
+     🔹 PIERWSZA KSIĄŻKA
+--------------------------------------------------- -->
+<section class="book">
+  <h2>📖 „Idąc Tropami Biegnącej z Wilkami”</h2>
 
-    <a href="opis.html">
-      <img src="okladka.png" alt="Okładka książki">
-    </a>
+  <a href="opis.html">
+    <img src="okladka.png" alt="Okładka książki" style="max-width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+  </a>
 
-    <p><em>Duchowa kontynuacja myśli Clarissy Pinkoli Estés – o relacjach, kobiecości i przebudzeniu serca.</em></p>
+  <p><em>Duchowa kontynuacja myśli Clarissy Pinkola Estés – o relacjach, kobiecości i przebudzeniu serca.</em></p>
 
-    <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">🎬 Zobacz prezentację</a><br>
-    <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
-    <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup (PDF)</a>
+  <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">📽 Zobacz prezentację (PL)</a>
+  <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a>
+  <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01">🇵🇱 Kup i pobierz (PDF PL)</a>
 
-    <div class="divider">
-      <a href="opis_en.html">
-        <img src="following-cover.jpg" style="max-width:180px; margin-top:18px;">
-      </a>
-    </div>
+  <div style="margin-top:20px;">
+    <img src="following-cover.jpg" alt="English Cover" style="max-width:180px; border-radius:8px;">
+  </div>
 
-    <a class="btn" href="opis_en.html">📘 English Description</a><br>
-    <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank">🇬🇧 Buy (EN)</a>
-  </section>
+  <a class="btn" href="opis_en.html">📖 Read English Description</a>
+  <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03">🇬🇧 Buy & Download (PDF EN)</a>
+</section>
 
-  <!-- ░░░ KSIĄŻKA 2 ░░░ -->
-  <section class="book">
-    <h2>📘 „KSIĘGA WIDZENIA”</h2>
+<!-- ---------------------------------------------------
+     🔹 DRUGA KSIĄŻKA
+--------------------------------------------------- -->
+<section class="book">
+  <h2>📘 „Księga Widzenia”</h2>
 
-    <a href="Opis2.html">
-      <img src="okladka2.png" alt="Okładka Księgi Widzenia">
-    </a>
+  <a href="opis2.html">
+    <img src="okladka2.png" alt="Okładka 2" style="max-width:250px; border-radius:10px; box-shadow:0 4px 10px rgba(0,0,0,0.5);">
+  </a>
 
-    <p><em>O jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thotha – teoria i praktyka.</em></p>
+  <p><em>O jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thotha.</em></p>
 
-    <a class="btn" href="fragment2.html">📖 Przeczytaj fragment</a><br>
-    <a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02" target="_blank">🇵🇱 Kup (PDF)</a>
-  </section>
+  <a class="btn" href="fragment2.html">📖 Przeczytaj fragment</a>
+  <a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02">🇵🇱 Kup i pobierz (PDF)</a>
+</section>
 
-  <!-- ░░░ O PROJEKCIE ░░░ -->
-  <section>
-    <h2>🌙 O projekcie</h2>
-    <p>
-      Strona otwiera cykl <strong>„Księga Widzenia”</strong> — książek o duchowej drodze, świadomości i relacjach.
-    </p>
-  </section>
+<!-- ---------------------------------------------------
+     🔹 O projekcie
+--------------------------------------------------- -->
+<section>
+  <h2>🌙 O projekcie</h2>
+  <p>
+    Cykl <strong>Księga Widzenia</strong> to opowieść o duchowej drodze, intuicji i świadomości.  
+    Każda publikacja otwiera nowy rozdział zrozumienia relacji i ludzkiego serca.
+  </p>
+</section>
 
-  <!-- ░░░ KONTAKT ░░░ -->
-  <section>
-    <h2>📬 Kontakt</h2>
-    <p><strong>Email:</strong> <a href="mailto:DarIJuz_Lektor@proton.me">DarIJuz_Lektor@proton.me</a></p>
-  </section>
+<!-- ---------------------------------------------------
+     🔹 Kontakt
+--------------------------------------------------- -->
+<section>
+  <h2>📬 Kontakt</h2>
+  <p><strong>Email:</strong> <a href="mailto:DarIJuz_Lektor@proton.me" style="color:#fff;">DarIJuz_Lektor@proton.me</a></p>
+</section>
 
 </main>
 
-<!-- STOPKA -->
+<!-- ---------------------------------------------------
+     🔹 Stopka
+--------------------------------------------------- -->
 <footer>
   © 2025 DarIJuż – Oficjalny Sklep Autorski
 </footer>
