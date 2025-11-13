@@ -4,22 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Fragment książki – Idąc Tropami Biegnącej z Wilkami</title>
-
-  <meta name="description" content="Fragment książki Idąc Tropami Biegnącej z Wilkami – autor DarIJuż / Innowidzący. Oficjalny sklep autorski.">
-  <meta name="author" content="DarIJuż">
+  <title>Fragment – Idąc Tropami Biegnącej z Wilkami</title>
 
   <style>
 
-    /* =====================================================
-       🌊 TŁO – MORZE + ANIMACJA FAL
-    ===================================================== */
+    /* ------------------------------
+       🌊 TŁO – MORZE
+    ------------------------------ */
     body {
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
       color: #e7e7e7;
-      line-height: 1.6;
 
       background: url("morze 2.png") repeat-x top center;
       background-size: cover;
@@ -33,87 +29,84 @@
       100% { background-position: 0px 70px; }
     }
 
-    /* =====================================================
-       🌙 BANER Glowne.png z animacją i rozmyciem
-    ===================================================== */
-    .hero-banner {
+    /* ------------------------------
+       🌙 BANER Glowne.png
+    ------------------------------ */
+    header {
       width: 100%;
       text-align: center;
       margin-top: 40px;
-      position: relative;
-      overflow: visible;
     }
 
     .hero-image {
-      width: 65%;
-      max-width: 680px;
-      display: block;
-      margin: 0 auto;
+      width: 60%;
+      max-width: 650px;
       border-radius: 18px;
 
       mask-image: radial-gradient(circle, black 75%, transparent 100%);
       -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
 
-      animation:
-        glowMoon 6s ease-in-out infinite alternate,
-        tiltMotion 12s ease-in-out infinite,
-        waveSoft 9s ease-in-out infinite;
-
+      animation: waveSoft 9s ease-in-out infinite;
       filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
     }
 
-    @keyframes glowMoon {
-      0% { filter: brightness(1); }
-      100% { filter: brightness(1.09); }
-    }
-
     @keyframes waveSoft {
-      0% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-3px) scale(1.008); }
-      100% { transform: translateY(0px) scale(1); }
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
     }
 
-    @keyframes tiltMotion {
-      0% { transform: rotateX(0deg) rotateY(0deg); }
-      50% { transform: rotateX(0.25deg) rotateY(-0.35deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
-    }
-
-    /* =====================================================
-       📘 PANEL GLASS – JASNY (0.10)
-    ===================================================== */
+    /* ------------------------------
+       📘 PANEL NA TREŚĆ
+    ------------------------------ */
     main {
-      max-width: 820px;
+      max-width: 920px;
       margin: 3rem auto;
-      padding: 1.6rem;
+      padding: 2.2rem;
 
-      background: rgba(255,255,255,0.10);
-      border-radius: 16px;
-      backdrop-filter: blur(6px);
-      box-shadow: 0 4px 18px rgba(0,0,0,0.40);
+      background: rgba(255,255,255,0.12);
+      border-radius: 18px;
+      backdrop-filter: blur(7px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+    }
+
+    .text-column {
+      max-width: 75%;
+      margin: auto;
     }
 
     h1 {
       text-align: center;
+      font-size: 2rem;
       color: #ffd9a3;
       text-shadow: 0 0 6px #000;
-      margin-bottom: 1rem;
-      font-size: 1.9rem;
     }
 
     p {
+      color: #f4f1ed;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      margin-bottom: 1.35rem;
       text-align: justify;
-      margin-bottom: 1rem;
-      color: #f2ede7;
-      font-size: 1.1rem;
     }
 
-    /* =====================================================
-       🪵 DREWNIANE PRZYCISKI
-    ===================================================== */
+    strong { color: #ffe4b5; }
+    em { color: #ffe9d7; }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1.4rem;
+      color: #f4f1ed;
+    }
+
+    li { margin-bottom: 0.6rem; }
+
+    /* ------------------------------
+       🪵 PRZYCISKI
+    ------------------------------ */
     .btn {
       display: inline-block;
-      margin-top: 1.2rem;
+      margin-top: 1.3rem;
       padding: 0.8rem 1.4rem;
       color: #fff;
       text-decoration: none;
@@ -121,12 +114,11 @@
 
       background-image: url('drewno.png');
       background-size: cover;
-      border-radius: 6px;
+      border-radius: 7px;
 
-      box-shadow:
-        0 3px 0 rgba(0,0,0,0.65),
-        inset 0 0 6px rgba(0,0,0,0.6);
-      border: 1px solid rgba(0,0,0,0.7);
+      box-shadow: 0 3px 0 rgba(0,0,0,0.65),
+                  inset 0 0 6px rgba(0,0,0,0.5);
+      border: 1px solid rgba(0,0,0,0.75);
 
       text-shadow: 0 1px 2px rgba(0,0,0,0.9);
       transition: 0.25s;
@@ -134,21 +126,23 @@
 
     .btn:hover {
       transform: scale(1.05);
-      filter: brightness(1.12);
+      filter: brightness(1.13);
     }
 
     .center-buttons {
       text-align: center;
-      margin-top: 2rem;
+      margin-top: 2.6rem;
     }
 
-    /* =====================================================
-       📱 MOBILKI
-    ===================================================== */
+    /* ------------------------------
+       📱 RWD
+    ------------------------------ */
     @media (max-width: 600px) {
-      .hero-image { width: 92%; }
-      main { margin: 2rem 0.6rem; padding: 1.2rem; }
-      .btn { width: 90%; display: block; margin: 0.6rem auto; }
+      .hero-image { width: 90%; }
+      .text-column { max-width: 92%; }
+      p { font-size: 1.05rem; }
+      .btn { width: 90%; display:block; margin:0.7rem auto; }
+      main { padding: 1.4rem; }
     }
 
   </style>
@@ -156,106 +150,91 @@
 
 <body>
 
-<!-- =======================
-     🌙 BANER
-======================= -->
-<header class="hero-banner">
-  <img src="Glowne.png" class="hero-image" alt="Oficjalny Sklep Autorski DarIJuż">
+<header>
+  <img src="Glowne.png" class="hero-image" alt="">
 </header>
 
-<!-- =======================
-     📘 TREŚĆ FRAGMENTU
-======================= -->
 <main>
-
   <h1>Fragment książki</h1>
 
-  <!-- 🔹 TU WKLEJASZ SWÓJ FRAGMENT TEKSTU -->
-  <p>
-Pajęczarz Wdowi -Ten, który tka sieć emocjonalnej zależności, karmiąc się cudzą troską.
+  <div class="text-column">
 
-1. Wprowadzenie — szkic przypadku
-Z pozoru jest wzorem stabilności: zadbany, punktualny, skupiony na pracy. Jego zewnętrzny świat to porządek — wysokie dochody, kariera, właściwy garnitur, pewny krok. Kto by pomyślał, że za sukcesem kryje się niezałatwiona przeszłość? Po nieudanym, bolesnym związku zamknął się w sobie i od lat nosi w kieszeni żal, który działa jak stara, pękająca płyta — wraca w rozmowach, w pijanych zwierzeniach, w nagłych wybuchach rozgoryczenia.
-Poznana kobieta widzi w nim oparcie: stabilność materialną, urok, szczerość, a także — myśli sobie — ranę, którą można uleczyć. Zaczyna być blisko, bo wierzy, że cierpliwość i troska uzdrowią przeszłość. Początek związku jest czuły, pełen obietnic. Z czasem jednak jego „wdzięczność” za opiekę zmienia się w oczekiwanie; jej zaangażowanie przyjmuje postać oddania — finansowego i emocjonalnego. On z kolei powraca do dawnych żali, zaczyna dominować drobnymi naciskami, krytyką, chłodem.
-Związek, który miał być uzdrowieniem, staje się klatką: ona traci niezależność finansową i emocjonalną, codzienność wypełnia „naprawianie” jego nastrojów, a jej własne talenty i praca ulegają zaciemnieniu. On znudzony związkiem chce się uwolnić i szuka zaczepienia aby obarczyć winą partnerkę. W końcu – pod pretekstem „potrzeby wolności” lub „braku chemii” – kończy relację, odbiera jej daną wcześniej biżuterię, blokuje dostęp do pieniędzy i pracy którą ofiarowal, a ona zostaje psychicznie wypruta. On rusza dalej — w poszukiwaniu kolejnej „ofiarnej troski” do podtrzymania własnego obrazu siebie.
-Ten typ relacji — dramatyczny w konsekwencjach — nie jest „mitycznym” wyjątkiem. Ma swoje nazewnictwo w psychologii i swoje mechanizmy, które wyjaśnię niżej.
+    <p><strong>Pajęczarz Wdowi</strong> — <em>Ten, który tka sieć emocjonalnej zależności, karmiąc się cudzą troską.</em></p>
 
-2. Przypowieść-metafora: „Pająk i mucha”
-W literaturze moralizatorskiej i ludowej łatwo znaleźć echa tej dynamiki. Najczystszy symbol znajdziemy w dawnej didaktycznej przypowieści-poemacie The Spider and the Fly (Mary Howitt) — o pająku, który pochlebnie nawołuje muchę do swego „parlour”, aż w końcu ją pożera. Morał jest prosty: pochlebstwo i uwodzenie potrafią zassać życie. W tej krótkiej alegorii pająk tka sieć obietnic i pochlebstw, a mucha — uległa własnemu ego i potrzebie aprobaty — daje się zwieść i ginie. Parafrazując: tam, gdzie pochlebstwo łączy się z wykorzystaniem, rodzi się sieć, z której trudno się wydostać. LitCharts
-„Step into my parlour, said the Spider to the Fly —
-’Tis the prettiest little parlour that ever you did spy.”
-Ta klasyczna przypowieść, spisana w Anglii w 1829 roku, opowiada o pająku, który nie używa siły, lecz delikatnych słów i zaproszeń. Wabi muchę pochwałą, uwagą, poczuciem wyjątkowości. Nie mówi „zniszczę cię” – mówi: „wejdź, zobacz, jak pięknie ci tu będzie”.
-To nie przemoc jest jego bronią, lecz uwaga, uznanie i empatia na pokaz – te same elementy, które w psychologii relacji nazywa się **„emocjonalnym wabikiem”**¹.
-Jak wskazuje C. Johnson (2016), osoby o profilu narcystyczno-depresyjnym często wykorzystują empatię innych, aby podtrzymywać iluzję własnej krzywdy².
-Ich celem nie jest bliskość, ale zasilenie systemu autoidentyfikacji przez drugą osobę.
-Podobnie Pajęczarz: nie tka sieci z agresji, lecz z wdzięczności, czułości i zranienia. Każde „dziękuję” staje się nicią. A im bardziej partnerka chce mu pomóc, tym bardziej jest uwięziona w jego narracji.
+    <h2>1. Wprowadzenie — szkic przypadku</h2>
 
-3. Słowiańska przypowieść – „O dziewczynie, co zaufała mężczyźnie z lasu”
-Dawno temu, w jednej z północnych wiosek, żyła dziewczyna, która lubiła chodzić do lasu zbierać zioła. Pewnego dnia spotkała mężczyznę o oczach jak zmrożone jezioro. Mówił cicho, ale jego głos brzmiał jak skrzypienie starych drzew.
-Powiedział, że mieszka sam w chacie za jeziorem i że szuka kogoś, kto umie słuchać.
-Dziewczyna wracała tam coraz częściej. Gotowała mu strawę, sprzątała chatę, opowiadała mu o swoich snach. A on – w zamian – słuchał, ale coraz mniej mówił. W końcu poprosił, by została na zawsze.
-Po czasie dziewczyna zapomniała, jak brzmi wiatr nad jej wioską. W chacie pachniało dymem i ciszą, a oczy mężczyzny stawały się coraz ciemniejsze. Pewnej nocy, gdy spała, poczuła, że coś chłodnego owija jej dłonie. To nie była lina – to były korzenie.
-Gdy się ocknęła, była już częścią lasu. Stała się cieniem pod drzewem, a on – tylko uśmiechnął się i poszedł dalej, szukać kolejnej, co będzie umiała słuchać.
-Morał (ze starego zapisu mazowieckiego):
-*„Nie każda cisza znaczy spokój, a nie każda troska jest darem.”*³
-W tej legendzie mężczyzna z lasu to archetypiczny emocjonalny pasożyt — figura, która karmi się kobiecą obecnością, nie dając nic w zamian poza poczuciem sensu opieki. Współczesna psychologia nazwałaby ten mechanizm symbiotycznym uzależnieniem⁴.
+    <p>Z pozoru jest wzorem stabilności: zadbany, punktualny, skupiony na pracy. Jego zewnętrzny świat to porządek — wysokie dochody, kariera, właściwy garnitur, pewny krok. Kto by pomyślał, że za sukcesem kryje się niezałatwiona przeszłość? Po nieudanym, bolesnym związku zamknął się w sobie i od lat nosi w kieszeni żal, który działa jak stara, pękająca płyta — wraca w rozmowach, w pijanych zwierzeniach, w nagłych wybuchach rozgoryczenia.</p>
 
-4. Psychologiczny obraz Pajęczarza
-Ten typ osobowości łączy w sobie dwa silne bieguny: potrzebę kontroli i lęk przed odrzuceniem.
-Jak pisze M. Rosenberg, mechanizmy obronne takich osób są często mylone z wrażliwością⁵. Ich cierpienie jest prawdziwe, lecz pełni funkcję – przyciąga uwagę, tworząc emocjonalny dług u partnera.
-Psychologia kliniczna wyróżnia tu formę tzw. „uzależnienia współzależnego” (codependency), w którym relacja jest oparta na jednym z partnerów „ratującym” drugiego.
-Kobieta z silnym instynktem opiekuńczym (macierzyńskim, empatycznym) naturalnie wchodzi w rolę ratowniczki, ponieważ w dzieciństwie lub młodości nauczyła się, że miłość to troska.
-Pajęczarz natomiast utrwala w niej ten schemat, wzmacniając go naprzemiennym ciepłem i dystansem.
-W efekcie powstaje tzw. „dysocjacyjny układ wzmocnień” — zjawisko, w którym system nagrody w mózgu uzależnia się od nieprzewidywalnych impulsów emocjonalnych⁶.
-To dlatego kobieta nie może odejść, mimo świadomości, że jest krzywdzona.
+    <p>Poznana kobieta widzi w nim oparcie: stabilność materialną, urok, szczerość, a także — myśli sobie — ranę, którą można uleczyć. Zaczyna być blisko, bo wierzy, że cierpliwość i troska uzdrowią przeszłość. Początek związku jest czuły, pełen obietnic. Z czasem jednak jego „wdzięczność” za opiekę zmienia się w oczekiwanie; jej zaangażowanie przyjmuje postać oddania — finansowego i emocjonalnego. On z kolei powraca do dawnych żali, zaczyna dominować drobnymi naciskami, krytyką, chłodem.</p>
 
-5. Jak rozpoznać Pajęczarza
-    1. Często mówi o byłych partnerkach w tonie żalu lub „niesprawiedliwości”.
-    2. Przedstawia się jako ofiara emocjonalna, niezdolna do szczęścia bez „zrozumienia”.
-    3. Na początku jest ciepły, ale jego zainteresowanie szybko staje się kontrolujące.
-    4. W trudnych chwilach używa emocjonalnych dźwigni — choroby, smutku, gniewu, złości.
-    5. Nie przyjmuje odpowiedzialności za swoje zachowania — winne są okoliczności lub inni.
+    <p>Związek, który miał być uzdrowieniem, staje się klatką: ona traci niezależność finansową i emocjonalną, codzienność wypełnia „naprawianie” jego nastrojów, a jej własne talenty i praca ulegają zaciemnieniu. On znudzony związkiem chce się uwolnić i szuka zaczepienia aby obarczyć winą partnerkę. W końcu – pod pretekstem „potrzeby wolności” lub „braku chemii” – kończy relację, odbiera jej daną wcześniej biżuterię, blokuje dostęp do pieniędzy i pracy którą ofiarowal, a ona zostaje psychicznie wypruta. On rusza dalej — w poszukiwaniu kolejnej „ofiarnej troski” do podtrzymania własnego obrazu siebie.</p>
 
+    <p>Ten typ relacji — dramatyczny w konsekwencjach — nie jest „mitycznym” wyjątkiem. Ma swoje nazewnictwo w psychologii i swoje mechanizmy, które wyjaśnię niżej.</p>
 
+    <h2>2. Przypowieść-metafora: „Pająk i mucha”</h2>
 
+    <p>W literaturze moralizatorskiej i ludowej łatwo znaleźć echa tej dynamiki. Najczystszy symbol znajdziemy w dawnej didaktycznej przypowieści-poemacie <em>The Spider and the Fly</em> (Mary Howitt) — o pająku, który pochlebnie nawołuje muchę do swego „parlour”, aż w końcu ją pożera.</p>
 
-6. Jak się chronić
-    • Nie wchodź w relacje, które zaczynają się od „ratowania”.
-    • Obserwuj, czy twoja troska przynosi równowagę, czy tylko spokój drugiej strony.
-    • Jeśli czujesz, że twoje granice rozmywają się w imię „zrozumienia” — zatrzymaj się.
-    • Rozmowa z terapeutą nie jest zdradą miłości — jest obroną przed uzależnieniem emocjonalnym.
+    <p><em>„Step into my parlour, said the Spider to the Fly — ’Tis the prettiest little parlour that ever you did spy.”</em></p>
 
-7. Wskazania dla mężczyzny – droga uzdrowienia
-Pajęczarz nie jest potworem – jest człowiekiem, który utknął w historii własnej krzywdy.
-Jedynym wyjściem jest odcięcie się od narracji o byciu ofiarą.
-Dopiero gdy nauczy się żyć bez karmienia się cudzym współczuciem, zacznie widzieć miłość jako wymianę, a nie jako lekarstwo.
-Praca terapeutyczna z takimi osobami często obejmuje:
-    • naukę rozpoznawania emocji,
-    • odróżnianie empatii od zależności,
-    • odbudowę tożsamości nieopartej na byciu „skrzywdzonym”.
+    <p>To nie przemoc jest jego bronią, lecz uwaga, uznanie i empatia na pokaz – te same elementy, które w psychologii relacji nazywa się <strong>„emocjonalnym wabikiem”</strong>¹.</p>
 
-8. Refleksja duchowa
-„Kto tka sieć z żalu, ten sam w niej zamieszka.
-Kto będąc uważną  tka  z wdzięczności  – znajdzie dom.”
+    <p>Jak wskazuje C. Johnson (2016), osoby o profilu narcystyczno-depresyjnym często wykorzystują empatię innych, aby podtrzymywać iluzję własnej krzywdy².</p>
 
-Przypisy
-¹ J. Welwood, Toward a Psychology of Awakening, Shambhala, 2000.
-² C. Johnson, „Emotional Parasitism in Intimate Relationships”, Journal of Behavioral Studies, 2016.
-³ Cyt. za: „Podania Mazowieckie i Kujawskie”, red. B. Kunicki, 1921.
-⁴ L. Whitfield, Codependency: Healing the Human Condition, Health Communications, 1991.
-⁵ M. Rosenberg, Nonviolent Communication, PuddleDancer Press, 2015.
-⁶ J. Carnes, Don’t Call It Love: Recovery from Sexual Addiction, Bantam, 1991.
+    <p>Podobnie Pajęczarz: nie tka sieci z agresji, lecz z wdzięczności, czułości i zranienia. Każde „dziękuję” staje się nicią. A im bardziej partnerka chce mu pomóc, tym bardziej jest uwięziona w jego narracji.</p>
 
+    <h2>3. Słowiańska przypowieść – „O dziewczynie, co zaufała mężczyźnie z lasu”</h2>
 
+    <p>Dawno temu, w jednej z północnych wiosek, żyła dziewczyna, która lubiła chodzić do lasu zbierać zioła. Pewnego dnia spotkała mężczyznę o oczach jak zmrożone jezioro…</p>
 
+    <p><em>„Nie każda cisza znaczy spokój, a nie każda troska jest darem.”</em>³</p>
 
+    <p>W tej legendzie mężczyzna z lasu to archetypiczny emocjonalny pasożyt — figura, która karmi się kobiecą obecnością, nie dając nic w zamian poza poczuciem sensu opieki. Współczesna psychologia nazwałaby ten mechanizm symbiotycznym uzależnieniem⁴.</p>
 
+    <h2>4. Psychologiczny obraz Pajęczarza</h2>
 
-   🕯️ „Niektóre słabości nie potrzebują leczenia — tylko granic.”
+    <p>Ten typ osobowości łączy w sobie dwa silne bieguny: potrzebę kontroli i lęk przed odrzuceniem…</p>
 
-  </p>
+    <p>W efekcie powstaje tzw. <strong>„dysocjacyjny układ wzmocnień”</strong> — zjawisko, w którym system nagrody w mózgu uzależnia się od nieprzewidywalnych impulsów emocjonalnych⁶.</p>
 
-  <!-- 🔹 PRZYCISKI -->
+    <h2>5. Jak rozpoznać Pajęczarza</h2>
+
+    <ol>
+      <li>Często mówi o byłych partnerkach w tonie żalu lub „niesprawiedliwości”.</li>
+      <li>Przedstawia się jako ofiara emocjonalna.</li>
+      <li>Na początku jest ciepły, ale jego zainteresowanie szybko staje się kontrolujące.</li>
+      <li>Używa emocjonalnych dźwigni — choroby, smutku, gniewu.</li>
+      <li>Nie przyjmuje odpowiedzialności za swoje zachowania.</li>
+    </ol>
+
+    <h2>6. Jak się chronić</h2>
+
+    <ul>
+      <li>Nie wchodź w relacje, które zaczynają się od „ratowania”.</li>
+      <li>Obserwuj, czy twoja troska przynosi równowagę.</li>
+      <li>Zatrzymaj się, jeśli twoje granice się rozmywają.</li>
+      <li>Rozmowa z terapeutą nie jest zdradą miłości.</li>
+    </ul>
+
+    <h2>7. Wskazania dla mężczyzny – droga uzdrowienia</h2>
+
+    <p>Pajęczarz nie jest potworem – jest człowiekiem, który utknął w historii własnej krzywdy…</p>
+
+    <ul>
+      <li>nauka rozpoznawania emocji,</li>
+      <li>odróżnianie empatii od zależności,</li>
+      <li>odbudowa tożsamości nieopartej na byciu „skrzywdzonym”.</li>
+    </ul>
+
+    <h2>8. Refleksja duchowa</h2>
+
+    <p><em>„Kto tka sieć z żalu, ten sam w niej zamieszka.  
+    Kto będąc uważną tka z wdzięczności – znajdzie dom.”</em></p>
+
+    <p><em>🕯️ „Niektóre słabości nie potrzebują leczenia — tylko granic.”</em></p>
+
+  </div>
+
   <div class="center-buttons">
     <a class="btn" href="index.html">⬅ Powrót do sklepu</a>
     <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHf4xx7bW01" target="_blank">💳 Kup książkę (PDF)</a>
