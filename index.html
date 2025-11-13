@@ -203,21 +203,24 @@ h2 {
     0 0 6px rgba(0,0,0,0.8),
     inset 0 0 4px rgba(255,255,255,0.7);
 }
-  .telegraph-lever {
+
+}
+.telegraph-lever {
   position: absolute;
   width: 70px;
   height: 8px;
   border-radius: 8px;
   background: linear-gradient(90deg, #3a2715, #c89a63);
-  
+
   top: 50%;
   left: 50%;
-  transform-origin: 0px 50%;
-  transform: translate(0, -50%) rotate(-72deg);
+  transform-origin: 0 50%;
+  translate: 0 -50%;
+  transform: rotate(-72deg);
   box-shadow:
     0 2px 4px rgba(0,0,0,0.7),
     inset 0 0 4px rgba(255,255,255,0.5);
-  transition: transform 0.4s ease-in-out;
+  transition: transform 0.85s ease-in-out;
 }
 
 .telegraph-lever::after {
@@ -492,42 +495,35 @@ function toggleSound() {
   const labels = document.querySelectorAll('.telegraph-label');
   const hitboxes = document.querySelectorAll('.telegraph-hitbox');
 
-  hitboxes.forEach(btn => {
+hitboxes.forEach(btn => {
+  btn.addEventListener('click', () => {
+    const angle = parseFloat(btn.dataset.angle) || 0;
+    const labelKey = btn.dataset.label;
+    const url = btn.dataset.url;
 
-    btn.addEventListener('click', () => {
+    /* animacja ramienia – TYLKO ROTATE */
+    lever.style.transform = 'rotate(' + angle + 'deg)';
 
-      const angle = parseFloat(btn.dataset.angle) || 0;
-      const labelKey = btn.dataset.label;
-      const url = btn.dataset.url;
+    /* podświetlanie aktywnego sektora */
+    labels.forEach(l => l.classList.remove('active'));
+    const activeLabel = document.querySelector('.telegraph-label.' + labelKey);
+    if (activeLabel) activeLabel.classList.add('active');
 
-      /* animacja ramienia */
-      lever.style.transform =
-        'translate(-50%, -50%) rotate(' + angle + 'deg)';
-
-      /* podświetlenie aktywnego segmentu */
-      labels.forEach(l => l.classList.remove('active'));
-      const activeLabel = document.querySelector('.telegraph-label.' + labelKey);
-      if (activeLabel) activeLabel.classList.add('active');
-
-      /* obsługa linków */
+    /* wykonanie akcji */
+    if (url) {
       setTimeout(() => {
-        if (!url) return;
-
         if (url.startsWith('#')) {
           const target = document.querySelector(url);
           if (target) target.scrollIntoView({ behavior: 'smooth' });
-
         } else if (url.startsWith('mailto:')) {
           window.location.href = url;
-
         } else {
           window.open(url, '_blank');
         }
-
       }, 350);
-
-    });
+    }
   });
+});
 
 
 
