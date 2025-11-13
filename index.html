@@ -421,22 +421,22 @@ footer {
             data-url="#books-section"></button>
 
     <button class="telegraph-hitbox audio"
-            data-angle="-25"
+            data-angle="-35"
             data-label="audio"
             data-url="https://www.zrzutka.pl/c9p87j"></button>
 
     <button class="telegraph-hitbox darijuz"
-            data-angle="35"
+            data-angle="30"
             data-label="darijuz"
             data-url="https://www.youtube.com/@Dar_I_Juz"></button>
 
     <button class="telegraph-hitbox inno"
-            data-angle="110"
+            data-angle="95"
             data-label="inno"
             data-url="https://www.youtube.com/@InnoWidzenie"></button>
 
     <button class="telegraph-hitbox contact"
-            data-angle="160"
+            data-angle="150"
             data-label="contact"
             data-url="mailto:DarIJuz_Lektor@proton.me"></button>
 
@@ -665,3 +665,13 @@ function toggleSound() {
 
 </body>
 </html>
+<script>
+window.addEventListener('load', () => {
+  const sea = document.getElementById('seaSound');
+  if (sea) {
+    sea.volume = 0.5;
+    sea.play().catch(()=>{});
+  }
+});
+</script>
+
