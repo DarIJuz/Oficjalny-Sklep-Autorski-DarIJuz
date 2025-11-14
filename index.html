@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="pl">
-  <head>
+<head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -286,7 +286,6 @@ footer {
   box-shadow: inset 0 0 4px rgba(0,0,0,0.5);
   background: radial-gradient(circle at 50% 10%, #fff 0%, #f7ecda 40%, #e1c39b 75%, #c19963 100%);
 }
-
 /* środek */
 .telegraph-center {
   position: absolute;
@@ -530,7 +529,7 @@ footer {
 
     <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">🎬 Zobacz prezentację</a><br>
     <a class="btn" href="opis.html">📖 Opis Książki</a><br>
-   <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
+    <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
     <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup (PDF)</a>
 
     <h2 style="margin-top:2.2rem;">
@@ -549,7 +548,7 @@ footer {
   </section>
 
 
-  <!-- KSIĘŻKA 2 -->
+  <!-- KSIĄŻKA 2 -->
   <section id="audio-section" class="book">
 
     <h2>📖 „KSIĘGA WIDZENIA”</h2>
@@ -631,6 +630,7 @@ function toggleSound() {
 </script>
 
 
+
 <script>
 /* =====================================================
    ⚓ TELEGRAPH — LOGIKA
@@ -658,7 +658,7 @@ function toggleSound() {
       const activeLabel = document.querySelector('.telegraph-label.' + labelKey);
       if (activeLabel) activeLabel.classList.add('active');
 
-      /* Kliknięcie */
+      /* Kliknięcie dźwięku */
       if (clickSound) {
         clickSound.currentTime = 0;
         clickSound.play().catch(()=>{});
@@ -672,16 +672,18 @@ function toggleSound() {
           if (target) target.scrollIntoView({ behavior: 'smooth' });
         }
         else if (url.startsWith('mailto:')) {
-          window.location.href = url;
+          /* Najlepsza obsługa dla komputerów */
+          window.open(url, "_self");
         }
         else {
-          window.open(url, '_blank');
+          window.open(url, "_blank");
         }
 
       }, 350);
 
     });
   });
+
 
   /* ==========================
      WERSJA MOBILNA
@@ -705,6 +707,8 @@ function toggleSound() {
 
 })();
 </script>
+
+
 
 <!-- AUTO-START FAL -->
 <script>
