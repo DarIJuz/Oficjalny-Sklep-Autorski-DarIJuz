@@ -740,7 +740,7 @@ async function countVisit() {
         body: JSON.stringify({ page_name: "main" })
     });
 
-    // 2. Pobierz aktualną wartość licznika
+    // 2. Pobierz aktualną wartość licznika (używamy kolumny "page")
     const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=count&eq.page=main`, {
         headers: {
             "apikey": SUPABASE_KEY,
@@ -753,7 +753,6 @@ async function countVisit() {
       "Liczba odwiedzin: " + data[0].count;
 }
 
-// uruchom po załadowaniu strony
 countVisit();
 </script>
 
