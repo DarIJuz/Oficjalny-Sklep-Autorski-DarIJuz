@@ -720,6 +720,42 @@ window.addEventListener('load', () => {
   }
 });
 </script>
+<div id="counter" style="color:gold; font-weight:bold; margin-top:20px;">
+  Liczba odwiedzin: ładowanie...
+</div>
+
+<script>
+async function countVisit() {
+    const SUPABASE_URL = "https://syvzrtjsxhyflzvxaaie.supabase.co";
+    const SUPABASE_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InN5dnpydGpzeGh5Zmx6dnhhYWllIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NjMzMzU4MTcsImV4cCI6MjA3ODkxMTgxN30.zgpgeMsldigAbGUGdB49iaUd4K-xo2HAr4vGzI0VpCU";
+
+    // 1. Zwiększ licznik odwiedzin
+    await fetch(`${SUPABASE_URL}/rest/v1/rpc/increment_visit`, {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`
+        },
+        body: JSON.stringify({ page_name: "main" })
+    });
+
+    // 2. Pobierz aktualną wartość licznika
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=count&eq.page_name=main`, {
+        headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`
+        }
+    });
+
+    const data = await res.json();
+    document.getElementById("counter").innerText =
+      "Liczba odwiedzin: " + data[0].count;
+}
+
+// uruchom po załadowaniu strony
+countVisit();
+</script>
 
 </body>
 </html>
