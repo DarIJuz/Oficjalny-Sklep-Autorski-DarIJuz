@@ -737,17 +737,16 @@ async function countVisit() {
             "apikey": SUPABASE_KEY,
             "Authorization": `Bearer ${SUPABASE_KEY}`
         },
-        body: JSON.stringify({ page_name: "main" })
+        body: JSON.stringify({ page: "main" })
     });
 
-// 2. Pobierz aktualną wartość licznika
-const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=count&page=eq.main`, {
-    headers: {
-        "apikey": SUPABASE_KEY,
-        "Authorization": `Bearer ${SUPABASE_KEY}`
-    }
-});
-
+    // 2. Pobierz aktualną wartość licznika
+    const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=count&page=eq.main`, {
+        headers: {
+            "apikey": SUPABASE_KEY,
+            "Authorization": `Bearer ${SUPABASE_KEY}`
+        }
+    });
 
     const data = await res.json();
     document.getElementById("counter").innerText =
@@ -756,6 +755,7 @@ const res = await fetch(`${SUPABASE_URL}/rest/v1/visits?select=count&page=eq.mai
 
 countVisit();
 </script>
+
 
 </body>
 </html>
