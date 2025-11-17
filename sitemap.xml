@@ -3,22 +3,16 @@
 
     <!-- Strona główna -->
     <url>
-        <loc>https://darijuz.github.io/</loc>
+        <loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/</loc>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
 
-    <!-- Folder sklepu -->
-    <url>
-        <loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/index.html</loc>
-        <changefreq>weekly</changefreq>
-        <priority>0.9</priority>
-    </url>
-
-    <!-- Podstrony sklepu -->
+    <!-- Fragmenty -->
     <url><loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/fragment.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
     <url><loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/fragment2.html</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
 
+    <!-- Opisy produktów / książek -->
     <url><loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/opis.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
     <url><loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/opis2.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
     <url><loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/opis3.html</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
@@ -30,4 +24,3 @@
     <url><loc>https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/thankyou-ksiega-widzenia.html</loc><changefreq>yearly</changefreq><priority>0.4</priority></url>
 
 </urlset>
-
