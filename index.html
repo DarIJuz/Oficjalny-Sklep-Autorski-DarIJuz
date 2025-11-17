@@ -737,7 +737,7 @@ async function countVisit() {
             "apikey": SUPABASE_KEY,
             "Authorization": `Bearer ${SUPABASE_KEY}`
         },
-        body: JSON.stringify({ page_name: "main" })
+        body: JSON.stringify({ page: "main" })
     });
 
     // 2. Pobierz aktualną wartość licznika
