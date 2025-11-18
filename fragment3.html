@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fragment – Księga Widzenia Tom II</title>
+
+  <style>
+
+    /* ------------------------------
+       🌊 TŁO – MORZE
+    ------------------------------ */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      color: #e7e7e7;
+
+      background: url("morze 2.png") repeat-x top center;
+      background-size: cover;
+      background-attachment: fixed;
+
+      animation: waves 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes waves {
+      0% { background-position: 0px 0px; }
+      100% { background-position: 0px 70px; }
+    }
+
+    /* ------------------------------
+       🌙 BANER Glowne.png
+    ------------------------------ */
+    header {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .hero-image {
+      width: 60%;
+      max-width: 650px;
+      border-radius: 18px;
+
+      mask-image: radial-gradient(circle, black 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
+
+      animation: waveSoft 9s ease-in-out infinite;
+      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+    }
+
+    @keyframes waveSoft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ------------------------------
+       📘 PANEL NA TREŚĆ
+    ------------------------------ */
+    main {
+      max-width: 920px;
+      margin: 3rem auto;
+      padding: 2.2rem;
+
+      background: rgba(255,255,255,0.12);
+      border-radius: 18px;
+      backdrop-filter: blur(7px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+    }
+
+    .text-column {
+      max-width: 75%;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+      margin-bottom: 2rem;
+    }
+
+    h2 {
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+      margin-top: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      color: #f4f1ed;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    strong { color: #ffe4b5; }
+    em { color: #ffe9d7; }
+
+    ul, ol {
+      margin-left: 2rem;
+      margin-bottom: 1.4rem;
+      color: #f4f1ed;
+    }
+
+    li { margin-bottom: 0.6rem; }
+
+    /* ------------------------------
+       🪵 PRZYCISKI
+    ------------------------------ */
+    .btn {
+      display: inline-block;
+      margin-top: 1.3rem;
+      padding: 0.8rem 1.4rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+
+      background-image: url('drewno.png');
+      background-size: cover;
+      border-radius: 7px;
+
+      box-shadow: 0 3px 0 rgba(0,0,0,0.65),
+                  inset 0 0 6px rgba(0,0,0,0.5);
+      border: 1px solid rgba(0,0,0,0.75);
+
+      text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.13);
+    }
+
+    .center-buttons {
+      text-align: center;
+      margin-top: 2.6rem;
+    }
+
+    /* ------------------------------
+       📱 RWD
+    ------------------------------ */
+    @media (max-width: 600px) {
+      .hero-image { width: 90%; }
+      .text-column { max-width: 92%; }
+      p { font-size: 1.05rem; }
+      .btn { width: 90%; display:block; margin:0.7rem auto; }
+      main { padding: 1.4rem; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="Glowne.png" class="hero-image" alt="">
+</header>
+
+<main>
+  <h1>Fragment – Tom II „Księga Widzenia”</h1>
+
+  <div class="text-column">
+
+    <h2>Poziom +3 — Najbardziej logiczna pułapka wszechświata  
+    <br><em>(czyli jak nie utknąć we własnej mądrości)</em></h2>
+
+    <p>
+      Jeśli czytasz ten rozdział, to znaczy, że wizje z +2 już Cię nie zatrzymały.  
+      Nie dałeś się wciągnąć aniołom, tunelom, hologramom „powrotu do domu”,  
+      a przede wszystkim — masz naturalną tendencję do zadawania pytań.
+    </p>
+
+    <p>
+      Gratuluję.  
+      Większość ludzi zostaje na +2 — ale Ty już przeszedłeś dalej.
+    </p>
+
+    <p>
+      I tu zaczyna się etap bardziej przekonujący niż jakiekolwiek wizje.  
+      Bo na +3 pojawia się coś, co człowiek kocha najbardziej:
+      <strong>logika.</strong>
+    </p>
+
+    <p>
+      Tak, wiem.  
+      Są ludzie, którzy uważają się za „duchowych”,  
+      i są ludzie, którzy po śmierci trafiają na +3 i mówią:
+      <em>„Aha! Teraz to wszystko ma sens.”</em>
+      …i właśnie wtedy stają się na chwilę więźniami własnej mądrości.
+    </p>
+
+
+    <h2>1. Czym jest poziom +3?</h2>
+
+    <p>
+      Najprościej mówiąc:  
+      <strong>+3 jest jak Google Maps Twojej świadomości.</strong>
+    </p>
+
+    <p>Pokazuje:</p>
+
+    <ul>
+      <li>dlaczego ludzie byli jacy byli,</li>
+      <li>dlaczego podejmowałeś takie decyzje,</li>
+      <li>jak działa Twoja linia życia,</li>
+      <li>jak działała Twoja percepcja i narracje,</li>
+      <li>skąd brały się Twoje wybory.</li>
+    </ul>
+
+    <p>
+      To jest piękne, bo daje zrozumienie.  
+      I jednocześnie zdradliwe, bo daje przekonanie, że już <strong>wiesz</strong>.
+    </p>
+
+
+    <h2>2. Największa pułapka +3</h2>
+
+    <p>
+      Na +3 świadomość często ma moment:
+      <em>„Wow, jestem mądry. Szkoda, że nie wiedziałem tego za życia…”</em>
+    </p>
+
+    <p>Zaczyna analizować absolutnie wszystko:</p>
+
+    <ul>
+      <li>życie,</li>
+      <li>śmierć,</li>
+      <li>związki,</li>
+      <li>swoje decyzje,</li>
+      <li>matrix,</li>
+      <li>przewodników,</li>
+      <li>innych ludzi,</li>
+      <li>siebie samego.</li>
+    </ul>
+
+    <p>
+      To etap, który nazywam:
+      <strong>„odkryłem sens wszystkiego… i teraz go dopracowuję.”</strong>
+    </p>
+
+    <p>
+      Problem jest jeden:
+      <br><br>
+      ➤ +3 to <strong>nadal nie jest prawda</strong>.  
+      To tylko warstwa narracyjna.  
+      Własny komentarz świadomości do tego, co już minęło.
+    </p>
+
+    <p>
+      To jakbyś dostał komentarz reżyserski do filmu, w którym grałeś.  
+      Interesujące? Oczywiście.  
+      Prawdziwe? Nie w pełni.  
+      Ostateczne? Zdecydowanie nie.
+    </p>
+
+  </div>
+
+  <div class="center-buttons">
+    <a class="btn" href="index.html">⬅ Powrót do sklepu</a>
+    <a class="btn" href="https://buy.stripe.com/5kQ00jeDRb0Q6bb89J7bW04" target="_blank">💳 Kup książkę (PDF)</a>
+  </div>
+
+</main>
+
+</body>
+</html>
+
