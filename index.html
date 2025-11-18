@@ -11,9 +11,7 @@
   <title>Sklep Autorski DarIJuż – Księga Widzenia, Idąc Tropami, Following the Trails</title>
 
   <meta name="description" content="Oficjalny Sklep Autorski DarIJuż. Księga Widzenia, Idąc Tropami Biegnącej z Wilkami, Following the Trails. Książki duchowe, psychologiczne i wizjonerskie.">
-
   <meta name="robots" content="index, follow">
-
   <link rel="canonical" href="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/">
 
   <!-- KEYWORDS -->
@@ -26,7 +24,7 @@
   <!--              OPEN GRAPH               -->
   <!-- ====================================== -->
 
-  <meta property="og:title" content="Sklep Autorski DarIJuż – Księga Widzenia & Biegnąca z Wilkami">
+  <meta property="og:title" content="Sklep Autorski DarIJuż – Księga Widzenia &amp; Biegnąca z Wilkami">
   <meta property="og:description" content="Książki duchowe i wizjonerskie. Księga Widzenia i Following the Trails.">
   <meta property="og:image" content="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/following-cover.jpg">
   <meta property="og:url" content="https://darijuz.github.io/Oficjalny-Sklep-Autorski-DarIJuz/">
@@ -74,25 +72,15 @@ body {
   padding: 0;
   color: #e7e7e7;
   line-height: 1.6;
-
   background: url("morze 2.png") repeat-x top center;
   background-size: cover;
   background-attachment: fixed;
-
   animation: waves 18s ease-in-out infinite alternate;
 }
 
 @keyframes waves {
   0% { background-position: 0px 0px; }
   100% { background-position: 0px 70px; }
-}
-
-/* mgła placeholder */
-.fog-layer {
-  position: fixed;
-  inset: 0;
-  pointer-events: none;
-  opacity: 0;
 }
 
 /* =====================================================
@@ -103,7 +91,6 @@ body {
   text-align: center;
   margin-top: 40px;
   position: relative;
-  overflow: visible;
 }
 
 .hero-image {
@@ -151,12 +138,31 @@ main {
   box-shadow: 0 4px 18px rgba(0,0,0,0.45);
 }
 
+.main-title {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #ffe1b2;
+  text-shadow: 0 0 8px #000;
+}
+
+.main-subtitle {
+  text-align: center;
+  font-size: 1rem;
+  margin-top: 0;
+  margin-bottom: 2rem;
+  color: #f3e0c3;
+}
+
 h2 {
   color: #ffd9a3;
   text-shadow: 0 0 6px #000;
-  margin-top: 1.4rem;
+  margin-top: 1.8rem;
 }
 
+/* =====================================================
+   📚 KARTY KSIĄŻEK
+===================================================== */
 .book {
   text-align: center;
   margin-top: 2rem;
@@ -171,6 +177,17 @@ h2 {
 
 .book img:hover {
   transform: scale(1.05);
+}
+
+.book p {
+  margin-top: 1rem;
+}
+
+/* CENA */
+.price {
+  margin-top: 0.5rem;
+  font-weight: bold;
+  color: #ffe7b8;
 }
 
 /* =====================================================
@@ -219,6 +236,28 @@ h2 {
 }
 
 /* =====================================================
+   📬 KONTAKT
+===================================================== */
+.contact-section {
+  margin-top: 2.5rem;
+  text-align: center;
+}
+
+.contact-email {
+  font-size: 1.35rem;
+  font-weight: bold;
+}
+
+.contact-email a {
+  color: #ffe7b8;
+  text-decoration: underline;
+}
+
+.contact-email a:hover {
+  text-decoration: none;
+}
+
+/* =====================================================
    🟦 STOPKA
 ===================================================== */
 footer {
@@ -226,9 +265,17 @@ footer {
   padding: 2rem;
   background: rgba(0,0,0,0.55);
   color: #eee;
-  font-size: 1.35rem;
+  font-size: 1.1rem;
   margin-top: 3rem;
   letter-spacing: 1px;
+}
+
+/* LICZNIK */
+#counter {
+  text-align: center;
+  color: gold;
+  font-weight: bold;
+  margin: 10px 0 30px 0;
 }
 
 /* =====================================================
@@ -239,6 +286,7 @@ footer {
   .book img { width: 90%; }
   .btn { width: 90%; font-size: 1rem; }
   main { padding: 1rem; }
+  .contact-email { font-size: 1.2rem; word-break: break-all; }
 }
 
 /* =====================================================
@@ -368,7 +416,7 @@ footer {
 .telegraph-hitbox.inno    { clip-path: polygon(50% 50%, 50% 100%, 0% 50%); }
 .telegraph-hitbox.contact { clip-path: polygon(50% 50%, 0% 50%, 0% 8%); }
 
-/* MOBILE */
+/* MOBILE TELEGRAPH */
 .telegraph-mobile-toggle,
 .telegraph-mobile-panel { display:none; }
 
@@ -384,6 +432,10 @@ footer {
     color:#fdf5e7;
     border-radius:20px;
     z-index:9999;
+    border:1px solid rgba(255,255,255,0.3);
+  }
+  .telegraph-mobile-toggle:hover {
+    background:rgba(0,0,0,0.9);
   }
   .telegraph-mobile-panel {
     display:block;
@@ -407,12 +459,13 @@ footer {
     color:#fff;
     text-decoration:none;
   }
+  .telegraph-mobile-link:hover {
+    text-decoration:underline;
+  }
 }
 </style>
 </head>
 <body>
-
-<div class="fog-layer"></div>
 
 <!-- ============================= -->
 <!--  TELEGRAPH — PRAWY GÓRNY RÓG -->
@@ -450,10 +503,6 @@ footer {
       Contact
     </div>
 
-    <!-- Ramię + środek -->
-    <div class="telegraph-lever"></div>
-    <div class="telegraph-center"></div>
-
     <!-- Klikalne sektory -->
     <button class="telegraph-hitbox books"
             data-angle="-80"
@@ -480,6 +529,10 @@ footer {
             data-label="contact"
             data-url="mailto:DarIJuz_Lektor@proton.me"></button>
 
+    <!-- Ramię + środek -->
+    <div class="telegraph-lever"></div>
+    <div class="telegraph-center"></div>
+
   </div>
 
   <!-- MOBILE -->
@@ -499,7 +552,7 @@ footer {
 <!-- BANER -->
 <!-- ============================= -->
 <header class="hero-banner">
-  <img src="Glowne.png" class="hero-image" alt="Banner DarIJuż">
+  <img src="Glowne.png" class="hero-image" alt="Banner DarIJuż" loading="lazy" decoding="async">
 </header>
 
 <!-- ============================= -->
@@ -507,6 +560,9 @@ footer {
 <!-- ============================= -->
 
 <main>
+
+  <h1 class="main-title">Oficjalny Sklep Autorski DarIJuż</h1>
+  <p class="main-subtitle">Księga Widzenia · Idąc Tropami Biegnącej z Wilkami · Following the Trails</p>
 
   <!-- ===================================== -->
   <!--               KSIĄŻKA 1               -->
@@ -516,26 +572,26 @@ footer {
     <h2>📖 „Idąc Tropami Biegnącej z Wilkami”</h2>
 
     <a href="opis.html">
-      <img src="okladka.png" alt="Okładka Idąc Tropami">
+      <img src="okladka.png" alt="Okładka Idąc Tropami" loading="lazy" decoding="async">
     </a>
 
     <p><em>Duchowa kontynuacja myśli Clarissy Pinkoli Estés – o relacjach, kobiecości i przebudzeniu serca.</em></p>
 
-    <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank">🎬 Zobacz prezentację</a><br>
+    <a class="btn" href="https://youtu.be/TcRXNpYuyCU" target="_blank" rel="noopener">🎬 Zobacz prezentację</a><br>
     <a class="btn" href="opis.html">📖 Opis Książki</a><br>
     <a class="btn" href="fragment.html">📖 Przeczytaj fragment</a><br>
-    <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank">🇵🇱 Kup (PDF)</a>
+    <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHH4Xx7bW01" target="_blank" rel="noopener">🇵🇱 Kup (PDF)</a>
 
     <h2 style="margin-top:2.2rem;">
       📖 Following the Trails of the One Who Runs with the Wolves
     </h2>
 
     <a href="opis_en.html">
-      <img src="following-cover.jpg" style="height:280px; margin-top:18px;">
+      <img src="following-cover.jpg" alt="Cover Following the Trails of the One Who Runs with the Wolves" style="height:280px; margin-top:18px;" loading="lazy" decoding="async">
     </a>
 
     <a class="btn" href="opis_en.html">📖 Fragment of the Book</a><br>
-    <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank">🇬🇧 Buy (EN)</a>
+    <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank" rel="noopener">🇬🇧 Buy (EN)</a>
 
   </section>
 
@@ -548,7 +604,7 @@ footer {
     <h2>📖 „KSIĘGA WIDZENIA” – Tom I</h2>
 
     <a href="opis2.html">
-      <img src="okladka2.png" alt="Okładka Księga Widzenia – Tom I">
+      <img src="okladka2.png" alt="Okładka Księga Widzenia – Tom I" loading="lazy" decoding="async">
     </a>
 
     <p>
@@ -559,11 +615,11 @@ footer {
       i strukturę matrixu.
     </p>
 
-    <a class="btn" href="https://youtu.be/G_788sVAgQI" target="_blank">🎬 Zobacz prezentację</a><br>
+    <a class="btn" href="https://youtu.be/G_788sVAgQI" target="_blank" rel="noopener">🎬 Zobacz prezentację</a><br>
     <a class="btn" href="opis2.html">📖 Opis Książki</a><br>
     <a class="btn" href="fragment2.html">📖 Przeczytaj fragment</a><br>
 
-    <a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02" target="_blank">
+    <a class="btn" href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02" target="_blank" rel="noopener">
       🇵🇱 Kup (PDF) – Tom I
     </a>
 
@@ -576,7 +632,7 @@ footer {
 
     <h2>📖 „KSIĘGA WIDZENIA” – Tom II</h2>
 
-    <img src="okladka4.png" alt="Okładka Księga Widzenia – Tom II">
+    <img src="okladka4.png" alt="Okładka Księga Widzenia – Tom II" loading="lazy" decoding="async">
 
     <p>
       Tom II prowadzi tam, gdzie kończy się biologia, a zaczyna przestrzeń, 
@@ -591,10 +647,7 @@ footer {
       za kulisami naszej tu rzeczywistości.
     </p>
 
-
-    <br>
-
-    <a class="btn" href="https://youtu.be/W2Ov-BEqiXk" target="_blank">
+    <a class="btn" href="https://youtu.be/W2Ov-BEqiXk" target="_blank" rel="noopener">
       🎬 Zobacz prezentację
     </a><br>
 
@@ -604,21 +657,31 @@ footer {
 
     <a class="btn" href="fragment3.html">
       📖 Przeczytaj fragment – Tom II
-    </a>
-   <a class="btn" href="https://buy.stripe.com/5kQ00jeDRb0Q6bb89J7bW04" target="_blank">
-  🇵🇱 Kup (PDF) – Tom II
+    </a><br>
 
-<div class="price">Cena: 45,00 PLN</div>
-
+    <a class="btn" href="https://buy.stripe.com/5kQ00jeDRb0Q6bb89J7bW04" target="_blank" rel="noopener">
+      🇵🇱 Kup (PDF) – Tom II
     </a>
+
+    <div class="price">Cena: 45,00 PLN</div>
+
   </section>
 
 
   <!-- KONTAKT -->
-  <section>
+  <section class="contact-section">
     <h2>📬 Kontakt</h2>
-    <p><strong>Email:</strong>  
+    <p class="contact-email">
+      <strong>Email:</strong><br>
       <a href="mailto:DarIJuz_Lektor@proton.me">DarIJuz_Lektor@proton.me</a>
+    </p>
+  </section>
+
+  <!-- O AUTORZE – placeholder -->
+  <section class="about-section">
+    <h2>👤 O Autorze</h2>
+    <p style="text-align:center;">
+      Sekcja w przygotowaniu. Wkrótce pojawi się tutaj kilka słów o drodze autora, wizji i książkach.
     </p>
   </section>
 
@@ -650,6 +713,11 @@ footer {
   <source src="click.mp3" type="audio/mpeg">
 </audio>
 
+<!-- JEDEN, POPRAWNY LICZNIK ODWIEDZIN -->
+<div id="counter">
+  Liczba odwiedzin: ładowanie...
+</div>
+
 <!-- ===================================== -->
 <!--  SKRYPTY                              -->
 <!-- ===================================== -->
@@ -658,7 +726,6 @@ footer {
 function toggleSound() {
   const audio = document.getElementById('seaSound');
   if (!audio) return;
-
   if (audio.paused) audio.play();
   else audio.pause();
 }
@@ -739,13 +806,8 @@ window.addEventListener('load', () => {
 });
 </script>
 
-<!-- JEDEN, POPRAWNY LICZNIK ODWIEDZIN -->
-<div id="counter" style="color: gold; font-weight: bold; margin-top: 20px;">
-  Liczba odwiedzin: ładowanie...
-</div>
-
+<!-- LICZNIK ODWIEDZIN -->
 <script>
-// Twój unikalny licznik CountAPI
 const counterUrl = "https://api.countapi.xyz/hit/darijuz-sklep/visits";
 
 async function updateCounter() {
