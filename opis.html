@@ -5,24 +5,22 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>„Idąc Tropami Biegnącej z Wilkami” – opis książki</title>
 
-  <meta name="description" content="Idąc Tropami Biegnącej z Wilkami – pierwsza książka z serii Księga Widzenia. O relacjach, kobiecości, męskości i duchowej drodze serca. Oficjalny opis książki autora DarIJuż.">
+  <meta name="description" content="Idąc Tropami Biegnącej z Wilkami – duchowa książka o relacjach, intuicji, emocjach i wewnętrznej mądrości. Oficjalny opis książki autora DarIJuż.">
   <meta name="author" content="DarIJuż">
 
   <style>
     /* =====================================================
-       🌊 TŁO – MORZE + ANIMACJA FAL
+       🌊 MORZE – TŁO ŻYJĄCE
     ===================================================== */
     body {
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      color: #e7e7e7;
+      color: #ececec;
       line-height: 1.6;
-
       background: url("morze 2.png") repeat-x top center;
       background-size: cover;
       background-attachment: fixed;
-
       animation: waves 18s ease-in-out infinite alternate;
     }
 
@@ -32,14 +30,13 @@
     }
 
     /* =====================================================
-       🌙 BANER Glowne.png z animacją i rozmyciem
+       🌙 BANER – Glowne.png
     ===================================================== */
     .hero-banner {
       width: 100%;
       text-align: center;
       margin-top: 40px;
       position: relative;
-      overflow: visible;
     }
 
     .hero-image {
@@ -62,13 +59,13 @@
 
     @keyframes glowMoon {
       0% { filter: brightness(1); }
-      100% { filter: brightness(1.09); }
+      100% { filter: brightness(1.10); }
     }
 
     @keyframes waveSoft {
-      0% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-3px) scale(1.008); }
-      100% { transform: translateY(0px) scale(1); }
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0px); }
     }
 
     @keyframes tiltMotion {
@@ -78,37 +75,47 @@
     }
 
     /* =====================================================
-       📘 GŁÓWNY PANEL OPISU
+       ✨ ZŁOTY NAGŁÓWEK
+    ===================================================== */
+    h1 {
+      font-size: 2.15em;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(90deg, #d7b46a, #f4e3b1, #d7b46a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 8px rgba(0,0,0,0.55);
+      animation: goldPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes goldPulse {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.25); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+    }
+
+    /* =====================================================
+       📘 PANEL TREŚCI
     ===================================================== */
     main {
       max-width: 800px;
       margin: 3rem auto;
-      padding: 20px 20px 28px 20px;
+      padding: 24px 22px 32px 22px;
       background: rgba(0, 0, 0, 0.55);
       border-radius: 16px;
       backdrop-filter: blur(6px);
       box-shadow: 0 4px 18px rgba(0,0,0,0.65);
     }
 
-    h1, h2 {
-      text-align: center;
-      color: #ffd9a3;
-      text-shadow: 0 0 6px #000;
-      margin-bottom: 10px;
-    }
-
-    h1 {
-      font-size: 1.9em;
-      margin-top: 0.5rem;
-    }
-
-    h2 em {
-      font-style: italic;
-    }
-
     p {
       text-align: justify;
-      margin-bottom: 16px;
+      margin-bottom: 18px;
       color: #f2ede7;
     }
 
@@ -121,33 +128,31 @@
     }
 
     /* =====================================================
-       🪵 DREWNIANE PRZYCISKI – spójne z index.html
+       🪵 PRZYCISKI
     ===================================================== */
     .buttons {
       text-align: center;
-      margin-top: 26px;
+      margin-top: 32px;
     }
 
     .btn {
       display: inline-block;
       margin: 8px;
-      padding: 10px 18px;
+      padding: 11px 20px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 0.98rem;
-      letter-spacing: 0.03em;
+      font-size: 1.02rem;
 
       background-image: url('drewno.png');
       background-size: cover;
-      background-position: center;
       border-radius: 6px;
 
       box-shadow:
         0 3px 0 rgba(0,0,0,0.65),
         inset 0 0 6px rgba(0,0,0,0.6);
-      border: 1px solid rgba(0,0,0,0.7);
 
+      border: 1px solid rgba(0,0,0,0.8);
       text-shadow: 0 1px 2px rgba(0,0,0,0.9);
 
       transition: transform 0.18s ease,
@@ -157,32 +162,36 @@
 
     .btn:hover {
       transform: translateY(-1px) scale(1.03);
-      filter: brightness(1.08) contrast(1.05);
+      filter: brightness(1.12);
       box-shadow:
-        0 4px 6px rgba(0,0,0,0.8),
-        inset 0 0 10px rgba(255,255,255,0.12);
+        0 4px 6px rgba(0,0,0,0.85),
+        inset 0 0 11px rgba(255,255,255,0.12);
     }
 
     .btn:active {
-      transform: translateY(1px) scale(0.99);
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.8),
-        inset 0 0 6px rgba(0,0,0,0.8);
+      transform: translateY(1px) scale(0.98);
       filter: brightness(0.93);
     }
 
+    .price {
+      color: #ffe2b0;
+      font-size: 1.1rem;
+      margin-top: 4px;
+      text-shadow: 0 0 6px #000;
+    }
+
     /* =====================================================
-       📱 MOBILKI
+       📱 RESPONSYWNOŚĆ
     ===================================================== */
     @media (max-width: 600px) {
       .hero-image { width: 92%; }
       main        { margin: 2rem 0.6rem; padding: 1.2rem; }
-      .cover      { max-width: 260px; width: 90%; }
-      .btn        { width: 90%; box-sizing: border-box; }
+      .cover      { width: 90%; max-width: 260px; }
+      .btn        { width: 90%; }
     }
-
   </style>
 </head>
+
 <body>
 
   <!-- 🌙 BANER -->
@@ -190,34 +199,52 @@
     <img src="Glowne.png" class="hero-image" alt="Oficjalny Sklep Autorski DarIJuż">
   </header>
 
-  <!-- 📘 OPIS KSIĄŻKI -->
+  <!-- 📘 TREŚĆ OPISU -->
   <main>
-    <h1>„Idąc Tropami Biegnącej z Wilkami”</h1>
-    <h2>Pierwsza książka z serii <em>Podróże Bohatera</em></h2>
+    <h1>Idąc Tropami Biegnącej z Wilkami</h1>
+    <h2>Podróż przez intuicję, serce i wewnętrzną wolność</h2>
 
     <img src="okladka.png" alt="Okładka książki Idąc Tropami Biegnącej z Wilkami" class="cover">
 
     <p>
-      Książka <strong>„Idąc Tropami Biegnącej z Wilkami”</strong> to kontynuacja duchowej refleksji
-      nad kobiecością, męskością i miłością – inspirowana dziełem Clarissy Pinkoli Estés.
-      Otwiera ona przestrzeń rozmowy o wewnętrznej mądrości serca, o powrocie do instynktownej intuicji
-      i o miłości rozumianej jako droga poznania.
+      <strong>„Idąc Tropami Biegnącej z Wilkami”</strong> to książka o kobiecości widzianej
+      nie przez pryzmat teorii, lecz przez żywe doświadczenie serca. To zapis drogi,
+      którą przechodzi wiele kobiet — drogi pełnej intuicyjnych znaków, wewnętrznych
+      rozmów, cichych przeczuć oraz relacji, które uczą, próbują i transformują.
     </p>
 
     <p>
-      Tekst prowadzi czytelnika ścieżkami symboli, snów i opowieści, które pomagają dotrzeć
-      do własnego źródła – miejsca, w którym spotykają się świadomość i dzikość, spokój i pasja.
-      To książka dla tych, którzy nie boją się patrzeć głębiej i pytać o sens bycia sobą w świecie
-      pełnym zapomnienia o duchu.
+      To książka o tym, co niewidoczne na pierwszy rzut oka: o subtelnych sygnałach,
+      które często pomijamy, o emocjach, które wracają jak fale, i o mądrości,
+      która budzi się wtedy, gdy odważymy się stanąć w prawdzie przed samą sobą.
     </p>
 
     <p>
-      Wydanie autorskie w formacie PDF, dostępne wyłącznie w oficjalnym sklepie autora DarIJuż.
+      Autor prowadzi czytelniczkę przez psychologiczne mapy relacji —
+      pokazując typy mężczyzn, ich ukryte motywacje, maski i mechanizmy obronne.
+      Bez oceniania. Bez moralizowania. Z czułą szczerością człowieka,
+      który widzi więcej niż słowa chcą ujawnić.
+    </p>
+
+    <p>
+      To nie jest poradnik.  
+      To <em>lustro</em>.  
+      To zapis intuicyjnej wędrówki, która pomaga odzyskać siłę,
+      poskładać serce i uwierzyć, że każda kobieta ma w sobie przestrzeń,
+      której nie da się złamać.
+    </p>
+
+    <p>
+      <strong>Wydanie PDF — dostępne wyłącznie w oficjalnym sklepie autora.</strong>
     </p>
 
     <div class="buttons">
       <a class="btn" href="index.html">⬅ Powrót do strony głównej</a>
-      <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHf4xx7bW01" target="_blank">💳 Kup książkę (PDF)</a>
+
+      <a class="btn" href="https://buy.stripe.com/aFa14neDR0mceHf4xx7bW01" target="_blank">
+        💳 Kup książkę (PDF)
+      </a>
+      <div class="price">Cena: 45,00 PLN</div>
     </div>
   </main>
 
