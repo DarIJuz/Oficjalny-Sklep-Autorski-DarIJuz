@@ -3,248 +3,231 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>„Księga Widzenia – Tom I” – opis</title>
+  <title>Księga Widzenia – Tom I | Oficjalny Sklep DarIJuż</title>
 
-  <meta name="description" content="Księga Widzenia – Tom I. Jasnowidzenie, myślokształty i Szmaragdowe Tablice Thota. Oficjalny opis książki autora DarIJuż.">
+  <meta name="description" content="Księga Widzenia – Tom I. O jasnowidzeniu, myślokształtach i szmaragdowej mądrości Thota — w teorii i praktyce. Oficjalny opis książki DarIJuż.">
   <meta name="author" content="DarIJuż">
 
   <style>
-    /* =====================================================
-       TŁO – MORZE + ANIMACJA
-    ===================================================== */
+    /* ============================================
+       GLOBAL STYLE + BACKGROUND
+    ============================================= */
     body {
       font-family: 'Georgia', serif;
       margin: 0;
       padding: 0;
-      color: #e7e7e7;
-      line-height: 1.6;
-      background: url("morze 2.png") repeat-x top center;
+      background: url("morze.png") no-repeat center top;
       background-size: cover;
       background-attachment: fixed;
-      animation: waves 18s ease-in-out infinite alternate;
+      color: #e7e7e7;
+      line-height: 1.7;
     }
 
-    @keyframes waves {
-      0% { background-position: 0px 0px; }
-      100% { background-position: 0px 70px; }
-    }
-
-    /* =====================================================
-       BANER GlowneKW.png
-    ===================================================== */
-    .hero-banner {
+    /* ============================================
+       GOLD SEPARATOR – ANIMATED
+    ============================================= */
+    .separator {
       width: 100%;
+      height: 2px;
+      background: linear-gradient(
+        to right,
+        rgba(255,215,128,0) 0%,
+        rgba(255,215,128,0.8) 50%,
+        rgba(255,215,128,0) 100%
+      );
+      margin: 25px auto;
+      animation: shine 4s ease-in-out infinite alternate;
+    }
+
+    @keyframes shine {
+      0% { opacity: 0.45; }
+      100% { opacity: 1; }
+    }
+
+    /* ============================================
+       HEADER – BANER
+    ============================================= */
+    .hero {
       text-align: center;
       margin-top: 40px;
-      position: relative;
     }
 
-    .hero-image {
+    .hero img {
       width: 65%;
-      max-width: 700px;
-      display: block;
-      margin: 0 auto;
+      max-width: 650px;
       border-radius: 18px;
-      mask-image: radial-gradient(circle, black 75%, transparent 100%);
-      -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
-
-      animation:
-        glowMoon 6s ease-in-out infinite alternate,
-        tiltMotion 12s ease-in-out infinite,
-        waveSoft 9s ease-in-out infinite;
-
-      filter: drop-shadow(0 0 25px rgba(0,0,0,0.55));
+      box-shadow: 0 0 25px rgba(0,0,0,0.7);
+      animation: float 8s ease-in-out infinite;
     }
 
-    @keyframes glowMoon {
-      0% { filter: brightness(1); }
-      100% { filter: brightness(1.09); }
+    @keyframes float {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+      100% { transform: translateY(0); }
     }
 
-    @keyframes waveSoft {
-      0% { transform: translateY(0px) scale(1); }
-      50% { transform: translateY(-3px) scale(1.008); }
-      100% { transform: translateY(0px) scale(1); }
-    }
-
-    @keyframes tiltMotion {
-      0% { transform: rotateX(0deg) rotateY(0deg); }
-      50% { transform: rotateX(0.25deg) rotateY(-0.35deg); }
-      100% { transform: rotateX(0deg) rotateY(0deg); }
-    }
-
-    /* =====================================================
-       PANEL OPISU
-    ===================================================== */
+    /* ============================================
+       MAIN PANEL
+    ============================================= */
     main {
-      max-width: 850px;
-      margin: 3rem auto;
-      padding: 28px;
-      background: rgba(0, 0, 0, 0.55);
-      border-radius: 18px;
-      backdrop-filter: blur(6px);
+      max-width: 860px;
+      margin: 50px auto;
+      padding: 35px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
       box-shadow: 0 4px 18px rgba(0,0,0,0.65);
-    }
-
-    h1, h2 {
-      text-align: center;
-      color: #ffd9a3;
-      text-shadow: 0 0 6px #000;
-      margin-bottom: 10px;
+      backdrop-filter: blur(4px);
     }
 
     h1 {
-      font-size: 2em;
-      margin-top: 0.5rem;
+      text-align: center;
+      color: #ffd9a3;
+      font-size: 2.2em;
+      margin-bottom: 0;
+      text-shadow: 0 0 8px rgba(255,200,120,0.8);
     }
 
     h2 {
+      text-align: center;
+      color: #ffeac7;
       font-size: 1.25em;
-      margin-bottom: 1.4rem;
+      margin-top: 6px;
+      margin-bottom: 25px;
+      opacity: 0.9;
     }
 
-    p, li {
-      color: #f2ede7;
-      font-size: 1.05rem;
-    }
-
-    /* =====================================================
-       OKŁADKA
-    ===================================================== */
     .cover {
+      width: 260px;
       display: block;
-      margin: 0 auto 22px auto;
-      max-width: 350px;
-      border-radius: 12px;
-      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+      margin: 0 auto 25px auto;
+      border-radius: 10px;
+      box-shadow: 0 3px 15px rgba(0,0,0,0.7);
     }
 
-    /* =====================================================
-       ZŁOTY ANIMOWANY SEPARATOR
-    ===================================================== */
-    .gold-divider {
-      height: 2px;
-      border: none;
-      background: linear-gradient(to right, #d1a96f, #ffe7be, #d1a96f);
-      position: relative;
-      overflow: hidden;
-      margin: 35px 0;
-      border-radius: 2px;
+    p {
+      margin-bottom: 18px;
+      color: #f4f1ed;
+      text-align: justify;
     }
 
-    .gold-divider::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: -100%;
-      height: 100%;
-      width: 100%;
-      background: rgba(255, 232, 180, 0.55);
-      animation: slideGold 6s infinite;
+    ul {
+      margin-left: 20px;
     }
 
-    @keyframes slideGold {
-      0% { left: -100%; }
-      50% { left: 100%; }
-      100% { left: 100%; }
+    li {
+      margin-bottom: 8px;
+      color: #f0eae3;
     }
 
-    /* =====================================================
-       PRZYCISKI
-    ===================================================== */
+    /* ============================================
+       BUTTONS
+    ============================================= */
     .buttons {
       text-align: center;
-      margin-top: 32px;
+      margin-top: 35px;
     }
 
     .btn {
       display: inline-block;
-      margin: 10px;
       padding: 12px 20px;
-      color: #fff;
+      margin: 8px;
       text-decoration: none;
-      font-weight: bold;
-      font-size: 1rem;
-
+      color: #fff;
       background-image: url('drewno.png');
       background-size: cover;
       background-position: center;
       border-radius: 6px;
-
-      box-shadow: 0 3px 0 rgba(0,0,0,0.65),
-                  inset 0 0 6px rgba(0,0,0,0.6);
-      border: 1px solid rgba(0,0,0,0.7);
-      text-shadow: 0 1px 2px rgba(0,0,0,0.9);
-
-      transition: transform 0.18s ease, filter 0.18s ease;
+      font-weight: bold;
+      letter-spacing: 0.03em;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.7);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.8);
+      transition: 0.2s ease;
     }
 
     .btn:hover {
-      transform: translateY(-1px) scale(1.03);
-      filter: brightness(1.08) contrast(1.05);
+      transform: scale(1.03);
+      filter: brightness(1.08);
     }
 
-    .btn:active {
-      transform: translateY(1px) scale(0.98);
-      filter: brightness(0.93);
+    .price {
+      font-size: 0.9rem;
+      display: block;
+      margin-top: 4px;
+      color: #ffe1b2;
     }
 
+    /* ============================================
+       MOBILE
+    ============================================= */
+    @media (max-width: 600px) {
+      .hero img { width: 92%; }
+      main { margin: 20px 10px; padding: 20px; }
+      .cover { width: 70%; }
+      .btn { width: 92%; display: block; }
+    }
   </style>
 </head>
+
 <body>
 
   <!-- BANER -->
-  <header class="hero-banner">
-    <img src="GlowneKW.png" class="hero-image" alt="Księga Widzenia – Tom I">
-  </header>
+  <div class="hero">
+    <img src="Glowne.png" alt="Baner Księgi Widzenia">
+  </div>
 
-  <!-- OPIS KSIĄŻKI -->
+  <!-- TREŚĆ -->
   <main>
+
     <h1>„Księga Widzenia – Tom I”</h1>
     <h2>Wprowadzenie do prawdziwej natury percepcji</h2>
 
-    <img src="okladkaKW.png" alt="Okładka Księgi Widzenia Tom I" class="cover">
+    <img src="okladka2.png" alt="Okładka Księgi Widzenia Tom I" class="cover">
+
+    <div class="separator"></div>
 
     <p>
-      „Księga Widzenia – Tom I” to podróż do świata percepcji, jasnowidzenia oraz struktury ludzkiej świadomości.
-      To książka, która uczy odróżniać własny odbiór rzeczywistości od tego, co zostało w nas zaszczepione,
-      oraz wprowadza w mechanikę widzenia pozazmysłowego.
+      „Księga Widzenia – Tom I” to podróż do świata percepcji, jasnowidzenia i struktur ludzkiej świadomości.
+      Książka prowadzi czytelnika przez mechanikę widzenia pozazmysłowego oraz uczy rozróżniać to, co własne,
+      od tego, co zostało w nas zaszczepione lub narzucone.
     </p>
-
-    <hr class="gold-divider">
 
     <h2>Co odkryjesz w Tomie I?</h2>
 
     <ul>
       <li><strong>Jasnowidzenie</strong> – jego natura, źródło i to, jak działa w człowieku pozbawionym zniekształceń.</li>
-      <li><strong>Myślokształty</strong> – struktury energoinformacyjne powstające z myśli i emocji, mające wpływ na otoczenie.</li>
-      <li><strong>Szmaragdowe Tablice Thota</strong> – analiza pradawnego tekstu o mechanice rzeczywistości i naturze istnienia.</li>
-      <li><strong>Rozróżnianie percepcji</strong> – jak odróżnić to, co własne, od tego, co narzucone.</li>
+      <li><strong>Myślokształty</strong> – struktury energetyczne powstające z myśli i emocji, wpływające na otoczenie.</li>
+      <li><strong>Szmaragdowe Tablice Thota</strong> – analiza pradawnego tekstu i mechanik rzeczywistości.</li>
+      <li><strong>Rozróżnianie percepcji</strong> – jak oddzielić własne widzenie od tego, co narzucone.</li>
     </ul>
 
-    <hr class="gold-divider">
+    <div class="separator"></div>
 
     <h2>Dlaczego ten tom jest niezbędny?</h2>
 
     <p>
-      Tom I przygotowuje czytelnika do wejścia w głębszą część wiedzy: mechanikę śmierci, pułapki inkarnacyjne,
-      poziomy widzenia oraz świadome przejście poza ciało fizyczne, rozwijane w Tomie II.
+      Tom I przygotowuje czytelnika do wejścia w głębsze warstwy percepcji — mechanikę śmierci,
+      pułapki inkarnacyjne, poziomy widzenia oraz przejściowe stany percepcji poza ciało fizyczne,
+      rozwijane w Tomie II.
     </p>
 
     <ul>
-      <li>pułapki inkarnacyjne</li>
-      <li>warstwy światła i cienia po śmierci</li>
-      <li>mechanika matriksa</li>
-      <li>przejście procesów bez powrotu do gry</li>
+      <li>pułapki inkarnacyjne,</li>
+      <li>warstwy światła i cienia po śmierci,</li>
+      <li>mechanika matriksa,</li>
+      <li>przejście procesu bez powrotu do gry.</li>
     </ul>
 
-    <hr class="gold-divider">
+    <p><strong>Tom I</strong> to oczyszczenie percepcji. <strong>Tom II</strong> prowadzi dalej — poza fizyczną powłokę.</p>
 
-    <p><strong>Tom I</strong> to oczyszczenie percepcji. <strong>Tom II</strong> to przejście dalej.</p>
+    <div class="separator"></div>
 
     <div class="buttons">
-      <a class="btn" href="index.html">Powrót do strony głównej</a>
-      <a class="btn" href="https://buy.stripe.com/your-stripe-link-here" target="_blank">Kup książkę (PDF)</a>
+      <a href="index.html" class="btn">Powrót do strony głównej</a>
+
+      <a href="https://buy.stripe.com/fZu14nfHVd8Yczz0Hh7bW02" target="_blank" class="btn">
+        Kup książkę (PDF)
+        <span class="price">Cena: 45,00 zł</span>
+      </a>
     </div>
 
   </main>
