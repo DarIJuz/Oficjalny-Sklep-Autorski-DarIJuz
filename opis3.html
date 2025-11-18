@@ -1,48 +1,224 @@
-<section class="book">
-  <h2>📖 Following the Trails of the One Who Runs with the Wolves</h2>
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>„Księga Widzenia – Tom II” – opis książki</title>
 
-  <section style="text-align: center; margin: 40px 0;">
-    <img src="following-cover.png" alt="Following the Trails of the One Who Runs with the Wolves – Cover"
-      style="max-width:300px; border-radius:12px; box-shadow:0 4px 12px rgba(0,0,0,0.25); transition: transform 0.3s ease;">
-    <p style="font-family: 'Georgia', serif; font-size: 1.1em; color: #333; margin-top: 12px;">
-      <em>By DarIJuż / Innowidzący – A poetic and psychological journey into feminine strength and emotional awakening.</em>
+  <meta name="description" content="Księga Widzenia Tom II – Poziomy Świadomości po Śmierci. Instrukcja samodzielnego przejścia bez powrotów. Oficjalny opis książki autora DarIJuż.">
+  <meta name="author" content="DarIJuż">
+
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      color: #ececec;
+      line-height: 1.6;
+      background: url("morze 2.png") repeat-x top center;
+      background-size: cover;
+      background-attachment: fixed;
+      animation: waves 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes waves {
+      0% { background-position: 0px 0px; }
+      100% { background-position: 0px 70px; }
+    }
+
+    .hero-banner {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+      position: relative;
+    }
+
+    .hero-image {
+      width: 65%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 18px;
+
+      mask-image: radial-gradient(circle, black 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
+
+      animation:
+        glowMoon 6s ease-in-out infinite alternate,
+        tiltMotion 12s ease-in-out infinite,
+        waveSoft 9s ease-in-out infinite;
+
+      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+    }
+
+    @keyframes glowMoon {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.10); }
+    }
+
+    @keyframes waveSoft {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes tiltMotion {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      50% { transform: rotateX(0.25deg) rotateY(-0.35deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    h1 {
+      font-size: 2.15em;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(90deg, #d7b46a, #f4e3b1, #d7b46a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 8px rgba(0,0,0,0.55);
+      animation: goldPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes goldPulse {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.25); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+    }
+
+    main {
+      max-width: 800px;
+      margin: 3rem auto;
+      padding: 24px 22px 32px 22px;
+      background: rgba(0, 0, 0, 0.55);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.65);
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 18px;
+      color: #f2ede7;
+    }
+
+    .cover {
+      display: block;
+      margin: 0 auto 22px auto;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 32px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 11px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.02rem;
+      background-image: url('drewno.png');
+      background-size: cover;
+      border-radius: 6px;
+
+      box-shadow:
+        0 3px 0 rgba(0,0,0,0.65),
+        inset 0 0 6px rgba(0,0,0,0.6);
+
+      border: 1px solid rgba(0,0,0,0.8);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+
+      transition: transform 0.18s ease,
+                  box-shadow 0.18s ease,
+                  filter 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px) scale(1.03);
+      filter: brightness(1.12);
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.85),
+        inset 0 0 11px rgba(255,255,255,0.12);
+    }
+
+    .btn:active {
+      transform: translateY(1px) scale(0.98);
+      filter: brightness(0.93);
+    }
+
+    .price {
+      color: #ffe2b0;
+      font-size: 1.1rem;
+      margin-top: 4px;
+      text-shadow: 0 0 6px #000;
+    }
+
+    @media (max-width: 600px) {
+      .hero-image { width: 92%; }
+      main        { margin: 2rem 0.6rem; padding: 1.2rem; }
+      .cover      { width: 90%; max-width: 260px; }
+      .btn        { width: 90%; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header class="hero-banner">
+    <img src="Glowne.png" class="hero-image" alt="Oficjalny Sklep Autorski DarIJuż">
+  </header>
+
+  <main>
+    <h1>Księga Widzenia – Tom II</h1>
+    <h2>Poziomy Świadomości po Śmierci • Instrukcja Samodzielnego Przejścia</h2>
+
+    <img src="okladka4.png" alt="Okładka książki Księga Widzenia Tom II" class="cover">
+
+    <p>
+      <strong>„Księga Widzenia – Tom II”</strong> to przewodnik dla tych, którzy chcą świadomie 
+      zrozumieć, co naprawdę dzieje się po opuszczeniu ciała fizycznego. Książka nie powtarza 
+      mitów ani pięknych metafor — prowadzi przez struktury rzeczywistości subtelnej tak, jak 
+      doświadczają jej ci, którzy naprawdę widzą.
     </p>
-  </section>
 
-  <p>
-    This book is not a continuation of *Women Who Run with the Wolves* in a literal sense, but its echo — 
-    a reflection through the eyes of a man who walks the path of empathy, relationships, and inner transformation.
-  </p>
+    <p>
+      Autor ujawnia mapę poziomów świadomości, opisując ich jasne i ciemne warstwy, prawa 
+      działania, naturalne procesy rozpadu oraz subtelne pułapki, które sprawiają, że wiele dusz 
+      wraca do kolejnych inkarnacji, choć nie musiałyby. To wiedza praktyczna — o tym, jak poruszać 
+      się po świecie po drugiej stronie, jak rozpoznać manipulację energii, jak unikać „wezwań”, 
+      i jak odnaleźć drogę do źródła bez lęku i bez powrotów.
+    </p>
 
-  <p>
-    *Following the Trails of the One Who Runs with the Wolves* explores the space between love and dependency,
-    warmth and control, tenderness and strength. It’s a mirror of modern relationships — revealing both the hunger for closeness
-    and the courage to find oneself again.
-  </p>
+    <p>
+      To książka dla poszukujących prawdy, dla tych, którzy czują, że zasłona śmierci nie jest 
+      końcem, lecz początkiem świadomej podróży. Dla ludzi, którzy chcą wiedzieć, co czeka ich 
+      naprawdę — nie według religii, nie według tradycji, lecz według doświadczenia percepcyjnego 
+      najwyższej próby.
+    </p>
 
-  <p>
-    The author leads the reader with poetic sensitivity and psychological depth — offering understanding, not judgment.
-    Each page is an invitation to reflection, to gentleness, and to the rediscovery of one’s own inner voice.
-  </p>
+    <p><strong>Wydanie PDF – ekskluzywnie w oficjalnym sklepie autora.</strong></p>
 
-  <!-- 🔹 Przyciski zakupu -->
-  <div style="text-align:center; margin-top:30px;">
-    <a class="btn" href="https://zrzutka.pl/c9p87j/award/pcbbya/following-the-trails-of-the-one-who-runs-with-the-wolves-ebook-pdf" target="_blank">
-      💠 Support & Download via Zrzutka
-    </a><br>
-    
-    <a class="btn" href="https://allegrolokalnie.pl/oferta/following-the-trails-of-the-one-who-runs-with-the-wolves-ebook-pdf" target="_blank">
-      🛒 Buy on Allegro
-    </a><br>
+    <div class="buttons">
+      <a class="btn" href="index.html">⬅ Powrót do strony głównej</a>
 
-    <a class="btn" href="https://buy.stripe.com/8x228ranB3yobvv4Xx7bW03" target="_blank">
-      💳 Buy & Download via Stripe (PDF)
-    </a>
-  </div>
+      <a class="btn" href="https://buy.stripe.com/5kQ00jeDRb0Q6bb89J7bW04" target="_blank">
+        💳 Kup książkę (PDF)
+      </a>
+      <div class="price">Cena: 45,00 PLN</div>
+    </div>
 
-  <p style="margin-top:40px;">
-    📘 Format: Digital eBook (PDF file)<br>
-    ⏱️ Delivery: Instant download after payment confirmation<br>
-    🖋️ Publisher: Direct from the Author
-  </p>
-</section>
+  </main>
+
+</body>
+</html>
