@@ -3,14 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>„Księga Widzenia – Tom I” – opis książki</title>
+  <title>„Księga Widzenia – Tom I” – opis</title>
 
-  <meta name="description" content="Księga Widzenia – Tom I. O jasnowidzeniu, percepcji, myślokształtach i Szmaragdowych Tablicach Thota. Oficjalny opis książki autora DarIJuż.">
+  <meta name="description" content="Księga Widzenia – Tom I. Jasnowidzenie, myślokształty i Szmaragdowe Tablice Thota. Oficjalny opis książki autora DarIJuż.">
   <meta name="author" content="DarIJuż">
 
   <style>
     /* =====================================================
-       🌊 TŁO – MORZE + ANIMACJA FAL
+       TŁO – MORZE + ANIMACJA
     ===================================================== */
     body {
       font-family: 'Georgia', serif;
@@ -30,7 +30,7 @@
     }
 
     /* =====================================================
-       🌙 BANER Glowne.png
+       BANER GlowneKW.png
     ===================================================== */
     .hero-banner {
       width: 100%;
@@ -41,11 +41,10 @@
 
     .hero-image {
       width: 65%;
-      max-width: 680px;
+      max-width: 700px;
       display: block;
       margin: 0 auto;
       border-radius: 18px;
-
       mask-image: radial-gradient(circle, black 75%, transparent 100%);
       -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
 
@@ -54,7 +53,7 @@
         tiltMotion 12s ease-in-out infinite,
         waveSoft 9s ease-in-out infinite;
 
-      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+      filter: drop-shadow(0 0 25px rgba(0,0,0,0.55));
     }
 
     @keyframes glowMoon {
@@ -75,14 +74,14 @@
     }
 
     /* =====================================================
-       📘 PANEL OPISU
+       PANEL OPISU
     ===================================================== */
     main {
-      max-width: 800px;
+      max-width: 850px;
       margin: 3rem auto;
-      padding: 20px 20px 28px 20px;
+      padding: 28px;
       background: rgba(0, 0, 0, 0.55);
-      border-radius: 16px;
+      border-radius: 18px;
       backdrop-filter: blur(6px);
       box-shadow: 0 4px 18px rgba(0,0,0,0.65);
     }
@@ -95,143 +94,157 @@
     }
 
     h1 {
-      font-size: 1.9em;
+      font-size: 2em;
       margin-top: 0.5rem;
     }
 
-    h2 em {
-      font-style: italic;
+    h2 {
+      font-size: 1.25em;
+      margin-bottom: 1.4rem;
     }
 
-    p {
-      text-align: justify;
-      margin-bottom: 16px;
+    p, li {
       color: #f2ede7;
+      font-size: 1.05rem;
     }
 
-    ul {
-      margin-bottom: 1.2rem;
-      color: #f2ede7;
-      line-height: 1.55;
-    }
-
+    /* =====================================================
+       OKŁADKA
+    ===================================================== */
     .cover {
       display: block;
-      margin: 0 auto 20px auto;
-      max-width: 320px;
+      margin: 0 auto 22px auto;
+      max-width: 350px;
       border-radius: 12px;
       box-shadow: 0 4px 12px rgba(0,0,0,0.7);
     }
 
     /* =====================================================
-       🪵 PRZYCISKI Z DREWNA
+       ZŁOTY ANIMOWANY SEPARATOR
+    ===================================================== */
+    .gold-divider {
+      height: 2px;
+      border: none;
+      background: linear-gradient(to right, #d1a96f, #ffe7be, #d1a96f);
+      position: relative;
+      overflow: hidden;
+      margin: 35px 0;
+      border-radius: 2px;
+    }
+
+    .gold-divider::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: -100%;
+      height: 100%;
+      width: 100%;
+      background: rgba(255, 232, 180, 0.55);
+      animation: slideGold 6s infinite;
+    }
+
+    @keyframes slideGold {
+      0% { left: -100%; }
+      50% { left: 100%; }
+      100% { left: 100%; }
+    }
+
+    /* =====================================================
+       PRZYCISKI
     ===================================================== */
     .buttons {
       text-align: center;
-      margin-top: 28px;
+      margin-top: 32px;
     }
 
     .btn {
       display: inline-block;
-      margin: 8px;
-      padding: 10px 18px;
+      margin: 10px;
+      padding: 12px 20px;
       color: #fff;
       text-decoration: none;
       font-weight: bold;
-      font-size: 0.98rem;
-      letter-spacing: 0.03em;
+      font-size: 1rem;
 
       background-image: url('drewno.png');
       background-size: cover;
       background-position: center;
       border-radius: 6px;
 
-      box-shadow:
-        0 3px 0 rgba(0,0,0,0.65),
-        inset 0 0 6px rgba(0,0,0,0.6);
-
+      box-shadow: 0 3px 0 rgba(0,0,0,0.65),
+                  inset 0 0 6px rgba(0,0,0,0.6);
       border: 1px solid rgba(0,0,0,0.7);
       text-shadow: 0 1px 2px rgba(0,0,0,0.9);
 
-      transition: transform 0.18s ease,
-                  box-shadow 0.18s ease,
-                  filter 0.18s ease;
+      transition: transform 0.18s ease, filter 0.18s ease;
     }
 
     .btn:hover {
       transform: translateY(-1px) scale(1.03);
       filter: brightness(1.08) contrast(1.05);
-      box-shadow:
-        0 4px 6px rgba(0,0,0,0.8),
-        inset 0 0 10px rgba(255,255,255,0.12);
     }
 
     .btn:active {
-      transform: translateY(1px) scale(0.99);
-      box-shadow:
-        0 1px 2px rgba(0,0,0,0.8),
-        inset 0 0 6px rgba(0,0,0,0.8);
+      transform: translateY(1px) scale(0.98);
       filter: brightness(0.93);
     }
 
-    @media (max-width: 600px) {
-      .hero-image { width: 92%; }
-      main        { margin: 2rem 0.6rem; padding: 1.2rem; }
-      .cover      { max-width: 260px; width: 90%; }
-      .btn        { width: 90%; box-sizing: border-box; }
-    }
   </style>
 </head>
-
 <body>
 
-  <!-- 🌙 BANER -->
+  <!-- BANER -->
   <header class="hero-banner">
-    <img src="Glowne.png" class="hero-image" alt="Oficjalny Sklep Autorski DarIJuż">
+    <img src="GlowneKW.png" class="hero-image" alt="Księga Widzenia – Tom I">
   </header>
 
-  <!-- 📘 OPIS KSIĄŻKI -->
+  <!-- OPIS KSIĄŻKI -->
   <main>
     <h1>„Księga Widzenia – Tom I”</h1>
-    <h2>Wprowadzenie do świata percepcji i jasnowidzenia</h2>
+    <h2>Wprowadzenie do prawdziwej natury percepcji</h2>
 
-    <img src="okladka_kw1.png" alt="Okładka książki Księga Widzenia Tom I" class="cover">
+    <img src="okladkaKW.png" alt="Okładka Księgi Widzenia Tom I" class="cover">
 
     <p>
-      Tom I to wejście do świata widzenia. To książka, która usuwa z umysłu zniekształcenia,
-      pokazuje prawdziwą naturę percepcji i rozróżnia to, co jest naszym myśleniem,
-      od tego, co zostało nam narzucone. Bez tej podstawy dalsza droga — prowadząca poza ciało fizyczne —
-      jest albo niestabilna, albo pełna iluzji.
+      „Księga Widzenia – Tom I” to podróż do świata percepcji, jasnowidzenia oraz struktury ludzkiej świadomości.
+      To książka, która uczy odróżniać własny odbiór rzeczywistości od tego, co zostało w nas zaszczepione,
+      oraz wprowadza w mechanikę widzenia pozazmysłowego.
     </p>
+
+    <hr class="gold-divider">
 
     <h2>Co odkryjesz w Tomie I?</h2>
 
     <ul>
-      <li><strong>Jasnowidzenie</strong> – nie jako zdolność, lecz naturalna funkcja świadomości.</li>
-      <li><strong>Myślokształty</strong> – struktury energetyczne, które powstają z myśli i emocji.</li>
-      <li><strong>Szmaragdowe Tablice Thota</strong> – fundamentalna wiedza o naturze rzeczywistości.</li>
-      <li><strong>Różnicowanie percepcji</strong> – jak oddzielić prawdziwe widzenie od projekcji umysłu.</li>
+      <li><strong>Jasnowidzenie</strong> – jego natura, źródło i to, jak działa w człowieku pozbawionym zniekształceń.</li>
+      <li><strong>Myślokształty</strong> – struktury energoinformacyjne powstające z myśli i emocji, mające wpływ na otoczenie.</li>
+      <li><strong>Szmaragdowe Tablice Thota</strong> – analiza pradawnego tekstu o mechanice rzeczywistości i naturze istnienia.</li>
+      <li><strong>Rozróżnianie percepcji</strong> – jak odróżnić to, co własne, od tego, co narzucone.</li>
     </ul>
+
+    <hr class="gold-divider">
 
     <h2>Dlaczego ten tom jest niezbędny?</h2>
 
-    <p>Przygotowuje do prac z Toma II, w tym z tematyką:</p>
+    <p>
+      Tom I przygotowuje czytelnika do wejścia w głębszą część wiedzy: mechanikę śmierci, pułapki inkarnacyjne,
+      poziomy widzenia oraz świadome przejście poza ciało fizyczne, rozwijane w Tomie II.
+    </p>
 
     <ul>
-      <li>pułapek inkarnacyjnych,</li>
-      <li>warstw światła i cienia po śmierci,</li>
-      <li>mechaniki matriksa,</li>
-      <li>i możliwości przejścia procesu bez powrotu do gry.</li>
+      <li>pułapki inkarnacyjne</li>
+      <li>warstwy światła i cienia po śmierci</li>
+      <li>mechanika matriksa</li>
+      <li>przejście procesów bez powrotu do gry</li>
     </ul>
 
-    <p><strong>Tom I to oczyszczenie percepcji.  
-    Tom II to przejście dalej — poza fizyczną powłokę.</strong></p>
+    <hr class="gold-divider">
 
-    <p>Wydanie autorskie w formacie PDF, dostępne wyłącznie w oficjalnym sklepie autora DarIJuż.</p>
+    <p><strong>Tom I</strong> to oczyszczenie percepcji. <strong>Tom II</strong> to przejście dalej.</p>
 
     <div class="buttons">
-      <a class="btn" href="index.html">⬅ Powrót do strony głównej</a>
-      <a class="btn" href="https://buy.stripe.com/...TWOJ_LINK..." target="_blank">Kup książkę (PDF)</a>
+      <a class="btn" href="index.html">Powrót do strony głównej</a>
+      <a class="btn" href="https://buy.stripe.com/your-stripe-link-here" target="_blank">Kup książkę (PDF)</a>
     </div>
 
   </main>
