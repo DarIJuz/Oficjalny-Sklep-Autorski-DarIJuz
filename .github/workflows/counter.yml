@@ -10,29 +10,27 @@ on:
 jobs:
   update-counter:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Load Counter
+      - name: Load counter
         id: read
         run: |
-          value=$(jq '.visits' counter.json)
+          value=$(jq '.visits // 0' counter.json)
           echo "value=$value" >> $GITHUB_OUTPUT
 
-      - name: Increment Counter
+      - name: Increment counter
         id: increment
         run: |
           new=$(( ${{ steps.read.outputs.value }} + 1 ))
           echo "{\"visits\": $new}" > counter.json
           echo "new=$new" >> $GITHUB_OUTPUT
 
-      - name: Commit and Push
+      - name: Commit and push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
-
           git add counter.json
-          git commit -m "Update counter to ${{ steps.increment.outputs.new }}"
+          git commit -m "update counter to ${{ steps.increment.outputs.new }}"
           git push
