@@ -154,6 +154,7 @@
       font-size: 14px;
       line-height: 1.4;
       max-width: 90%;
+      word-wrap: break-word;
     }
 
     .msg.assistant {
@@ -255,8 +256,8 @@
       const lang = choice ? suggested : (suggested === "pl" ? "en" : "pl");
       localStorage.setItem("site_lang", lang);
 
-      // ustaw drzwi
       const doors = document.querySelectorAll('.door');
+
       if (lang === "en") {
         doors[0].innerHTML = "📖 Reading Room<br><span>Czytelnia</span>";
         doors[1].innerHTML = "🎧 Listening Room<br><span>Słuchalnia</span>";
@@ -265,11 +266,52 @@
         doors[1].innerHTML = "🎧 Słuchalnia<br><span>Listening Room</span>";
       }
 
-      // ustaw panel asystenta
       updateAssistantLang(lang);
     });
 
-    /* --- CZAT LOKALNY (HYBRYDA OFFLINE) --- */
+    /* -------------------------------------------
+       ASYSTENT – ROZSZERZONE ODPOWIEDZI (TON 30/70)
+    ------------------------------------------- */
+    function getBotReply(userText, lang) {
+      const t = userText.toLowerCase();
+
+      /* --- ENGLISH --- */
+      if (lang === "en") {
+        if (t.includes("book") || t.includes("read") || t.includes("reading") || t.includes("library")) {
+          return "If you're drawn to the books, I'd gladly show you the way. The door on the left leads to the Reading Room — a calm space where you can browse freely and see what resonates with you. No pressure, no hurry. Just take a look and follow your own rhythm.";
+        }
+        if (t.includes("audio") || t.includes("listen") || t.includes("sound") || t.includes("music")) {
+          return "If you're in a listening mood today — perfect. The door on the right opens the Listening Room. You'll find audio samples, fragments and recordings. Take your time and enjoy what speaks to you.";
+        }
+        if (t.includes("help") || t.includes("where am i") || t.includes("what is this") || t.includes("assist") || t.includes("what can you")) {
+          return "I'm here to make things simple. You're in the entrance hall: books to the left, audio to the right. I'm here in the middle, ready to guide you, answer your questions, or gently point you in the right direction. Feel free to ask anything.";
+        }
+        if (t.includes("start") || t.includes("begin") || t.includes("how do i")) {
+          return "If you're wondering where to begin — start where you feel a small internal 'yes'. Some begin in the Reading Room, others jump straight into the Listening Room. Both paths are equally good — just follow what pulls you naturally.";
+        }
+        return "I'm here with you in the entrance hall. I can guide you to the Reading Room on the left (books) or the Listening Room on the right (audio). Take your time — this space is meant to be explored calmly and with curiosity.";
+      }
+
+
+      /* --- POLISH --- */
+      else {
+        if (t.includes("książ") || t.includes("czytel") || t.includes("book")) {
+          return "Jeśli ciągnie Cię w stronę książek — świetnie. Drzwi po lewej prowadzą do Czytelni, miejsca spokojnego i jasnego. Możesz tam na luzie przejrzeć opisy i zobaczyć, co do Ciebie przemawia. Bez pośpiechu, po prostu „poczuj”, co Cię woła.";
+        }
+        if (t.includes("audio") || t.includes("słuch") || t.includes("audiobook") || t.includes("dźwię")) {
+          return "Jeśli dziś masz ochotę na słuchanie — zapraszam do Słuchalni po prawej. Znajdziesz tam fragmenty audio i nagrania. Usiądź wygodnie (choć to tylko metafora) i zobacz, co z Tobą rezonuje.";
+        }
+        if (t.includes("pomoc") || t.includes("co to") || t.includes("co robisz") || t.includes("jak") || t.includes("gdzie jestem")) {
+          return "Jestem tu, żeby ułatwić Ci pierwsze kroki. Po lewej znajdziesz Czytelnię (książki), po prawej Słuchalnię (audio). A ja stoję w centrum, gotów odpowiedzieć na pytania i poprowadzić Cię spokojnie tam, gdzie chcesz.";
+        }
+        if (t.includes("zaczą") || t.includes("start") || t.includes("począ")) {
+          return "Najlepiej zacząć tam, gdzie poczujesz małe wewnętrzne „tak”. Niektórzy zaczynają od Czytelni, inni od razu idą do Słuchalni. Obie ścieżki są dobre — idź za tym, co Cię subtelnie przyciąga.";
+        }
+        return "Jesteś w holu głównym sklepu. Drzwi po lewej prowadzą do Czytelni (książki), a te po prawej — do Słuchalni (audio). Rozgość się. Mogę Cię poprowadzić dalej — wystarczy, że powiesz, czego szukasz.";
+      }
+    }
+
+    /* --- CZAT (HYBRYDA) --- */
     document.addEventListener("DOMContentLoaded", () => {
       const input = document.getElementById('chat-input-field');
       const messages = document.querySelector('.chat-messages');
@@ -279,42 +321,9 @@
       function addMessage(text, sender = "user") {
         const div = document.createElement("div");
         div.classList.add("msg", sender);
-        text.split('\n').forEach(line => {
-          const span = document.createElement("span");
-          span.textContent = line;
-          div.appendChild(span);
-          div.appendChild(document.createElement("br"));
-        });
+        div.textContent = text;
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
-      }
-
-      function getBotReply(userText, lang) {
-        const t = userText.toLowerCase();
-
-        if (lang === "en") {
-          if (t.includes("book") || t.includes("read") || t.includes("reading")) {
-            return "If you want to explore the books, click the door on the left – the Reading Room. There you’ll see descriptions and will be able to decide calmly.";
-          }
-          if (t.includes("audio") || t.includes("listen") || t.includes("sound")) {
-            return "For audio and listening experiences, use the door on the right – the Listening Room with audiobooks and sound samples.";
-          }
-          if (t.includes("help") || t.includes("what can you") || t.includes("how does") || t.includes("where am i")) {
-            return "I am your shop assistant. I can guide you: left – Reading Room with books, right – Listening Room with audio. You can ask about language, content, or where to start.";
-          }
-          return "For now I work in an offline test mode. I can guide you to the Reading Room (books) and the Listening Room (audio). Later I will gain full AI abilities and answer more detailed questions.";
-        } else {
-          if (t.includes("książ") || t.includes("czytel") || t.includes("book")) {
-            return "Jeśli chcesz zobaczyć książki, kliknij drzwi po lewej – Czytelnia. Tam spokojnie obejrzysz opisy i zdecydujesz, od czego zacząć.";
-          }
-          if (t.includes("audio") || t.includes("słuch") || t.includes("audiobook")) {
-            return "Jeśli interesuje Cię dźwięk, kliknij drzwi po prawej – Słuchalnia. Znajdziesz tam fragmenty audio i nagrania.";
-          }
-          if (t.includes("pomoc") || t.includes("co robisz") || t.includes("jak") || t.includes("gdzie jestem")) {
-            return "Jestem Twoim asystentem sklepowym. Mogę Cię poprowadzić: w lewo do Czytelni (książki), w prawo do Słuchalni (audio). Możesz zapytać też, od czego zacząć lub w jakim języku wolisz pracować.";
-          }
-          return "Na razie działam w trybie testowym offline. Mogę wskazać Ci drogę do Czytelni (książki) i Słuchalni (audio). Później zyskam pełne wsparcie AI i będę odpowiadał na bardziej szczegółowe pytania.";
-        }
       }
 
       function botReply(userText) {
@@ -322,7 +331,7 @@
         const reply = getBotReply(userText, lang);
         setTimeout(() => {
           addMessage(reply, "assistant");
-        }, 250);
+        }, 200);
       }
 
       input.addEventListener("keydown", e => {
