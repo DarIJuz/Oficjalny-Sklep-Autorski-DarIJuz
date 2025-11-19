@@ -772,19 +772,37 @@ window.addEventListener('load', () => {
 </div>
 
 <script>
-async function loadCounter() {
+async function updateCounter() {
   try {
-    const res = await fetch("https://api.countapi.store/hit/darijuz-shop/visits");
-    const data = await res.json();
-    document.getElementById("counter").textContent =
-      "Liczba odwiedzin: " + data.value;
-  } catch(e) {
+    await fetch(
+      "https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/dispatches",
+      {
+        method: "POST",
+        headers: {
+          "Accept": "application/vnd.github+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ event_type: "visit" })
+      }
+    );
+
+    // poczekaj aż workflow się wykona
+    setTimeout(async () => {
+      const res = await fetch(
+        "https://raw.githubusercontent.com/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/main/counter.json"
+      );
+      const data = await res.json();
+      document.getElementById("counter").textContent =
+        "Liczba odwiedzin: " + data.visits;
+    }, 1800);
+
+  } catch (e) {
     document.getElementById("counter").textContent = "Błąd licznika";
   }
 }
-loadCounter();
-</script>
 
+updateCounter();
+</script>
 
 </body>
 </html>
