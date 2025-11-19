@@ -774,7 +774,7 @@ window.addEventListener('load', () => {
 <script>
 async function loadCounter() {
   try {
-    const res = await fetch("https://api.countapi.xyz/hit/darijuz-shop/visits");
+    const res = await fetch("https://api.countapi.store/hit/darijuz-shop/visits");
     const data = await res.json();
     document.getElementById("counter").textContent =
       "Liczba odwiedzin: " + data.value;
@@ -784,6 +784,7 @@ async function loadCounter() {
 }
 loadCounter();
 </script>
+
 
 </body>
 </html>
