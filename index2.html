@@ -196,7 +196,9 @@
       <a class="door side-door" href="books.html">📖 Czytelnia<br><span>Reading Room</span></a>
 
       <div class="assistant-box">
-        <h2 class="assistant-title">Twój Asystent</h2>
+        <h2 class="assistant-title" id="asystent-title">Twój Asystent</h2>
+        <p class="assistant-sub" id="asystent-sub">(tu pojawi się inteligentny przewodnik sklepu)</p>
+        
         <div class="assistant-chat">
           <div class="chat-messages">
             <div class="msg assistant">Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.</div>
@@ -250,7 +252,31 @@
         doors[1].innerHTML = "🎧 Słuchalnia<br><span>Listening Room</span>";
       }
     });
-  // ---- KROK 4: aktywny czat (wersja lokalna, bez AI) ----
+  // ---- Dynamiczne tłumaczenie asystenta ----
+    const currentLang = localStorage.getItem("site_lang") || "pl";
+
+    function updateAssistantLang(lang) {
+      const t = document.getElementById("asystent-title");
+      const s = document.getElementById("asystent-sub");
+      const testMsg = document.querySelector('.msg.assistant');
+      const input = document.querySelector('.chat-input input');
+
+      if (lang === "en") {
+        t.textContent = "Your Assistant";
+        s.textContent = "(your intelligent shop guide will appear here)";
+        if (testMsg) testMsg.textContent = "Welcome! I am your assistant. I will soon operate in full mode.";
+        input.placeholder = "Write a message… (test version)";
+      } else {
+        t.textContent = "Twój Asystent";
+        s.textContent = "(tu pojawi się inteligentny przewodnik sklepu)";
+        if (testMsg) testMsg.textContent = "Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.";
+        input.placeholder = "Napisz wiadomość… (wersja testowa)";
+      }
+    }
+
+    updateAssistantLang(currentLang);
+
+    // ---- KROK 4: aktywny czat (wersja lokalna, bez AI) ----
     document.addEventListener("DOMContentLoaded", () => {
       const input = document.querySelector('.chat-input input');
       const messages = document.querySelector('.chat-messages');
