@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Sklep DarIJuż – Front 2.0</title>
+
   <style>
     body {
       margin: 0;
@@ -77,16 +78,8 @@
       text-align: center;
     }
 
-    @media (max-width: 600px) {
-      header {
-        padding: 24px 12px 12px;
-      }
-
-      .door {
-        width: 100%;
-      }
-    }
-      .front-layout {
+    /* ---- UKŁAD TRZECH KOLUMN ---- */
+    .front-layout {
       display: flex;
       flex-direction: row;
       align-items: center;
@@ -127,17 +120,16 @@
         flex-direction: column;
         gap: 20px;
       }
-
       .side-door {
         width: 100%;
       }
-
       .assistant-box {
         width: 100%;
       }
     }
 
-      .assistant-chat {
+    /* ---- OKNO CZATU ---- */
+    .assistant-chat {
       margin-top: 20px;
       background: #fafafa;
       border-radius: 10px;
@@ -169,8 +161,9 @@
       align-self: flex-start;
     }
 
-    .chat-input {
-      margin-top: 10px;
+    .msg.user {
+      background: #d0e4ff;
+      align-self: flex-end;
     }
 
     .chat-input input {
@@ -180,7 +173,7 @@
       border-radius: 8px;
       font-size: 14px;
       background: #f1f1f1;
-      color: #888;
+      color: #333;
     }
 
   </style>
@@ -193,23 +186,31 @@
 
   <main>
     <div class="front-layout">
+
       <a class="door side-door" href="books.html">📖 Czytelnia<br><span>Reading Room</span></a>
 
+      <!-- POPRAWIONY BLOK ASYSTENTA -->
       <div class="assistant-box">
-        
+
+        <h2 class="assistant-title" id="asystent-title">Twój Asystent</h2>
         <p class="assistant-sub" id="asystent-sub">(tu pojawi się inteligentny przewodnik sklepu)</p>
-        <h2 class="assistant-title">Twój Asystent</h2>
+
         <div class="assistant-chat">
           <div class="chat-messages">
-            <div class="msg assistant">Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.</div>
+            <div class="msg assistant" id="asystent-msg">
+              Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.
+            </div>
           </div>
+
           <div class="chat-input">
-            <input type="text" placeholder="Napisz wiadomość… (wersja testowa)" disabled />
+            <input type="text" id="chat-input-field" placeholder="Napisz wiadomość… (wersja testowa)" disabled />
           </div>
         </div>
+
       </div>
 
       <a class="door side-door" href="audio.html">🎧 Słuchalnia<br><span>Listening Room</span></a>
+
     </div>
   </main>
 
@@ -217,31 +218,23 @@
     © DarIJuż / Innowidzący — Front 2.0
   </footer>
 
-  <!-- Miejsce na asystenta AI (do dodania później) -->
-  
-  <!-- WYKRYWANIE JĘZYKA + ZAPYTANIE O WYBÓR (Opcja A) -->
+  <!-- LOGIKA JS -->
   <script>
+    /* --- WYBÓR JĘZYKA --- */
     document.addEventListener("DOMContentLoaded", () => {
       const userLang = navigator.language || navigator.userLanguage;
       let suggested = "pl";
-
       if (userLang.startsWith("en")) suggested = "en";
 
-      // okno dialogowe (na razie proste, potem AI przejmie rozmowę)
       const choice = confirm(
         suggested === "pl"
           ? "Witaj! Twoja przeglądarka używa języka polskiego. Czy chcesz korzystać ze strony po polsku? (OK = PL, Anuluj = EN)"
           : "Hello! Your browser seems to use English. Would you like to view this site in English? (OK = EN, Cancel = PL)"
       );
 
-      const lang = choice
-        ? suggested
-        : suggested === "pl" ? "en" : "pl";
-
-      // zapis wyboru użytkownika
+      const lang = choice ? suggested : suggested === "pl" ? "en" : "pl";
       localStorage.setItem("site_lang", lang);
 
-      // Ustawienie tekstów „Czytelnia / Słuchalnia” zgodnie z językiem
       const doors = document.querySelectorAll('.door');
 
       if (lang === "en") {
@@ -252,40 +245,37 @@
         doors[1].innerHTML = "🎧 Słuchalnia<br><span>Listening Room</span>";
       }
     });
-  // ---- Dynamiczne tłumaczenie asystenta ----
-    const currentLang = localStorage.getItem("site_lang") || "pl";
 
+    /* --- TŁUMACZENIE ASYSTENTA --- */
     function updateAssistantLang(lang) {
       const t = document.getElementById("asystent-title");
       const s = document.getElementById("asystent-sub");
-      const testMsg = document.querySelector('.msg.assistant');
-      const input = document.querySelector('.chat-input input');
+      const testMsg = document.getElementById("asystent-msg");
+      const input = document.getElementById("chat-input-field");
 
       if (lang === "en") {
         t.textContent = "Your Assistant";
         s.textContent = "(your intelligent shop guide will appear here)";
-        if (testMsg) testMsg.textContent = "Welcome! I am your assistant. I will soon operate in full mode.";
+        testMsg.textContent = "Welcome! I am your assistant. I will soon operate in full mode.";
         input.placeholder = "Write a message… (test version)";
       } else {
         t.textContent = "Twój Asystent";
         s.textContent = "(tu pojawi się inteligentny przewodnik sklepu)";
-        if (testMsg) testMsg.textContent = "Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.";
+        testMsg.textContent = "Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.";
         input.placeholder = "Napisz wiadomość… (wersja testowa)";
       }
     }
 
-    updateAssistantLang(currentLang);
+    updateAssistantLang(localStorage.getItem("site_lang") || "pl");
 
-    // ---- KROK 4: aktywny czat (wersja lokalna, bez AI) ----
+    /* --- CZAT LOKALNY --- */
     document.addEventListener("DOMContentLoaded", () => {
-      const input = document.querySelector('.chat-input input');
+      const input = document.getElementById('chat-input-field');
       const messages = document.querySelector('.chat-messages');
 
-      // aktywujemy pole wpisu
       input.disabled = false;
 
-      // funkcja dodania wiadomości
-      function addMessage(text, sender="user") {
+      function addMessage(text, sender = "user") {
         const div = document.createElement("div");
         div.classList.add("msg", sender);
         div.textContent = text;
@@ -293,15 +283,13 @@
         messages.scrollTop = messages.scrollHeight;
       }
 
-      // prosty bot testowy
       function botReply() {
         setTimeout(() => {
           addMessage("To jest wersja testowa. Wkrótce będę działał jako pełny Asystent AI.", "assistant");
         }, 300);
       }
 
-      // obsługa Enter
-      input.addEventListener("keydown", (e) => {
+      input.addEventListener("keydown", e => {
         if (e.key === "Enter" && input.value.trim() !== "") {
           const text = input.value.trim();
           addMessage(text, "user");
