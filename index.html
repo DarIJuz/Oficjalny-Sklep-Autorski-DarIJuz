@@ -767,25 +767,23 @@ window.addEventListener('load', () => {
   }
 });
 </script>
-<div id="counter">Ładowanie licznika…</div>
+<div id="counter" style="position:fixed; left:10px; bottom:10px; color:white; font-size:14px;">
+  Ładowanie licznika…
+</div>
 
 <script>
-async function updateCounter() {
-  // WYZWALA WORKFLOW
-  await fetch("api/visit.json", { method: "POST" });
-
-  // POBIERA WARTOŚĆ
-  setTimeout(async () => {
-    const r = await fetch("counter.json?nocache=" + Date.now());
-    const d = await r.json();
+async function loadCounter() {
+  try {
+    const res = await fetch("https://api.countapi.xyz/hit/darijuz-shop/visits");
+    const data = await res.json();
     document.getElementById("counter").textContent =
-      "Liczba odwiedzin: " + d.visits;
-  }, 1500);
+      "Liczba odwiedzin: " + data.value;
+  } catch(e) {
+    document.getElementById("counter").textContent = "Błąd licznika";
+  }
 }
-
-updateCounter();
+loadCounter();
 </script>
-
 
 </body>
 </html>
