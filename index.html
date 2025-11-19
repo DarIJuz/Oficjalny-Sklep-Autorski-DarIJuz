@@ -759,19 +759,28 @@ function toggleSound() {
 
 <!-- AUTO-START FAL -->
 <script>
-window.addEventListener('load', () => {
-  const sea = document.getElementById('seaSound');
-  if (sea) {
+<button class="sound-btn" id="soundBtn">🌊 Dźwięk fal</button>
+
+<audio id="seaSound" loop>
+  <source src="fale.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const sea = document.getElementById('seaSound');
+const btn = document.getElementById('soundBtn');
+
+btn.addEventListener('click', () => {
+  if (sea.paused) {
     sea.volume = 0.9;
-    sea.play().catch(()=>{});
+    sea.play();
+    btn.textContent = "🌊 Wyłącz dźwięk";
+  } else {
+    sea.pause();
+    btn.textContent = "🌊 Dźwięk fal";
   }
 });
 </script>
-<div id="counter" style="position:fixed; left:10px; bottom:10px; color:white; font-size:14px;">
-  Ładowanie licznika…
-</div>
 
-<script>
 async function updateCounter() {
   try {
     await fetch(
