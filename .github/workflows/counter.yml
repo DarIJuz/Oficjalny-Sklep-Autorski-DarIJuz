@@ -1,0 +1,36 @@
+name: Update visit counter
+
+on:
+  workflow_dispatch:
+  repository_dispatch:
+
+jobs:
+  update-counter:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repo
+      uses: actions/checkout@v3
+
+    - name: Read counter
+      id: read
+      run: |
+        value=$(jq '.visits' counter.json)
+        echo "value=$value" >> $GITHUB_OUTPUT
+
+    - name: Increment counter
+      id: increment
+      run: |
+        new_value=$(( ${{ steps.read.outputs.value }} + 1 ))
+        echo "{\"visits\": $new_value}" > counter.json
+        echo "new_value=$new_value" >> $GITHUB_OUTPUT
+
+    - name: Commit changes
+      run: |
+        git config --global user.name "github-actions"
+        git config --global user.email "github-actions@github.com"
+        git add counter.json
+        git commit -m "Update counter to ${{ steps.increment.outputs.new_value }}"
+        git push
+      env:
+        GH_TOKEN: ${{ secrets.GH_COUNTER_TOKEN }}
