@@ -772,20 +772,20 @@ window.addEventListener('load', () => {
 <script>
 async function updateCounter() {
   try {
-    // WYWOŁANIE workflow
+    // Wywołanie publicznego eventu repository_dispatch
     await fetch(
-      "https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/actions/workflows/trigger-counter.yml/dispatches",
+      "https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/dispatches",
       {
         method: "POST",
         headers: {
           "Accept": "application/vnd.github+json",
           "Content-Type": "application/json"
         },
-        body: JSON.stringify({ ref: "main" })
+        body: JSON.stringify({ event_type: "visit" })
       }
     );
 
-    // Pobranie wartości po aktualizacji
+    // Poczekaj chwilę aż workflow się wykona
     setTimeout(async () => {
       const res = await fetch(
         "https://raw.githubusercontent.com/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/main/counter.json"
@@ -793,7 +793,7 @@ async function updateCounter() {
       const data = await res.json();
       document.getElementById("counter").textContent =
         "Liczba odwiedzin: " + data.visits;
-    }, 1500); // czekamy 1.5s aż workflow się wykona
+    }, 2000);
 
   } catch (e) {
     document.getElementById("counter").textContent = "Błąd licznika";
@@ -802,7 +802,6 @@ async function updateCounter() {
 
 updateCounter();
 </script>
-
 
 </body>
 </html>
