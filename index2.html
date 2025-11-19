@@ -233,7 +233,11 @@
       );
 
       const lang = choice ? suggested : suggested === "pl" ? "en" : "pl";
+
       localStorage.setItem("site_lang", lang);
+
+      /* --- Kluczowe: tłumaczenie od razu po wyborze --- */
+      updateAssistantLang(lang);
 
       const doors = document.querySelectorAll('.door');
 
@@ -265,8 +269,6 @@
         input.placeholder = "Napisz wiadomość… (wersja testowa)";
       }
     }
-
-    updateAssistantLang(localStorage.getItem("site_lang") || "pl");
 
     /* --- CZAT LOKALNY --- */
     document.addEventListener("DOMContentLoaded", () => {
