@@ -759,13 +759,28 @@ function toggleSound() {
 
 <!-- AUTO-START FAL -->
 <script>
-window.addEventListener('load', () => {
-  const sea = document.getElementById('seaSound');
-  if (sea) {
-    sea.volume = 1.0;
-    sea.play().catch(()=>{});
+<button class="sound-btn" id="soundBtn">🌊 Dźwięk fal</button>
+
+<audio id="seaSound" loop>
+  <source src="fale.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+const sea = document.getElementById('seaSound');
+const btn = document.getElementById('soundBtn');
+
+btn.addEventListener('click', () => {
+  if (sea.paused) {
+    sea.volume = 0.9;
+    sea.play();
+    btn.textContent = "🌊 Wyłącz dźwięk";
+  } else {
+    sea.pause();
+    btn.textContent = "🌊 Dźwięk fal";
   }
 });
+</script>
+
 </script>
 </body>
 </html>
