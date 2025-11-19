@@ -250,6 +250,40 @@
         doors[1].innerHTML = "🎧 Słuchalnia<br><span>Listening Room</span>";
       }
     });
+  // ---- KROK 4: aktywny czat (wersja lokalna, bez AI) ----
+    document.addEventListener("DOMContentLoaded", () => {
+      const input = document.querySelector('.chat-input input');
+      const messages = document.querySelector('.chat-messages');
+
+      // aktywujemy pole wpisu
+      input.disabled = false;
+
+      // funkcja dodania wiadomości
+      function addMessage(text, sender="user") {
+        const div = document.createElement("div");
+        div.classList.add("msg", sender);
+        div.textContent = text;
+        messages.appendChild(div);
+        messages.scrollTop = messages.scrollHeight;
+      }
+
+      // prosty bot testowy
+      function botReply() {
+        setTimeout(() => {
+          addMessage("To jest wersja testowa. Wkrótce będę działał jako pełny Asystent AI.", "assistant");
+        }, 300);
+      }
+
+      // obsługa Enter
+      input.addEventListener("keydown", (e) => {
+        if (e.key === "Enter" && input.value.trim() !== "") {
+          const text = input.value.trim();
+          addMessage(text, "user");
+          input.value = "";
+          botReply();
+        }
+      });
+    });
   </script>
 
 </body>
