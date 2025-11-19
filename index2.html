@@ -176,7 +176,6 @@
       background: #f1f1f1;
       color: #333;
     }
-
   </style>
 </head>
 
@@ -190,21 +189,25 @@
 
       <a class="door side-door" href="books.html">📖 Czytelnia<br><span>Reading Room</span></a>
 
-      <!-- BLOK ASYSTENTA (HYBRYDA) -->
+      <!-- BLOK ASYSTENTA (HYBRYDA + PRAWIDZIWE AI) -->
       <div class="assistant-box">
 
         <h2 class="assistant-title" id="asystent-title">Twój Asystent</h2>
-        <p class="assistant-sub" id="asystent-sub">(tu pojawi się inteligentny przewodnik sklepu)</p>
+        <p class="assistant-sub" id="asystent-sub">(inteligentny przewodnik sklepu – wersja live)</p>
 
         <div class="assistant-chat">
-          <div class="chat-messages">
+          <div class="chat-messages" id="chat-messages">
             <div class="msg assistant" id="asystent-msg">
-              Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.
+              Witaj. Jestem Twoim asystentem – odpowiadam spokojnie, po ludzku i bez pośpiechu. Napisz, czego szukasz, a poprowadzę Cię dalej.
             </div>
           </div>
 
           <div class="chat-input">
-            <input type="text" id="chat-input-field" placeholder="Napisz wiadomość… (wersja testowa)" disabled />
+            <input
+              type="text"
+              id="chat-input-field"
+              placeholder="Napisz wiadomość i wciśnij Enter…"
+            />
           </div>
         </div>
 
@@ -221,6 +224,8 @@
 
   <!-- LOGIKA JS -->
   <script>
+    const ASSISTANT_ENDPOINT = "https://dari-proxy.onrender.com/ask";
+
     /* --- TŁUMACZENIE ASYSTENTA --- */
     function updateAssistantLang(lang) {
       const t = document.getElementById("asystent-title");
@@ -228,16 +233,20 @@
       const testMsg = document.getElementById("asystent-msg");
       const input = document.getElementById("chat-input-field");
 
+      if (!t || !s || !testMsg || !input) return;
+
       if (lang === "en") {
         t.textContent = "Your Assistant";
-        s.textContent = "(your intelligent shop guide will appear here)";
-        testMsg.textContent = "Welcome! I am your assistant. I will soon operate in full mode.";
-        input.placeholder = "Write a message… (test version)";
+        s.textContent = "(intelligent shop guide – live version)";
+        testMsg.textContent =
+          "Welcome. I'm your assistant – I answer calmly, clearly and without rush. Tell me what you are looking for and I will gently guide you further.";
+        input.placeholder = "Write a message and press Enter…";
       } else {
         t.textContent = "Twój Asystent";
-        s.textContent = "(tu pojawi się inteligentny przewodnik sklepu)";
-        testMsg.textContent = "Witaj! Jestem Twoim asystentem. Wkrótce zacznę działać w pełnej wersji.";
-        input.placeholder = "Napisz wiadomość… (wersja testowa)";
+        s.textContent = "(inteligentny przewodnik sklepu – wersja live)";
+        testMsg.textContent =
+          "Witaj. Jestem Twoim asystentem – odpowiadam spokojnie, po ludzku i bez pośpiechu. Napisz, czego szukasz, a poprowadzę Cię dalej.";
+        input.placeholder = "Napisz wiadomość i wciśnij Enter…";
       }
     }
 
@@ -245,7 +254,7 @@
     document.addEventListener("DOMContentLoaded", () => {
       const userLang = navigator.language || navigator.userLanguage;
       let suggested = "pl";
-      if (userLang.startsWith("en")) suggested = "en";
+      if (userLang && userLang.toLowerCase().startsWith("en")) suggested = "en";
 
       const choice = confirm(
         suggested === "pl"
@@ -256,67 +265,67 @@
       const lang = choice ? suggested : (suggested === "pl" ? "en" : "pl");
       localStorage.setItem("site_lang", lang);
 
-      const doors = document.querySelectorAll('.door');
+      const doors = document.querySelectorAll(".door");
 
-      if (lang === "en") {
-        doors[0].innerHTML = "📖 Reading Room<br><span>Czytelnia</span>";
-        doors[1].innerHTML = "🎧 Listening Room<br><span>Słuchalnia</span>";
-      } else {
-        doors[0].innerHTML = "📖 Czytelnia<br><span>Reading Room</span>";
-        doors[1].innerHTML = "🎧 Słuchalnia<br><span>Listening Room</span>";
+      if (doors.length >= 2) {
+        if (lang === "en") {
+          doors[0].innerHTML = "📖 Reading Room<br><span>Czytelnia</span>";
+          doors[1].innerHTML = "🎧 Listening Room<br><span>Słuchalnia</span>";
+        } else {
+          doors[0].innerHTML = "📖 Czytelnia<br><span>Reading Room</span>";
+          doors[1].innerHTML = "🎧 Słuchalnia<br><span>Listening Room</span>";
+        }
       }
 
       updateAssistantLang(lang);
+      initChat(lang);
     });
 
     /* -------------------------------------------
-       ASYSTENT – ROZSZERZONE ODPOWIEDZI (TON 30/70)
+       LOKALNY FALLBACK – ROZSZERZONE ODPOWIEDZI (TON 30/70)
     ------------------------------------------- */
     function getBotReply(userText, lang) {
-      const t = userText.toLowerCase();
+      const t = (userText || "").toLowerCase();
 
       /* --- ENGLISH --- */
       if (lang === "en") {
         if (t.includes("book") || t.includes("read") || t.includes("reading") || t.includes("library")) {
-          return "If you're drawn to the books, I'd gladly show you the way. The door on the left leads to the Reading Room — a calm space where you can browse freely and see what resonates with you. No pressure, no hurry. Just take a look and follow your own rhythm.";
+          return "If you're drawn to the books, that's a good sign. The door on the left leads to the Reading Room – a calm space where you can browse and feel what resonates with you. No rush, just follow your own rhythm.";
         }
         if (t.includes("audio") || t.includes("listen") || t.includes("sound") || t.includes("music")) {
-          return "If you're in a listening mood today — perfect. The door on the right opens the Listening Room. You'll find audio samples, fragments and recordings. Take your time and enjoy what speaks to you.";
+          return "If today is more of a listening day – perfect. The door on the right opens the Listening Room. You'll find audio samples and recordings there. Take your time and see what speaks to you.";
         }
         if (t.includes("help") || t.includes("where am i") || t.includes("what is this") || t.includes("assist") || t.includes("what can you")) {
-          return "I'm here to make things simple. You're in the entrance hall: books to the left, audio to the right. I'm here in the middle, ready to guide you, answer your questions, or gently point you in the right direction. Feel free to ask anything.";
+          return "I'm here to make things simple. You're standing in the entrance hall: books to the left, audio to the right. I'm in the middle, ready to guide you, answer your questions and gently point you to what might serve you now.";
         }
         if (t.includes("start") || t.includes("begin") || t.includes("how do i")) {
-          return "If you're wondering where to begin — start where you feel a small internal 'yes'. Some begin in the Reading Room, others jump straight into the Listening Room. Both paths are equally good — just follow what pulls you naturally.";
+          return "If you're wondering where to begin – start where you feel a small internal 'yes'. Some begin in the Reading Room, others jump straight into the Listening Room. Both paths are equally fine – follow what naturally pulls you.";
         }
-        return "I'm here with you in the entrance hall. I can guide you to the Reading Room on the left (books) or the Listening Room on the right (audio). Take your time — this space is meant to be explored calmly and with curiosity.";
+        return "I'm here with you in the entrance hall. I can guide you to the Reading Room on the left (books) or the Listening Room on the right (audio). Take a breath, look around, and tell me what you feel like exploring first.";
       }
-
 
       /* --- POLISH --- */
-      else {
-        if (t.includes("książ") || t.includes("czytel") || t.includes("book")) {
-          return "Jeśli ciągnie Cię w stronę książek — świetnie. Drzwi po lewej prowadzą do Czytelni, miejsca spokojnego i jasnego. Możesz tam na luzie przejrzeć opisy i zobaczyć, co do Ciebie przemawia. Bez pośpiechu, po prostu „poczuj”, co Cię woła.";
-        }
-        if (t.includes("audio") || t.includes("słuch") || t.includes("audiobook") || t.includes("dźwię")) {
-          return "Jeśli dziś masz ochotę na słuchanie — zapraszam do Słuchalni po prawej. Znajdziesz tam fragmenty audio i nagrania. Usiądź wygodnie (choć to tylko metafora) i zobacz, co z Tobą rezonuje.";
-        }
-        if (t.includes("pomoc") || t.includes("co to") || t.includes("co robisz") || t.includes("jak") || t.includes("gdzie jestem")) {
-          return "Jestem tu, żeby ułatwić Ci pierwsze kroki. Po lewej znajdziesz Czytelnię (książki), po prawej Słuchalnię (audio). A ja stoję w centrum, gotów odpowiedzieć na pytania i poprowadzić Cię spokojnie tam, gdzie chcesz.";
-        }
-        if (t.includes("zaczą") || t.includes("start") || t.includes("począ")) {
-          return "Najlepiej zacząć tam, gdzie poczujesz małe wewnętrzne „tak”. Niektórzy zaczynają od Czytelni, inni od razu idą do Słuchalni. Obie ścieżki są dobre — idź za tym, co Cię subtelnie przyciąga.";
-        }
-        return "Jesteś w holu głównym sklepu. Drzwi po lewej prowadzą do Czytelni (książki), a te po prawej — do Słuchalni (audio). Rozgość się. Mogę Cię poprowadzić dalej — wystarczy, że powiesz, czego szukasz.";
+      if (t.includes("książ") || t.includes("czytel") || t.includes("book")) {
+        return "Jeśli ciągnie Cię w stronę książek — to dobry znak. Drzwi po lewej prowadzą do Czytelni, miejsca spokojnego i jasnego. Możesz tam na luzie przejrzeć opisy i zobaczyć, co do Ciebie przemawia. Bez pośpiechu – po prostu poczuj, co Cię woła.";
       }
+      if (t.includes("audio") || t.includes("słuch") || t.includes("audiobook") || t.includes("dźwię")) {
+        return "Jeśli dziś masz ochotę na słuchanie — zapraszam do Słuchalni po prawej. Znajdziesz tam fragmenty audio i nagrania. Usiądź wygodnie (choć to tylko metafora) i zobacz, co z Tobą rezonuje.";
+      }
+      if (t.includes("pomoc") || t.includes("co to") || t.includes("co robisz") || t.includes("jak") || t.includes("gdzie jestem")) {
+        return "Jestem tu, żeby ułatwić Ci pierwsze kroki. Po lewej znajdziesz Czytelnię (książki), po prawej Słuchalnię (audio). A ja stoję w centrum, gotów odpowiedzieć na pytania i poprowadzić Cię spokojnie tam, gdzie chcesz.";
+      }
+      if (t.includes("zaczą") || t.includes("start") || t.includes("począ")) {
+        return "Najlepiej zacząć tam, gdzie poczujesz małe wewnętrzne „tak”. Niektórzy zaczynają od Czytelni, inni od razu idą do Słuchalni. Obie ścieżki są dobre — idź za tym, co Cię subtelnie przyciąga.";
+      }
+      return "Jesteś w holu głównym sklepu. Drzwi po lewej prowadzą do Czytelni (książki), a te po prawej — do Słuchalni (audio). Rozgość się. Napisz mi w dwóch, trzech słowach, czego dziś potrzebujesz, a pomogę Ci wybrać kierunek.";
     }
 
-    /* --- CZAT (HYBRYDA) --- */
-    document.addEventListener("DOMContentLoaded", () => {
-      const input = document.getElementById('chat-input-field');
-      const messages = document.querySelector('.chat-messages');
+    /* --- INICJALIZACJA CZATU Z PRAWDZIWYM AI (PRZEZ PROXY) --- */
+    function initChat(lang) {
+      const input = document.getElementById("chat-input-field");
+      const messages = document.getElementById("chat-messages");
 
-      input.disabled = false;
+      if (!input || !messages) return;
 
       function addMessage(text, sender = "user") {
         const div = document.createElement("div");
@@ -324,25 +333,66 @@
         div.textContent = text;
         messages.appendChild(div);
         messages.scrollTop = messages.scrollHeight;
+        return div;
       }
 
-      function botReply(userText) {
-        const lang = localStorage.getItem("site_lang") || "pl";
-        const reply = getBotReply(userText, lang);
-        setTimeout(() => {
-          addMessage(reply, "assistant");
-        }, 200);
+      async function askRealAI(userText) {
+        const payload = {
+          message: userText,
+          lang: lang || "pl"
+        };
+
+        const controller = new AbortController();
+        const timeoutId = setTimeout(() => controller.abort(), 15000); // 15s timeout
+
+        try {
+          const response = await fetch(ASSISTANT_ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(payload),
+            signal: controller.signal
+          });
+
+          clearTimeout(timeoutId);
+
+          if (!response.ok) {
+            throw new Error("HTTP " + response.status);
+          }
+
+          const data = await response.json();
+          if (data && data.reply) {
+            return data.reply;
+          } else {
+            throw new Error("Brak pola reply w odpowiedzi serwera");
+          }
+        } catch (e) {
+          // fallback do lokalnych, bezpiecznych odpowiedzi
+          return getBotReply(userText, lang || "pl");
+        }
       }
 
-      input.addEventListener("keydown", e => {
+      input.addEventListener("keydown", async (e) => {
         if (e.key === "Enter" && input.value.trim() !== "") {
           const text = input.value.trim();
-          addMessage(text, "user");
           input.value = "";
-          botReply(text);
+
+          // wiadomość użytkownika
+          addMessage(text, "user");
+
+          // tymczasowa wiadomość asystenta
+          const temp = addMessage(
+            lang === "en"
+              ? "Let me take a quiet look at this for a brief moment..."
+              : "Daj mi krótką chwilę, żeby spokojnie na to spojrzeć...",
+            "assistant"
+          );
+
+          // zapytanie do prawdziwego AI (przez Twój proxy)
+          const reply = await askRealAI(text);
+          temp.textContent = reply;
         }
       });
-    });
+    }
   </script>
 
 </body>
