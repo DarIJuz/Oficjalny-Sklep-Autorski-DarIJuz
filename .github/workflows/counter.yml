@@ -6,7 +6,6 @@ permissions:
 on:
   repository_dispatch:
     types: [visit]
-  workflow_dispatch:
 
 jobs:
   update-counter:
@@ -16,24 +15,24 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      - name: Load counter
+      - name: Load Counter
         id: read
         run: |
           value=$(jq '.visits' counter.json)
           echo "value=$value" >> $GITHUB_OUTPUT
 
-      - name: Increment counter
+      - name: Increment Counter
         id: increment
         run: |
           new=$(( ${{ steps.read.outputs.value }} + 1 ))
           echo "{\"visits\": $new}" > counter.json
           echo "new=$new" >> $GITHUB_OUTPUT
 
-      - name: Commit and push
+      - name: Commit and Push
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
 
           git add counter.json
-          git commit -m "update counter to ${{ steps.increment.outputs.new }}"
+          git commit -m "Update counter to ${{ steps.increment.outputs.new }}"
           git push
