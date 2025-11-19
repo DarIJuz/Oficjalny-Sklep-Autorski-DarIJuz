@@ -767,31 +767,42 @@ window.addEventListener('load', () => {
   }
 });
 </script>
+<div id="counter">Ładowanie licznika…</div>
+
 <script>
 async function updateCounter() {
   try {
-    await fetch("https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/dispatches", {
-      method: "POST",
-      headers: {
-        "Accept": "application/vnd.github+json",
-        "Authorization": "Bearer GH_COUNTER_TOKEN_PLACEHOLDER"
-      },
-      body: JSON.stringify({ event_type: "visit" })
-    });
+    // WYWOŁANIE workflow
+    await fetch(
+      "https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/actions/workflows/trigger-counter.yml/dispatches",
+      {
+        method: "POST",
+        headers: {
+          "Accept": "application/vnd.github+json",
+          "Content-Type": "application/json"
+        },
+        body: JSON.stringify({ ref: "main" })
+      }
+    );
 
-    const res = await fetch("https://raw.githubusercontent.com/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/main/counter.json");
-    const data = await res.json();
+    // Pobranie wartości po aktualizacji
+    setTimeout(async () => {
+      const res = await fetch(
+        "https://raw.githubusercontent.com/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/main/counter.json"
+      );
+      const data = await res.json();
+      document.getElementById("counter").textContent =
+        "Liczba odwiedzin: " + data.visits;
+    }, 1500); // czekamy 1.5s aż workflow się wykona
 
-    document.getElementById("counter").innerText = "Liczba odwiedzin: " + data.visits;
   } catch (e) {
-    document.getElementById("counter").innerText = "Błąd licznika";
+    document.getElementById("counter").textContent = "Błąd licznika";
   }
 }
 
 updateCounter();
-
-
 </script>
+
 
 </body>
 </html>
