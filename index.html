@@ -767,28 +767,30 @@ window.addEventListener('load', () => {
   }
 });
 </script>
-
-<!-- JEDEN, POPRAWNY LICZNIK ODWIEDZIN -->
-<div id="counter" style="color: gold; font-weight: bold; text-align:center; margin-top: 20px;">
-  Liczba odwiedzin: ładowanie...
-</div>
-
 <script>
-// Twój unikalny licznik CountAPI
-const counterUrl = "https://api.countapi.xyz/hit/darijuz-sklep/visits";
-
 async function updateCounter() {
   try {
-    const res = await fetch(counterUrl);
+    await fetch("https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/dispatches", {
+      method: "POST",
+      headers: {
+        "Accept": "application/vnd.github+json",
+        "Authorization": "Bearer GH_COUNTER_TOKEN_PLACEHOLDER"
+      },
+      body: JSON.stringify({ event_type: "visit" })
+    });
+
+    const res = await fetch("https://raw.githubusercontent.com/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/main/counter.json");
     const data = await res.json();
-    document.getElementById("counter").innerText =
-      "Liczba odwiedzin: " + data.value;
+
+    document.getElementById("counter").innerText = "Liczba odwiedzin: " + data.visits;
   } catch (e) {
     document.getElementById("counter").innerText = "Błąd licznika";
   }
 }
 
 updateCounter();
+
+
 </script>
 
 </body>
