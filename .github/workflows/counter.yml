@@ -1,36 +1,43 @@
 name: Update visit counter
 
+# GitHub Actions musi mieć uprawnienia do zapisu plików w repo
+permissions:
+  contents: write
+
 on:
-  workflow_dispatch:
-  repository_dispatch:
+  workflow_dispatch:           # ręczne uruchamianie
+  repository_dispatch:         # wywoływane z JS na stronie (trigger)
 
 jobs:
   update-counter:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout repo
-      uses: actions/checkout@v3
+      # 1. Pobierz repo
+      - name: Checkout repo
+        uses: actions/checkout@v3
 
-    - name: Read counter
-      id: read
-      run: |
-        value=$(jq '.visits' counter.json)
-        echo "value=$value" >> $GITHUB_OUTPUT
+      # 2. Odczytaj aktualną wartość licznika
+      - name: Read counter
+        id: read
+        run: |
+          value=$(jq '.visits' counter.json)
+          echo "value=$value" >> $GITHUB_OUTPUT
 
-    - name: Increment counter
-      id: increment
-      run: |
-        new_value=$(( ${{ steps.read.outputs.value }} + 1 ))
-        echo "{\"visits\": $new_value}" > counter.json
-        echo "new_value=$new_value" >> $GITHUB_OUTPUT
+      # 3. Zwiększ licznik o 1
+      - name: Increment counter
+        id: increment
+        run: |
+          new_value=$(( ${{ steps.read.outputs.value }} + 1 ))
+          echo "{\"visits\": $new_value}" > counter.json
+          echo "new_value=$new_value" >> $GITHUB_OUTPUT
 
-    - name: Commit changes
-      run: |
-        git config --global user.name "github-actions"
-        git config --global user.email "github-actions@github.com"
-        git add counter.json
-        git commit -m "Update counter to ${{ steps.increment.outputs.new_value }}"
-        git push
-      env:
-        GH_TOKEN: ${{ secrets.GH_COUNTER_TOKEN }}
+      # 4. Commit zmian i push do repo
+      - name: Commit changes
+        run: |
+          git config --global user.name "github-actions"
+          git config --global user.email "github-actions@github.com"
+          git add counter.json
+          git commit -m "Update counter to ${{ steps.increment.outputs.new_value }}"
+          git push
+
