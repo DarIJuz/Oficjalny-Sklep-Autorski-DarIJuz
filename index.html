@@ -759,54 +759,32 @@ function toggleSound() {
 
 <!-- AUTO-START FAL -->
 <script>
-<button class="sound-btn" id="soundBtn">🌊 Dźwięk fal</button>
-
-<audio id="seaSound" loop>
-  <source src="fale.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-const sea = document.getElementById('seaSound');
-const btn = document.getElementById('soundBtn');
-
-btn.addEventListener('click', () => {
-  if (sea.paused) {
+window.addEventListener('load', () => {
+  const sea = document.getElementById('seaSound');
+  if (sea) {
     sea.volume = 0.9;
-    sea.play();
-    btn.textContent = "🌊 Wyłącz dźwięk";
-  } else {
-    sea.pause();
-    btn.textContent = "🌊 Dźwięk fal";
+    sea.play().catch(()=>{});
   }
 });
 </script>
 
+<!-- JEDEN, POPRAWNY LICZNIK ODWIEDZIN -->
+<div id="counter" style="color: gold; font-weight: bold; margin-top: 20px;">
+  Liczba odwiedzin: ładowanie...
+</div>
+
+<script>
+// Twój unikalny licznik CountAPI
+const counterUrl = "https://api.countapi.xyz/hit/darijuz-sklep/visits";
+
 async function updateCounter() {
   try {
-    await fetch(
-      "https://api.github.com/repos/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/dispatches",
-      {
-        method: "POST",
-        headers: {
-          "Accept": "application/vnd.github+json",
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify({ event_type: "visit" })
-      }
-    );
-
-    // poczekaj aż workflow się wykona
-    setTimeout(async () => {
-      const res = await fetch(
-        "https://raw.githubusercontent.com/DarIJuz/Oficjalny-Sklep-Autorski-DarIJuz/main/counter.json"
-      );
-      const data = await res.json();
-      document.getElementById("counter").textContent =
-        "Liczba odwiedzin: " + data.visits;
-    }, 1800);
-
+    const res = await fetch(counterUrl);
+    const data = await res.json();
+    document.getElementById("counter").innerText =
+      "Liczba odwiedzin: " + data.value;
   } catch (e) {
-    document.getElementById("counter").textContent = "Błąd licznika";
+    document.getElementById("counter").innerText = "Błąd licznika";
   }
 }
 
