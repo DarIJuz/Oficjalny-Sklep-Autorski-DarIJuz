@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>„Architektura Księżycowego Drewna” – opis książki</title>
+
+  <meta name="description" content="Architektura Księżycowego Drewna – kompletny przewodnik po technikach pracy, właściwościach i sekretnych praktykach związanych z drewnem ścinanym w fazie księżycowej. Oficjalny opis książki autora DarIJuż.">
+  <meta name="author" content="DarIJuż">
+
+  <style>
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0; padding: 0;
+      color: #ececec;
+      line-height: 1.6;
+      background: url("morze 2.png") repeat-x top center;
+      background-size: cover;
+      background-attachment: fixed;
+      animation: waves 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes waves {
+      0% { background-position: 0px 0px; }
+      100% { background-position: 0px 70px; }
+    }
+
+    .hero-banner {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .hero-image {
+      width: 65%;
+      max-width: 680px;
+      display: block;
+      margin: 0 auto;
+      border-radius: 18px;
+
+      mask-image: radial-gradient(circle, black 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
+
+      animation:
+        glowMoon 6s ease-in-out infinite alternate,
+        tiltMotion 12s ease-in-out infinite,
+        waveSoft 9s ease-in-out infinite;
+
+      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+    }
+
+    @keyframes glowMoon {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.10); }
+    }
+
+    @keyframes waveSoft {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0px); }
+    }
+
+    @keyframes tiltMotion {
+      0% { transform: rotateX(0deg) rotateY(0deg); }
+      50% { transform: rotateX(0.25deg) rotateY(-0.35deg); }
+      100% { transform: rotateX(0deg) rotateY(0deg); }
+    }
+
+    h1 {
+      font-size: 2.2em;
+      text-align: center;
+      margin-top: 0.5rem;
+      margin-bottom: 0.4rem;
+      background: linear-gradient(90deg, #d7b46a, #f4e3b1, #d7b46a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 8px rgba(0,0,0,0.55);
+      animation: goldPulse 6s ease-in-out infinite alternate;
+    }
+
+    @keyframes goldPulse {
+      0% { filter: brightness(1); }
+      100% { filter: brightness(1.25); }
+    }
+
+    h2 {
+      text-align: center;
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+      margin-bottom: 1.2rem;
+    }
+
+    main {
+      max-width: 820px;
+      margin: 3rem auto;
+      padding: 24px 22px 34px 22px;
+      background: rgba(0,0,0,0.55);
+      border-radius: 16px;
+      backdrop-filter: blur(6px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.65);
+    }
+
+    p {
+      text-align: justify;
+      margin-bottom: 18px;
+      color: #f2ede7;
+    }
+
+    .cover {
+      display: block;
+      margin: 0 auto 22px auto;
+      max-width: 320px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.7);
+    }
+
+    .buttons {
+      text-align: center;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      margin: 8px;
+      padding: 11px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1.02rem;
+
+      background-image: url('drewno.png');
+      background-size: cover;
+      border-radius: 6px;
+
+      box-shadow:
+        0 3px 0 rgba(0,0,0,0.65),
+        inset 0 0 6px rgba(0,0,0,0.6);
+
+      border: 1px solid rgba(0,0,0,0.8);
+      text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+
+      transition: transform 0.18s ease,
+                  box-shadow 0.18s ease,
+                  filter 0.18s ease;
+    }
+
+    .btn:hover {
+      transform: translateY(-1px) scale(1.03);
+      filter: brightness(1.12);
+      box-shadow:
+        0 4px 6px rgba(0,0,0,0.85),
+        inset 0 0 11px rgba(255,255,255,0.12);
+    }
+
+    .price {
+      color: #ffe2b0;
+      font-size: 1.1rem;
+      margin-top: 4px;
+      text-shadow: 0 0 6px #000;
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <header class="hero-banner">
+    <img src="Glowne.png" class="hero-image" alt="Oficjalny Sklep Autorski DarIJuż">
+  </header>
+
+  <main>
+    <h1>Architektura Księżycowego Drewna</h1>
+    <h2>Technika, tradycja i sekret ukryty w świetle Księżyca</h2>
+
+    <img src="okładka 6.png" alt="Okładka książki Architektura Księżycowego Drewna" class="cover">
+
+    <p>
+      <strong>„Architektura Księżycowego Drewna”</strong> to unikalny przewodnik łączący
+      wiedzę dawnych rzemieślników, japońskich mistrzów stolarki, tradycje Europy
+      Środkowej oraz współczesne badania nad strukturą drewna ścinanego w odpowiednich
+      fazach Księżyca.
+    </p>
+
+    <p>
+      Ta książka nie jest tylko zbiorem technik.  
+      To <em>mapa świadomości materiału</em>: pokazuje, jak drzewo reaguje na rytmy
+      nieba, jak woda porusza się w jego włóknach, i dlaczego odpowiedni moment ścinki
+      decyduje o tym, czy drewno przetrwa 10, 50 czy 300 lat.
+    </p>
+
+    <p>
+      Autor prowadzi czytelnika przez:
+      <ul style="color:#f2ede7; margin-left:20px;">
+        <li>strukturę mikroskopową włókien</li>
+        <li>różnice między drewnem księżycowym a standardowym</li>
+        <li>schematy połączeń ciesielskich z Japonii i Europy</li>
+        <li>technikę obróbki bez chemii, ognia i impregnacji</li>
+        <li>architekturę odporną na czas, pleśń i wodę</li>
+      </ul>
+    </p>
+
+    <p>
+      To przewodnik zarówno dla rzemieślników, jak i badaczy tradycji naturalnego
+      budowania. Dla wszystkich, którzy chcą pracować z drewnem tak,  
+      jak robiło się to przez tysiące lat — zanim przemysł nauczył nas o nim zapominać.
+    </p>
+
+    <p>
+      <strong>Wydanie PDF — dostępne wyłącznie w oficjalnym sklepie autora.</strong>
+    </p>
+
+    <div class="buttons">
+
+      <a class="btn" href="index.html">⬅ Powrót</a>
+
+      <a class="btn" href="fragment6.html">
+        📖 Przeczytaj fragment
+      </a>
+
+      <a class="btn" href="https://buy.stripe.com/4gMdR92V90mc1UVdu37bW05" target="_blank">
+        💳 Kup książkę (PDF)
+      </a>
+
+      <div class="price">Cena: 124,00 PLN</div>
+
+      <a class="btn" href="https://drive.proton.me/urls/Y3VD37ENF8#rlFUVgXlotPs" target="_blank">
+        📥 Pobierz dodatki
+      </a>
+
+    </div>
+
+  </main>
+
+</body>
+</html>
