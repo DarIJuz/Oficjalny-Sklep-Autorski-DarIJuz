@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Fragment – Architektura Księżycowego Drewna</title>
+
+  <style>
+
+    /* ------------------------------
+       🌊 TŁO – MORZE
+    ------------------------------ */
+    body {
+      font-family: 'Georgia', serif;
+      margin: 0;
+      padding: 0;
+      color: #e7e7e7;
+
+      background: url("morze 2.png") repeat-x top center;
+      background-size: cover;
+      background-attachment: fixed;
+
+      animation: waves 18s ease-in-out infinite alternate;
+    }
+
+    @keyframes waves {
+      0% { background-position: 0px 0px; }
+      100% { background-position: 0px 70px; }
+    }
+
+    /* ------------------------------
+       🌙 BANER
+    ------------------------------ */
+    header {
+      width: 100%;
+      text-align: center;
+      margin-top: 40px;
+    }
+
+    .hero-image {
+      width: 60%;
+      max-width: 650px;
+      border-radius: 18px;
+
+      mask-image: radial-gradient(circle, black 75%, transparent 100%);
+      -webkit-mask-image: radial-gradient(circle, black 75%, transparent 100%);
+
+      animation: waveSoft 9s ease-in-out infinite;
+      filter: drop-shadow(0 0 25px rgba(0,0,0,0.6));
+    }
+
+    @keyframes waveSoft {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-3px); }
+      100% { transform: translateY(0); }
+    }
+
+    /* ------------------------------
+       📘 PANEL TREŚCI
+    ------------------------------ */
+    main {
+      max-width: 920px;
+      margin: 3rem auto;
+      padding: 2.2rem;
+
+      background: rgba(255,255,255,0.12);
+      border-radius: 18px;
+      backdrop-filter: blur(7px);
+      box-shadow: 0 4px 18px rgba(0,0,0,0.45);
+    }
+
+    .text-column {
+      max-width: 75%;
+      margin: auto;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2rem;
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+      margin-bottom: 2.2rem;
+    }
+
+    h2 {
+      color: #ffd9a3;
+      text-shadow: 0 0 6px #000;
+      margin-top: 2.4rem;
+      margin-bottom: 1rem;
+      line-height: 1.45;
+    }
+
+    p {
+      color: #f4f1ed;
+      font-size: 1.15rem;
+      line-height: 1.75;
+      margin-bottom: 1.35rem;
+      text-align: justify;
+    }
+
+    strong { color: #ffe4b5; }
+    em     { color: #ffe9d7; }
+
+    ul {
+      margin-left: 2rem;
+      margin-bottom: 1.4rem;
+      color: #f4f1ed;
+    }
+
+    li { margin-bottom: 0.6rem; }
+
+    /* ------------------------------
+       🪵 PRZYCISKI
+    ------------------------------ */
+    .btn {
+      display: inline-block;
+      margin-top: 1.3rem;
+      padding: 0.8rem 1.4rem;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+
+      background-image: url('drewno.png');
+      background-size: cover;
+      border-radius: 7px;
+
+      box-shadow: 0 3px 0 rgba(0,0,0,0.65),
+                  inset 0 0 6px rgba(0,0,0,0.5);
+      border: 1px solid rgba(0,0,0,0.75);
+
+      text-shadow: 0 1px 2px rgba(0,0,0,0.9);
+      transition: 0.25s;
+    }
+
+    .btn:hover {
+      transform: scale(1.05);
+      filter: brightness(1.13);
+    }
+
+    .center-buttons {
+      text-align: center;
+      margin-top: 2.6rem;
+    }
+
+    /* ------------------------------
+       📱 RWD
+    ------------------------------ */
+    @media (max-width: 600px) {
+      .hero-image { width: 90%; }
+      .text-column { max-width: 92%; }
+      p { font-size: 1.05rem; }
+      .btn { width: 90%; display:block; margin:0.7rem auto; }
+      main { padding: 1.4rem; }
+    }
+
+  </style>
+</head>
+
+<body>
+
+<header>
+  <img src="Glowne.png" class="hero-image" alt="Architektura Księżycowego Drewna">
+</header>
+
+<main>
+  <h1>Fragment – „Architektura Księżycowego Drewna”</h1>
+
+  <div class="text-column">
+
+    <h2>ROZDZIAŁ III  
+    Dlaczego księżycowe drewno jest stabilniejsze?</h2>
+
+    <h2>1. Wprowadzenie – stabilność, która zadziwia</h2>
+
+    <p>
+      Jeśli miałbym wskazać jedną cechę, która wyróżnia księżycowe drewno
+      spośród wszystkich znanych metod pozyskiwania surowca — byłaby to
+      <strong>stabilność wymiarowa</strong>.
+    </p>
+
+    <p>Stabilność to:</p>
+
+    <ul>
+      <li>brak pęknięć,</li>
+      <li>brak skręcania,</li>
+      <li>brak wypaczania,</li>
+      <li>równomierny skurcz,</li>
+      <li>wyższa gęstość użytkowa,</li>
+      <li>mniejsza podatność na grzyby,</li>
+      <li>lepsza trwałość na setki lat.</li>
+    </ul>
+
+    <p>
+      Brzmi magicznie?  
+      A to czysta fizjologia drzewa i precyzyjna obserwacja dawnych drwali.
+    </p>
+
+    <p>
+      Księżycowe drewno nie jest „czarem”, tylko efektem trafienia w moment:
+      <strong>minimalnego napięcia wewnętrznego włókien</strong>.
+    </p>
+
+    <p>
+      Klucz:  
+      👉 drewno nie pęka dlatego, że schnie —  
+      tylko dlatego, że włókna walczą z naprężeniami już w nich obecnymi podczas ścinki.
+    </p>
+
+    <p>
+      Księżycowe drewno jest wolne od tych naprężeń.  
+      I to właśnie bada ten rozdział.
+    </p>
+
+
+    <h2>2. Naprężenia wewnętrzne — wróg numer jeden</h2>
+
+    <p>
+      Drewno jest materiałem:
+    </p>
+
+    <ul>
+      <li>włóknistym,</li>
+      <li>elastycznym,</li>
+      <li>mokrym,</li>
+      <li>pod ciśnieniem,</li>
+      <li>żywo reagującym na temperaturę i grawitację.</li>
+    </ul>
+
+    <h3>2.1 Co to są naprężenia wewnętrzne?</h3>
+
+    <p>
+      To mikroskopijne siły „ciągnące” i „ściskające” włókna wewnątrz pnia.  
+      Powstają wskutek:
+    </p>
+
+    <ul>
+      <li>kapilarnego ruchu soków,</li>
+      <li>różnicy ciśnień w ksylemie,</li>
+      <li>aktywności kambium,</li>
+      <li>temperatury,</li>
+      <li>fazy księżyca.</li>
+    </ul>
+
+    <p>
+      Gdy zetniemy drzewo, gdy jest napite — wprowadzamy do deski <strong>zamrożone naprężenie</strong>.  
+      Podczas schnięcia:
+    </p>
+
+    <ul>
+      <li>pęka,</li>
+      <li>skręca się,</li>
+      <li>łódkowacieje,</li>
+      <li>włókna „wychodzą”,</li>
+      <li>łączenia pracują i się rozchodzą.</li>
+    </ul>
+
+    <p>
+      Księżycowe drewno jest ścinane wtedy, gdy naprężenia są minimalne.
+    </p>
+
+
+    <h2>3. Dlaczego księżyc wpływa na naprężenia włókien?</h2>
+
+    <p>
+      Zjawisko jest fizyczne i mierzalne. Księżyc powoduje:
+    </p>
+
+    <ul>
+      <li>mikrodrgania pnia,</li>
+      <li>siły pływowe w kapilarach,</li>
+      <li>zmianę ciśnienia hydrostatycznego,</li>
+      <li>różną prędkość przepływu soków.</li>
+    </ul>
+
+    <p>
+      Najsilniejsze momenty:
+    </p>
+
+    <ul>
+      <li>pełnia → największe napicie włókien,</li>
+      <li>ostatnia kwadra → najniższe napięcie i idealna stabilność.</li>
+    </ul>
+
+
+    <h2>4. Zawartość soków — klucz do trwałości</h2>
+
+    <p>
+      Zasada jest prosta:  
+      <strong>im mniej soku w drewnie podczas ścinki, tym stabilniejszy materiał po wysuszeniu.</strong>
+    </p>
+
+    <p>W księżycowym drewnie ilość soków jest najniższa, bo:</p>
+
+    <ul>
+      <li>ścinka zimą,</li>
+      <li>przy opadaniu soków,</li>
+      <li>w ostatniej kwadrze księżyca.</li>
+    </ul>
+
+    <h3>4.1 Badania zawartości soków</h3>
+
+    <p>
+      Erwin Thoma wykazał:
+    </p>
+
+    <ul>
+      <li>drewno z pełni zawiera 8–12× więcej soków,</li>
+      <li>drewno z ubywającego księżyca zimą — najmniej w roku.</li>
+    </ul>
+
+    <p>
+      Efekt:  
+      <strong>drewno księżycowe schnie 3–4× równiej i szybciej</strong>.
+    </p>
+
+
+    <h2>5. Skurcz drewna — dlaczego księżycowe prawie nie pracuje</h2>
+
+    <p>
+      Skurcz zależy od:
+    </p>
+
+    <ul>
+      <li>ilości wody,</li>
+      <li>gęstości słoja,</li>
+      <li>różnic między bielą a twardzielą,</li>
+      <li>naprężeń wewnętrznych.</li>
+    </ul>
+
+    <p>
+      Dlatego księżycowe drewno:
+    </p>
+
+    <ul>
+      <li>ma niski skurcz,</li>
+      <li>kapilary są suche już przy ścince,</li>
+      <li>suszy się równiej,</li>
+      <li>daje deski równe jak tafla szkła.</li>
+    </ul>
+
+
+    <h2>6. Oporność na grzyby — naturalna, bez impregnacji</h2>
+
+    <p>
+      Mniej cukrów i soków = mniej pożywki dla grzybów.  
+      Badania Thoma’y pokazały, że:
+      <strong>drewno księżycowe jest odporniejsze niż impregnowane</strong>.
+    </p>
+
+    <p>
+      Dlatego stare:
+    </p>
+
+    <ul>
+      <li>kościoły,</li>
+      <li>mosty,</li>
+      <li>karczmy,</li>
+      <li>alpejskie domy</li>
+    </ul>
+
+    <p>
+      …stały setki lat bez chemii.
+    </p>
+
+
+    <h2>7. Mniejsze naprężenie = mniejszy skręt włókien</h2>
+
+    <p>
+      Skręt powstaje, gdy drewno schnie nierówno.  
+      W księżycowym:
+    </p>
+
+    <ul>
+      <li>skurcz 30–40% mniejszy,</li>
+      <li>naprężenie minimalne,</li>
+      <li>skręt — rzadko występuje.</li>
+    </ul>
+
+
+    <h2>8. Wpływ momentu ścinki na stabilność</h2>
+
+    <p>
+      Ścinanie w pełni:
+    </p>
+
+    <ul>
+      <li>❌ największe ryzyko pęknięć</li>
+      <li>❌ trudne suszenie</li>
+      <li>❌ zwichrowane deski</li>
+    </ul>
+
+    <p>
+      Ścinanie przy ubywającym księżycu:
+    </p>
+
+    <ul>
+      <li>✔ minimalne naprężenia</li>
+      <li>✔ najniższy poziom soków</li>
+      <li>✔ najlepsza odporność</li>
+    </ul>
+
+    <p>
+      Ścinanie zimą:
+      <strong>najwyższa jakość księżycowego drewna</strong>.
+    </p>
+
+
+    <h2>9. Dlaczego dawni cieśle to wiedzieli</h2>
+
+    <p>
+      Dawny cieśla nie miał laboratoriów, ale miał obserwację.  
+      Wiedział jedno:
+      <br><br>
+      <strong>„Drzewo ścięte, gdy księżyc ucieka — jest najlepsze.”</strong>
+    </p>
+
+  </div>
+
+  <div class="center-buttons">
+    <a class="btn" href="index.html">⬅ Powrót do sklepu</a>
+    <a class="btn" href="https://buy.stripe.com/4gMdR92V90mc1UVdu37bW05" target="_blank">💳 Kup książkę (PDF)</a>
+  </div>
+
+</main>
+
+</body>
+</html>
